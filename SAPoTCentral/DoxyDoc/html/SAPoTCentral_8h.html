@@ -1,0 +1,961 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central SAPoT: Referência do Arquivo SAPoTCentral.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="[Logo]SAPoT_V1_b_50x50.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Central SAPoT
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Biblioteca para a implementação de uma Central SAPoT em C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estruturas de Dados</a> &#124;
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo SAPoTCentral.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;MQTTClient.h&gt;</code><br />
+<code>#include &lt;mysql/mysql.h&gt;</code><br />
+</div>
+<p><a href="SAPoTCentral_8h_source.html">Vá para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estruturas de Dados</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__header.html">SAPoTMessage_header</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cabeçalho fixo das mensagem SAPoT.  <a href="structSAPoTMessage__header.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__registration.html">SAPoTMessage_registration</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload para cadastro de novo cliente.  <a href="structSAPoTMessage__registration.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__solicitation.html">SAPoTMessage_solicitation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload para solicitar o acionamento ou sensoriamento de algum cliente cadastrado no banco de dados.  <a href="structSAPoTMessage__solicitation.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__access.html">SAPoTMessage_access</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura para acesso à informação dos clientes cadastrados.  <a href="structSAPoTMessage__access.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__record.html">SAPoTMessage_record</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação.  <a href="structSAPoTMessage__record.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__modification.html">SAPoTMessage_modification</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload para etiquetagem de clientes no banco de dados da Central.  <a href="structSAPoTMessage__modification.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__actuatorDrive.html">SAPoTMessage_actuatorDrive</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload para acionar um atuador específico em um Cliente cadastrado.  <a href="structSAPoTMessage__actuatorDrive.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura para definir as opções de criação de uma Central SAPoT.  <a href="structSAPoTCentral__create__options.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTCentral.html">SAPoTCentral</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Principal estrutura para operar uma Central SAPoT.  <a href="structSAPoTCentral.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:ac2b0ae25a6411389f8d7412e0aeaefb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#ac2b0ae25a6411389f8d7412e0aeaefb6">SAPOT_PROTOCOL_VERSION</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ac2b0ae25a6411389f8d7412e0aeaefb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a231f625d9460901a8efd4e52fd589a06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a231f625d9460901a8efd4e52fd589a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6598247c62938f24bcc8fd9d8f54b494"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a6598247c62938f24bcc8fd9d8f54b494">SAPOTCENTRAL_FAILURE</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:a6598247c62938f24bcc8fd9d8f54b494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a009b5267627aab67c351d043f0fc1e2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a009b5267627aab67c351d043f0fc1e2d">SAPOT_VERSION_ERROR</a>&#160;&#160;&#160;-2</td></tr>
+<tr class="separator:a009b5267627aab67c351d043f0fc1e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afba02718a52e1311b85e24cca9d57da5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#afba02718a52e1311b85e24cca9d57da5">ERROR_SETTING_DATABASE_PROTOCOL</a>&#160;&#160;&#160;-3</td></tr>
+<tr class="separator:afba02718a52e1311b85e24cca9d57da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833c6cfcf6e6ff679d75d9bff80c48f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a833c6cfcf6e6ff679d75d9bff80c48f8">ERROR_SETTING_TRANSMISSION_PROTOCOL</a>&#160;&#160;&#160;-4</td></tr>
+<tr class="separator:a833c6cfcf6e6ff679d75d9bff80c48f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46db548868b26dc49a8ac27dba01902"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#ab46db548868b26dc49a8ac27dba01902">ERROR_STARTING_DATABASE_PROTOCOL</a>&#160;&#160;&#160;-5</td></tr>
+<tr class="separator:ab46db548868b26dc49a8ac27dba01902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912fac580f2c86c9ffc3b01420e577de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a912fac580f2c86c9ffc3b01420e577de">ERROR_STARTING_TRANSMISSION_PROTOCOL</a>&#160;&#160;&#160;-6</td></tr>
+<tr class="separator:a912fac580f2c86c9ffc3b01420e577de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2c2e49ea2a1b555d985937da02f4e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a6b2c2e49ea2a1b555d985937da02f4e7">ERROR_DATABASE_INQUIRY</a>&#160;&#160;&#160;-7</td></tr>
+<tr class="separator:a6b2c2e49ea2a1b555d985937da02f4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a130c0c602edfe60aa93663b2f1cc440d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a130c0c602edfe60aa93663b2f1cc440d">ERROR_MQTT_PUBLISH</a>&#160;&#160;&#160;-8</td></tr>
+<tr class="separator:a130c0c602edfe60aa93663b2f1cc440d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a348bd63004ee143a78e94fec23082ba0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a348bd63004ee143a78e94fec23082ba0">ERROR_LOG_OPERATION</a>&#160;&#160;&#160;-9</td></tr>
+<tr class="separator:a348bd63004ee143a78e94fec23082ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b266e122ac3a1f5d7469fee7427829"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a10b266e122ac3a1f5d7469fee7427829">ERROR_LABEL_NOT_REGISTERED</a>&#160;&#160;&#160;-10</td></tr>
+<tr class="separator:a10b266e122ac3a1f5d7469fee7427829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc3870be25a19efa2940150507aaf71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a2dc3870be25a19efa2940150507aaf71">UNDEFINED</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a2dc3870be25a19efa2940150507aaf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1abe60e35e8bef559df4270f2849f29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#ae1abe60e35e8bef559df4270f2849f29">MQTT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ae1abe60e35e8bef559df4270f2849f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aad18faa9ed07aac5fdb9c76dc041da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a7aad18faa9ed07aac5fdb9c76dc041da">SQL</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a7aad18faa9ed07aac5fdb9c76dc041da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099732253b21fd4fa7cd8b4c460c3300"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a>&#160;&#160;&#160;{1, {&quot;localhost&quot;, &quot;1883&quot;, NULL, NULL}, 1, {&quot;localhost&quot;, &quot;3306&quot;, &quot;guest&quot;, &quot;guest&quot;, &quot;db_UCC&quot;}}</td></tr>
+<tr class="separator:a099732253b21fd4fa7cd8b4c460c3300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ab5da562709f06fe5586ab89165062"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a53ab5da562709f06fe5586ab89165062">SAPOTCENTRAL_OPTS_UNDEFINED_PROTOCOLS</a>&#160;&#160;&#160;{0, {NULL, NULL, NULL, NULL}, 0, {NULL, NULL, NULL, NULL, NULL}}</td></tr>
+<tr class="separator:a53ab5da562709f06fe5586ab89165062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a7c3440b33fdf6149a7b0f12cdcc435a9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a7c3440b33fdf6149a7b0f12cdcc435a9">SAPoTCentral_begin</a> (<a class="el" href="structSAPoTCentral.html">SAPoTCentral</a> *userPointer, <a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> *<a class="el" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>, const char *centralId)</td></tr>
+<tr class="separator:a7c3440b33fdf6149a7b0f12cdcc435a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692a20d220d85630dbf5a789b20ef371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a> ()</td></tr>
+<tr class="separator:a692a20d220d85630dbf5a789b20ef371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac4a083422c3ca5810033a6549698114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a> ()</td></tr>
+<tr class="separator:aac4a083422c3ca5810033a6549698114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8f80d3202a3cb91d727214db781e66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message</a> (void *message, int messageLen)</td></tr>
+<tr class="separator:a9e8f80d3202a3cb91d727214db781e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cc3982bc1e61a0e5283d1b757e19ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation</a> (int(*publish)(char *, void *, unsigned int))</td></tr>
+<tr class="separator:af6cc3982bc1e61a0e5283d1b757e19ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d1576a8815d5a03697ea9458e17e6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a23d1576a8815d5a03697ea9458e17e6b">SAPoTCentral_error</a> ()</td></tr>
+<tr class="separator:a23d1576a8815d5a03697ea9458e17e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f75c0b59e5618b064a4a1bb609ffa6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a94f75c0b59e5618b064a4a1bb609ffa6">MQTTconnect</a> ()</td></tr>
+<tr class="separator:a94f75c0b59e5618b064a4a1bb609ffa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47dfbf603689fa6491191b47b41c2757"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived</a> (void *context, char *topicName, int topicLen, MQTTClient_message *MQTTmsg)</td></tr>
+<tr class="separator:a47dfbf603689fa6491191b47b41c2757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7895042774d348ddce8e52dd2b66693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#ad7895042774d348ddce8e52dd2b66693">MQTTdeliveryComplete</a> (void *context, MQTTClient_deliveryToken dt)</td></tr>
+<tr class="separator:ad7895042774d348ddce8e52dd2b66693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12d41058d0b06eb7899ff01b10cc6cc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a12d41058d0b06eb7899ff01b10cc6cc7">MQTTconnectionLost</a> (void *context, char *cause)</td></tr>
+<tr class="separator:a12d41058d0b06eb7899ff01b10cc6cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc7f4c8be610fd729dbc5aee63556bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#aafc7f4c8be610fd729dbc5aee63556bc">MQTTpublish</a> (char *topic, void *payload, unsigned int payloadLen)</td></tr>
+<tr class="separator:aafc7f4c8be610fd729dbc5aee63556bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ca1620aff9041ff2a79e7969046af0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#ab0ca1620aff9041ff2a79e7969046af0">MYSQLconnect</a> ()</td></tr>
+<tr class="separator:ab0ca1620aff9041ff2a79e7969046af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b26b67e926649343294adf9b1aded4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a71b26b67e926649343294adf9b1aded4">MYSQLregistration</a> ()</td></tr>
+<tr class="separator:a71b26b67e926649343294adf9b1aded4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5faa7464a826ea7d2fe471fda02b39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a3a5faa7464a826ea7d2fe471fda02b39">MYSQLmodification</a> ()</td></tr>
+<tr class="separator:a3a5faa7464a826ea7d2fe471fda02b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a644ba1e1936d3c54f54fb436f9d238a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a644ba1e1936d3c54f54fb436f9d238a0">MYSQLaccess</a> ()</td></tr>
+<tr class="separator:a644ba1e1936d3c54f54fb436f9d238a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6530ab12307ca588e44236ac985b35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#aaf6530ab12307ca588e44236ac985b35">CTRLactuator</a> (int(*publish)(char *, void *, unsigned int))</td></tr>
+<tr class="separator:aaf6530ab12307ca588e44236ac985b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da6d1909277987c5e152cfb0c28de84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a6da6d1909277987c5e152cfb0c28de84">upper_string</a> (char s[])</td></tr>
+<tr class="separator:a6da6d1909277987c5e152cfb0c28de84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae07957b6385433a52b18ddff55ff67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8h.html#a8ae07957b6385433a52b18ddff55ff67">getmacID</a> (const char *MAC, uint8_t ID[6])</td></tr>
+<tr class="separator:a8ae07957b6385433a52b18ddff55ff67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a6b2c2e49ea2a1b555d985937da02f4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b2c2e49ea2a1b555d985937da02f4e7">&#9670;&nbsp;</a></span>ERROR_DATABASE_INQUIRY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_DATABASE_INQUIRY&#160;&#160;&#160;-7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Problemas na solicitação de uma query ao banco de dados. Indica que a central não conseguiu se comunicar com o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central SAPoT com o servidor de banco de dados. Como por exemplo, quando existe um problema com rede e a comunicação entre a Central e o servidor de banco de dados é interrompida. Contudo, esse erro também tem origem da corrupção de dados no momento em que uma query é estruturada nas funções MYSQLRegistration, MYSQLaccess, MYSQLmodification e CTRLactuator. </p>
+
+</div>
+</div>
+<a id="a10b266e122ac3a1f5d7469fee7427829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b266e122ac3a1f5d7469fee7427829">&#9670;&nbsp;</a></span>ERROR_LABEL_NOT_REGISTERED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_LABEL_NOT_REGISTERED&#160;&#160;&#160;-10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Indica que a label solicitada não esta cadastradas no banco de dados. </p>
+
+</div>
+</div>
+<a id="a348bd63004ee143a78e94fec23082ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a348bd63004ee143a78e94fec23082ba0">&#9670;&nbsp;</a></span>ERROR_LOG_OPERATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_LOG_OPERATION&#160;&#160;&#160;-9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Indica fracasso ao operar com arquivo de log. </p>
+
+</div>
+</div>
+<a id="a130c0c602edfe60aa93663b2f1cc440d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130c0c602edfe60aa93663b2f1cc440d">&#9670;&nbsp;</a></span>ERROR_MQTT_PUBLISH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_MQTT_PUBLISH&#160;&#160;&#160;-8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Problemas na publicação de uma query ao banco de dados <br  />
+ Indica que a central não conseguiu se comunicar com o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central SAPoT com o servidor de banco de dados. Como por exemplo, quando existe um problema com rede e a comunicação entre a Central e o servidor de banco de dados é interrompida. Contudo, esse erro também tem origem da corrupção de dados na momento em que é estruturada uma query. </p>
+
+</div>
+</div>
+<a id="afba02718a52e1311b85e24cca9d57da5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba02718a52e1311b85e24cca9d57da5">&#9670;&nbsp;</a></span>ERROR_SETTING_DATABASE_PROTOCOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_SETTING_DATABASE_PROTOCOL&#160;&#160;&#160;-3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Banco de dados configurado incorretamente. Indica que a <a class="el" href="SAPoTCentral_8h.html">SAPoTCentral.h</a> não suporta o protocolo de banco de dados ou que esse foi configurado incorretamente pelo usuário. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a833c6cfcf6e6ff679d75d9bff80c48f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833c6cfcf6e6ff679d75d9bff80c48f8">&#9670;&nbsp;</a></span>ERROR_SETTING_TRANSMISSION_PROTOCOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_SETTING_TRANSMISSION_PROTOCOL&#160;&#160;&#160;-4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Protocolo de transmissão de dados configurado incorretamente. Indica que a <a class="el" href="SAPoTCentral_8h.html">SAPoTCentral.h</a> não suporta o protocolo de transmissão de dados ou que esse foi configurado incorretamente pelo usuário. <br  />
+ </p>
+
+</div>
+</div>
+<a id="ab46db548868b26dc49a8ac27dba01902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46db548868b26dc49a8ac27dba01902">&#9670;&nbsp;</a></span>ERROR_STARTING_DATABASE_PROTOCOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_STARTING_DATABASE_PROTOCOL&#160;&#160;&#160;-5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Problemas ao iniciar a comunicação com o serviço de banco de dados. Indica que a central não conseguiu iniciar o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central SAPoT com o servidor de banco de dados. Como por exemplo, quando a Central opera em uma máquina diferente do servidor de banco de dados e existe um problema com rede aonde a comunicação entre essas duas entidades é interrompida. Contudo, esse erro também se propaga de uma incorreta configuração dos paramêtros do serviço de bando de dados. Para evita-lo é aconselhado que o usuário utilize um servidor local MySQLv8.0 e inicialize as opções de criação da Central (<a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>) através da definição SAPOTCENTRAL_OPTS_LOCAL. </p>
+
+</div>
+</div>
+<a id="a912fac580f2c86c9ffc3b01420e577de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a912fac580f2c86c9ffc3b01420e577de">&#9670;&nbsp;</a></span>ERROR_STARTING_TRANSMISSION_PROTOCOL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERROR_STARTING_TRANSMISSION_PROTOCOL&#160;&#160;&#160;-6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Problemas ao iniciar a comunicação com o serviço de transmissão de dados. <br  />
+ Indica que a central não conseguiu iniciar o serviço de transmissão de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central SAPoT com o servidor de transmissão de dados. Como por exemplo, quando a Central opera em uma máquina diferente do servidor de transmissão de dados e existe um problema com rede aonde a comunicação entre essas duas entidades é interrompida. Contudo, esse erro também se propaga de uma incorreta configuração dos paramêtros do serviço de transmissão de dados. Para evita-lo é aconselhado que o usuário utilize um servidor local MQTTv3.1.1 e inicialize as opções de criação da Central (<a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>) através da definição SAPOTCENTRAL_OPTS_LOCAL. </p>
+
+</div>
+</div>
+<a id="ae1abe60e35e8bef559df4270f2849f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1abe60e35e8bef559df4270f2849f29">&#9670;&nbsp;</a></span>MQTT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MQTT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Configuração: Indica que o protocolo de transmissão que será usado pela central será o MQTT </p>
+
+</div>
+</div>
+<a id="ac2b0ae25a6411389f8d7412e0aeaefb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b0ae25a6411389f8d7412e0aeaefb6">&#9670;&nbsp;</a></span>SAPOT_PROTOCOL_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOT_PROTOCOL_VERSION&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indicador da Versão do protocolo: Uma definição utilizada para verificar a versão do protocolo SAPoT da mensagem recebida. </p>
+
+</div>
+</div>
+<a id="a009b5267627aab67c351d043f0fc1e2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a009b5267627aab67c351d043f0fc1e2d">&#9670;&nbsp;</a></span>SAPOT_VERSION_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOT_VERSION_ERROR&#160;&#160;&#160;-2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Erro: Versão Invalida. Indica que o pacote recebido possui uma versão diferente de SAPOT_PROTOCOL_VERSION. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a6598247c62938f24bcc8fd9d8f54b494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6598247c62938f24bcc8fd9d8f54b494">&#9670;&nbsp;</a></span>SAPOTCENTRAL_FAILURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOTCENTRAL_FAILURE&#160;&#160;&#160;-1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Retorno: Fracasso: Indica fracasso na operação realizada pela Central SAPoT. </p>
+
+</div>
+</div>
+<a id="a099732253b21fd4fa7cd8b4c460c3300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a099732253b21fd4fa7cd8b4c460c3300">&#9670;&nbsp;</a></span>SAPOTCENTRAL_OPTS_STDLOCAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOTCENTRAL_OPTS_STDLOCAL&#160;&#160;&#160;{1, {&quot;localhost&quot;, &quot;1883&quot;, NULL, NULL}, 1, {&quot;localhost&quot;, &quot;3306&quot;, &quot;guest&quot;, &quot;guest&quot;, &quot;db_UCC&quot;}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opção de inicialização (Servidores Locais). Define as opções de inicialização <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>. Indicando que o protocolo de transmissão será o MQTTv3.1.1 e que o protocolo de banco de dados será o MySQLv8.0. Além disso, define que os servidores estão localizados na mesma máquina em que a Central SAPoT está operando. Para o servidor MQTT não será definido nenhum parâmetro de login (user e pass) e será definida a porta de escuta padrão como 1883. Para o servidor MySQL os parâmetros de login serão definidos como convidado (user='guest', pass='guest') e o diretório da base de dados será definido como db_UCC (dir='db_UCC'). <br  />
+ </p>
+
+</div>
+</div>
+<a id="a53ab5da562709f06fe5586ab89165062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ab5da562709f06fe5586ab89165062">&#9670;&nbsp;</a></span>SAPOTCENTRAL_OPTS_UNDEFINED_PROTOCOLS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOTCENTRAL_OPTS_UNDEFINED_PROTOCOLS&#160;&#160;&#160;{0, {NULL, NULL, NULL, NULL}, 0, {NULL, NULL, NULL, NULL, NULL}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Opção de inicialização (Servidores Indefinidos) Define as opções de inicialização <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>. Indicando a indefinição dos protocolos de transmissão de dados e de banco de dados. Isso faz com que a função <a class="el" href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop()</a> não possa ser utilizada. Além disso, indica que o usuário utilizará outros protocolos não padronizados na <a class="el" href="SAPoTCentral_8h.html">SAPoTCentral.h</a>. <br  />
+ </p>
+
+</div>
+</div>
+<a id="a231f625d9460901a8efd4e52fd589a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231f625d9460901a8efd4e52fd589a06">&#9670;&nbsp;</a></span>SAPOTCENTRAL_SUCCESS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SAPOTCENTRAL_SUCCESS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Retorno: Sucesso: Indica sucesso na operação realizada pela Central SAPoT. </p>
+
+</div>
+</div>
+<a id="a7aad18faa9ed07aac5fdb9c76dc041da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aad18faa9ed07aac5fdb9c76dc041da">&#9670;&nbsp;</a></span>SQL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SQL&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Configuração: Indica que o protocolo de banco de dados que será usado pela central será o MySQL </p>
+
+</div>
+</div>
+<a id="a2dc3870be25a19efa2940150507aaf71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc3870be25a19efa2940150507aaf71">&#9670;&nbsp;</a></span>UNDEFINED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNDEFINED&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Código de Configuração: Indica que o usuário irá utilizar um protocolo não padronizado na <a class="el" href="SAPoTCentral_8h.html">SAPoTCentral.h</a>. E portanto a função <a class="el" href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop()</a> não será utilizada. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="aaf6530ab12307ca588e44236ac985b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6530ab12307ca588e44236ac985b35">&#9670;&nbsp;</a></span>CTRLactuator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CTRLactuator </td>
+          <td>(</td>
+          <td class="paramtype">int(*)(char *, void *, unsigned int)&#160;</td>
+          <td class="paramname"><em>publish</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Controle de Clientes] CTRLactuator </p>
+<p>Estrutura que representa o resultado de uma query solicitada</p>
+<p>Dá acesso a uma linha do resultado de uma query solicitada</p>
+
+</div>
+</div>
+<a id="a8ae07957b6385433a52b18ddff55ff67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae07957b6385433a52b18ddff55ff67">&#9670;&nbsp;</a></span>getmacID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getmacID </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>MAC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>ID</em>[6]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Transforma o endereço MAC (string) em ID(uint8_t*)</p>
+<p>[Utilitário] getmacID </p>
+
+</div>
+</div>
+<a id="a94f75c0b59e5618b064a4a1bb609ffa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f75c0b59e5618b064a4a1bb609ffa6">&#9670;&nbsp;</a></span>MQTTconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função foi implementada através da biblioteca MQTTClient.h desenvolvida pelo projeto Eclipse Paho. <br  />
+ Ela tem o intuito de conectar a Central SAPoT ao broker MQTT, através de um objeto MQTTClient, da seguinte maneira: Primeiramente, ela verifica a existência de conexão com o broker e se caso a conexão não exista, ela destrói o possivel objeto MQTTClient que esteja com problemas na conexão e o cria novamente. (veja <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#a6e8231e8c47f6f67f7ebbb5dcb4c69c0">MQTTClient_isConnected()</a>, <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#ae700c3f5cfea3813264ce95e7c8cf498">MQTTClient_destroy()</a>, <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#a9a0518d9ca924d12c1329dbe3de5f2b6">MQTTClient_create()</a>). Após criar e configurar um novo MQTTClient, essa função configura o recebimento de mensagens em modo assíncrono a partir da função <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#aad27d07782991a4937ebf2f39a021f83">MQTTClient_setCallbacks()</a> que recebe a função <a class="el" href="SAPoTCentral_8c.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived()</a> como parâmetro para tratar as mensagens recebidas. Em seguida, o MQTTClient requisita a conexão com o broker via <a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#aaa8ae61cd65c9dc0846df10122d7bd4e">MQTTClient_connect()</a> e se for estabelecida com sucesso, realiza-se a subscrição no tópico de mesmo nome do identificador da central (veja <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a>). <br  />
+</p>
+<dl class="section see"><dt>Veja também</dt><dd><a href="https://www.eclipse.org/paho">Projeto Eclipse Paho </a> <br  />
+</dd></dl>
+<p>[Subrotina] MQTTconnect </p>
+
+</div>
+</div>
+<a id="a12d41058d0b06eb7899ff01b10cc6cc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d41058d0b06eb7899ff01b10cc6cc7">&#9670;&nbsp;</a></span>MQTTconnectionLost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MQTTconnectionLost </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trata a perda de conexão entre o MQTTClient e o servidor MQTT</p>
+<dl class="section see"><dt>Veja também</dt><dd><a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#a6bb253f16754e7cc81798c9fda0e36cf">Projeto Eclipse Paho: MQTTClient_connectionLost </a></dd></dl>
+<p>[Subrotina] MQTTconnectionLost </p>
+
+</div>
+</div>
+<a id="ad7895042774d348ddce8e52dd2b66693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7895042774d348ddce8e52dd2b66693">&#9670;&nbsp;</a></span>MQTTdeliveryComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MQTTdeliveryComplete </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MQTTClient_deliveryToken&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Executa a conclusão do recebimento da mensagem via MQTTmessageArrived</p>
+<dl class="section see"><dt>Veja também</dt><dd><a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#abef83794d8252551ed248cde6eb845a6">Projeto Eclipse Paho: MQTTClient_deliveryComplete </a></dd></dl>
+<p>[Subrotina] MQTTdeliveryComplete </p>
+
+</div>
+</div>
+<a id="a47dfbf603689fa6491191b47b41c2757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47dfbf603689fa6491191b47b41c2757">&#9670;&nbsp;</a></span>MQTTmessageArrived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTmessageArrived </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>topicName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>topicLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MQTTClient_message *&#160;</td>
+          <td class="paramname"><em>MQTTmsg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função foi implementada baseada na biblioteca MQTTClient.h do projeto Eclipse Paho. Ela possui um padrão de argumentos definidos para manipular as mensagem recebidas via MQTT, quando a função MQTTClient_setCallbacks() configura a recepção assíncrona das mensagem (veja <a class="el" href="SAPoTCentral_8c.html#a94f75c0b59e5618b064a4a1bb609ffa6">MQTTconnect()</a>). Em sua rotina de execução, quando uma mensagem é recebida, ela primeiro extrai o payload da mensagem MQTT e o estrutura em uma mensagem SAPoT via <a class="el" href="SAPoTCentral_8c.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message()</a>. Em sequência, se ocorrer tudo certo com a extração, ela evoca a função <a class="el" href="SAPoTCentral_8c.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation()</a> que utiliza da mensagem SAPoT estruturada anteriormente para realizar a instrução recebida.</p>
+<dl class="section see"><dt>Veja também</dt><dd><a href="https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html#aa42130dd069e7e949bcab37b6dce64a5">Projeto Eclipse Paho: MQTTClient_messageArrived </a></dd></dl>
+<p>[Subrotina] MQTTmessageArrived </p>
+
+</div>
+</div>
+<a id="aafc7f4c8be610fd729dbc5aee63556bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc7f4c8be610fd729dbc5aee63556bc">&#9670;&nbsp;</a></span>MQTTpublish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTpublish </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>topic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>payload</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>payloadLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Publica a mensagem em um topico especifico no broker MQTT</p>
+<p>[Subrotina] MQTTpublish </p>
+
+</div>
+</div>
+<a id="a644ba1e1936d3c54f54fb436f9d238a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644ba1e1936d3c54f54fb436f9d238a0">&#9670;&nbsp;</a></span>MYSQLaccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLaccess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Acessa os dados de todos os clientes cadastrados no banco de dados MYSQL.</p>
+<p>[Subrotina] MYSQLacess </p>
+
+</div>
+</div>
+<a id="ab0ca1620aff9041ff2a79e7969046af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ca1620aff9041ff2a79e7969046af0">&#9670;&nbsp;</a></span>MYSQLconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Conecta o cliente ao servidor MySQL</p>
+<p>[Subrotina] MYSQLconnect </p>
+
+</div>
+</div>
+<a id="a3a5faa7464a826ea7d2fe471fda02b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5faa7464a826ea7d2fe471fda02b39">&#9670;&nbsp;</a></span>MYSQLmodification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLmodification </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Realiza a etiquetagem de um cliente SAPoT ja cadastrados no banco de dados MYSQL.</p>
+<p>[Subrotina] MYSQLmodification </p>
+
+</div>
+</div>
+<a id="a71b26b67e926649343294adf9b1aded4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b26b67e926649343294adf9b1aded4">&#9670;&nbsp;</a></span>MYSQLregistration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLregistration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Realiza as operações necessárias no banco de dados MYSQL para cadastrar ou atualizar as informações de cadastrado de um cliente SAPoT.</p>
+<p>[Subrotina] MYSQLregistration </p>
+<p>Estrutura que representa o resultado de uma query solicitada</p>
+<p>Dá acesso a uma linha do resultado de uma query solicitada</p>
+
+</div>
+</div>
+<a id="a7c3440b33fdf6149a7b0f12cdcc435a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3440b33fdf6149a7b0f12cdcc435a9">&#9670;&nbsp;</a></span>SAPoTCentral_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSAPoTCentral.html">SAPoTCentral</a> *&#160;</td>
+          <td class="paramname"><em>centralHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> *&#160;</td>
+          <td class="paramname"><em>optsHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>centralId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função inicia a central SAPoT preenchendo as informações passadas pelo usuário através das estruturas <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a> e <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>. Além disso, inicia o arquivo de log e se o usuário optar por utilizar o modo local-padrão essa função inicia os clientes para comunicação com os serviços MQTT e MySQL.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">userPointer</td><td>Um ponteiro para o espaço de memória do tipo <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a> que deseja ser iniciado como Central. </td></tr>
+    <tr><td class="paramname">opts</td><td>Um ponteiro para o espaço de memória do tipo <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a> que contém as configurações iniciais para operação da Central. </td></tr>
+    <tr><td class="paramname">centralId</td><td>Uma string no formato de um endereço MAC (XX:XX:XX:XX:XX:XX) que identifica a Central. Esse parâmetro deve ser único em uma rede que possua mais de uma Central SAPoT em operação. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Essa função retorna <a class="el" href="SAPoTCentral_8h.html#a6598247c62938f24bcc8fd9d8f54b494">SAPOTCENTRAL_FAILURE</a> no caso de não conseguir iniciar a Central, ou retorna <a class="el" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a> em caso de sucesso.</dd></dl>
+<p>[Principal] SAPoTCentral_begin </p>
+
+</div>
+</div>
+<a id="a692a20d220d85630dbf5a789b20ef371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692a20d220d85630dbf5a789b20ef371">&#9670;&nbsp;</a></span>SAPoTCentral_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SAPoTCentral_end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função finaliza os serviços da central SAPoT. Fecha o arquivo de log e se estiver operando no modo local-padrão, encerra os serviços MQTT e MySQL. Não possue parâmetros de entrada nem retorno.</p>
+<p>[Principal] SAPoTCentral_end </p>
+
+</div>
+</div>
+<a id="a23d1576a8815d5a03697ea9458e17e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d1576a8815d5a03697ea9458e17e6b">&#9670;&nbsp;</a></span>SAPoTCentral_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_error </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função mostra na tela através de um printf a definição do error contido no manipulador <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a>.</p>
+<p>@retrun retorna o número do erro contido no manipulador <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a>.</p>
+<p>[Principal] SAPoTCentral_error </p>
+
+</div>
+</div>
+<a id="aac4a083422c3ca5810033a6549698114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4a083422c3ca5810033a6549698114">&#9670;&nbsp;</a></span>SAPoTCentral_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SAPoTCentral_loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função pode ser utilizada se, e somente se a Central for configurada no modelo local-padrão através da definição <a class="el" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a> (veja também <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>). Além disso, essa função mantém a conexão entre a Central e o broker MQTT realizando um ping no servidor MQTT a cada 30 segundos. Não possue parâmetros de entrada nem retorno. <br  />
+</p>
+<p>[Principal] SAPoTCentral_loop </p>
+
+</div>
+</div>
+<a id="af6cc3982bc1e61a0e5283d1b757e19ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6cc3982bc1e61a0e5283d1b757e19ca">&#9670;&nbsp;</a></span>SAPoTCentral_set_operation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_set_operation </td>
+          <td>(</td>
+          <td class="paramtype">int(*)(char *, void *, unsigned int)&#160;</td>
+          <td class="paramname"><em>publish</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função pode ser utilizada se, e somente se a Central for configurada no modelo local-padrão através da definição <a class="el" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a> (veja também <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>). Após a execução da <a class="el" href="SAPoTCentral_8c.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message()</a> essa função utiliza da instrução contida no cabeçalho do manipulador <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a> para operar com tais possibilidades: </p><ul>
+<li>
+0x00: <a class="el" href="SAPoTCentral_8c.html#a71b26b67e926649343294adf9b1aded4">MYSQLregistration()</a>  </li>
+<li>
+0x01:  </li>
+<li>
+0x02:  </li>
+<li>
+0x03: <a class="el" href="SAPoTCentral_8c.html#aaf6530ab12307ca588e44236ac985b35">CTRLactuator()</a>  </li>
+<li>
+0x04: <a class="el" href="SAPoTCentral_8c.html#a644ba1e1936d3c54f54fb436f9d238a0">MYSQLaccess()</a>  </li>
+<li>
+0x05:  </li>
+<li>
+0x06: <a class="el" href="SAPoTCentral_8c.html#a3a5faa7464a826ea7d2fe471fda02b39">MYSQLmodification()</a>  </li>
+</ul>
+<p>Além disso, após operar com sucesso envia-se uma mensagem de reconhecimento para o emissor da instrução.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">publish</td><td>Ponteiro para uma função que realiza a transmissão de mensagens para comunicar a Central com os Clientes e Usuários. Essa função deve receber uma string com o endereço do destinatário da mensagem, um <code>void*</code> com o conteúdo da mensagem e um inteiro positivo com o comprimento total da mensagem. <br  />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Essa função retorna <a class="el" href="SAPoTCentral_8h.html#a6598247c62938f24bcc8fd9d8f54b494">SAPOTCENTRAL_FAILURE</a> em dois casos: Primeiramente se ocorrer algum erro na operação realizada, ou em segundo momento se não for possível enviar a mensagem de reconhecimento. Contudo, essa função retorna <a class="el" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a> se a operação for realizada com sucesso e se a mensagem de reconhecimento for enviada ao emissor da instrução.</dd></dl>
+<p>[Principal] SAPoTCentral_set_operation </p>
+
+</div>
+</div>
+<a id="a9e8f80d3202a3cb91d727214db781e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e8f80d3202a3cb91d727214db781e66">&#9670;&nbsp;</a></span>SAPoTCentral_unpack_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_unpack_message </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>messageLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Essa função recebe uma mensagem e à estrutura utilizando os ponteiros SAPoTMessage do manipulador <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a> de acordo com a instrução contida em seu cabeçalho. No caso da Central operar em modeo local-padrão (veja <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a> e <a class="el" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a>) as mensagem são recebidas via <a class="el" href="SAPoTCentral_8c.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived()</a> através do procotocolo MQTT. Não obstante, essa função também armazena no arquivo de log os parâmetros do cabeçalho de todas as mensagem recebidas. (veja <a class="el" href="structSAPoTMessage__header.html" title="Cabeçalho fixo das mensagem SAPoT.">SAPoTMessage_header</a>).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Ponteiro <code>void*</code> para o espaço de memória da mensagem. </td></tr>
+    <tr><td class="paramname">messageLen</td><td>Um número inteiro referente ao comprimento da mensagem.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Essa função retorna <a class="el" href="SAPoTCentral_8h.html#a6598247c62938f24bcc8fd9d8f54b494">SAPOTCENTRAL_FAILURE</a> para o caso da versão de protocolo da mensagem não coincidir com versão de protocolo da Central, ou retorna <a class="el" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a> caso contrário. <br  />
+</dd></dl>
+<p>[Principal] SAPoTCentral_unpack_message </p>
+
+</div>
+</div>
+<a id="a6da6d1909277987c5e152cfb0c28de84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da6d1909277987c5e152cfb0c28de84">&#9670;&nbsp;</a></span>upper_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void upper_string </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>s</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função: Deixa as letras de uma string em caixa alta</p>
+<p>[Utilitário] upper_string </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

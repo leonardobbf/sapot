@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central SAPoT: Código-Fonte de SAPoTCentral.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="[Logo]SAPoT_V1_b_50x50.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Central SAPoT
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Biblioteca para a implementação de uma Central SAPoT em C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SAPoTCentral.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="SAPoTCentral_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#ifndef SAPOTCENTRAL_H</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#define SAPOTCENTRAL_H</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">                                /************************* Headers ******************************/</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                                </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#include &lt;MQTTClient.h&gt;</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#include &lt;mysql/mysql.h&gt;</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">                                /************************* Defines ******************************/</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#ac2b0ae25a6411389f8d7412e0aeaefb6">  157</a></span>&#160;<span class="preprocessor">#define SAPOT_PROTOCOL_VERSION 1</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">  163</a></span>&#160;<span class="preprocessor">#define SAPOTCENTRAL_SUCCESS 0</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a6598247c62938f24bcc8fd9d8f54b494">  169</a></span>&#160;<span class="preprocessor">#define SAPOTCENTRAL_FAILURE -1</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a009b5267627aab67c351d043f0fc1e2d">  176</a></span>&#160;<span class="preprocessor">#define SAPOT_VERSION_ERROR -2</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#afba02718a52e1311b85e24cca9d57da5">  183</a></span>&#160;<span class="preprocessor">#define ERROR_SETTING_DATABASE_PROTOCOL -3</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a833c6cfcf6e6ff679d75d9bff80c48f8">  191</a></span>&#160;<span class="preprocessor">#define ERROR_SETTING_TRANSMISSION_PROTOCOL -4</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#ab46db548868b26dc49a8ac27dba01902">  204</a></span>&#160;<span class="preprocessor">#define ERROR_STARTING_DATABASE_PROTOCOL -5</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a912fac580f2c86c9ffc3b01420e577de">  217</a></span>&#160;<span class="preprocessor">#define ERROR_STARTING_TRANSMISSION_PROTOCOL -6</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a6b2c2e49ea2a1b555d985937da02f4e7">  229</a></span>&#160;<span class="preprocessor">#define ERROR_DATABASE_INQUIRY -7</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a130c0c602edfe60aa93663b2f1cc440d">  240</a></span>&#160;<span class="preprocessor">#define ERROR_MQTT_PUBLISH -8</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a348bd63004ee143a78e94fec23082ba0">  247</a></span>&#160;<span class="preprocessor">#define ERROR_LOG_OPERATION -9</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a10b266e122ac3a1f5d7469fee7427829">  253</a></span>&#160;<span class="preprocessor">#define ERROR_LABEL_NOT_REGISTERED -10 </span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a2dc3870be25a19efa2940150507aaf71">  259</a></span>&#160;<span class="preprocessor">#define UNDEFINED 0</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#ae1abe60e35e8bef559df4270f2849f29">  265</a></span>&#160;<span class="preprocessor">#define MQTT 1</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a7aad18faa9ed07aac5fdb9c76dc041da">  271</a></span>&#160;<span class="preprocessor">#define SQL 1</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">  282</a></span>&#160;<span class="preprocessor">#define SAPOTCENTRAL_OPTS_STDLOCAL {1, {&quot;localhost&quot;, &quot;1883&quot;, NULL, NULL}, 1, {&quot;localhost&quot;, &quot;3306&quot;, &quot;guest&quot;, &quot;guest&quot;, &quot;db_UCC&quot;}}</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="SAPoTCentral_8h.html#a53ab5da562709f06fe5586ab89165062">  291</a></span>&#160;<span class="preprocessor">#define SAPOTCENTRAL_OPTS_UNDEFINED_PROTOCOLS {0, {NULL, NULL, NULL, NULL}, 0, {NULL, NULL, NULL, NULL, NULL}}</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">                    /************************* Structs for SAPoTMessage *************************/</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html">  310</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    </div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a0eaa02eee16967528ac9bea8bf908f8e">  313</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__header.html#a0eaa02eee16967528ac9bea8bf908f8e">rsv3</a>:1, </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a8a0e25c7e75d7522e1dda79220b4a49c">  316</a></span>&#160;    <a class="code" href="structSAPoTMessage__header.html#a8a0e25c7e75d7522e1dda79220b4a49c">rsv2</a>:1, </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a806d1358a4e8781b2c2e61c25d8f1e4a">  319</a></span>&#160;    <a class="code" href="structSAPoTMessage__header.html#a806d1358a4e8781b2c2e61c25d8f1e4a">rsv1</a>:1, </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a96b36c6fa52e9fd205a69d1d25252133">  322</a></span>&#160;    <a class="code" href="structSAPoTMessage__header.html#a96b36c6fa52e9fd205a69d1d25252133">ack</a>:1,</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a3cc90bbd78c0449e9a886085577e852e">  325</a></span>&#160;    <a class="code" href="structSAPoTMessage__header.html#a3cc90bbd78c0449e9a886085577e852e">version</a>:4;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#aea33cb5f059d62e9e899925eafabe458">  336</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__header.html#aea33cb5f059d62e9e899925eafabe458">instruction</a>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    </div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a809093077b89f4954bd32d19bcb13656">  339</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__header.html#a809093077b89f4954bd32d19bcb13656">serial</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    </div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#a9ebea9cf36368b27ec0afb8ab9a9de78">  342</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__header.html#a9ebea9cf36368b27ec0afb8ab9a9de78">length</a>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    </div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="structSAPoTMessage__header.html#aeb3dfb68d6c9343a8f119b2c6d78de1c">  345</a></span>&#160;    uint8_t emitterId[6];</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}<a class="code" href="structSAPoTMessage__header.html">SAPoTMessage_header</a>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno"><a class="line" href="structSAPoTMessage__registration.html">  358</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="structSAPoTMessage__registration.html#adde9d38e7532a5b4322b03f52d181570">  370</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__registration.html#adde9d38e7532a5b4322b03f52d181570">clientType</a>;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    </div>
+<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="structSAPoTMessage__registration.html#a5e1a389c0870f9ce74c7e8d6c9803b3e">  373</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__registration.html#a5e1a389c0870f9ce74c7e8d6c9803b3e">sensorQuantity</a>;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    </div>
+<div class="line"><a name="l00376"></a><span class="lineno"><a class="line" href="structSAPoTMessage__registration.html#a6f50c11f44e1eeb02b800132b6ca2c96">  376</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__registration.html#a6f50c11f44e1eeb02b800132b6ca2c96">actuatorQuantity</a>;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    </div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="structSAPoTMessage__registration.html#ad65b2ae66ef2f4769272453bb7ae52d5">  392</a></span>&#160;    uint16_t* <a class="code" href="structSAPoTMessage__registration.html#ad65b2ae66ef2f4769272453bb7ae52d5">sensorActuatorType</a>;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;     </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;}<a class="code" href="structSAPoTMessage__registration.html">SAPoTMessage_registration</a>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno"><a class="line" href="structSAPoTMessage__solicitation.html">  407</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno"><a class="line" href="structSAPoTMessage__solicitation.html#abfa3c40ee1df67d947980e59d1fe7900">  410</a></span>&#160;    uint8_t label[11];</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    </div>
+<div class="line"><a name="l00413"></a><span class="lineno"><a class="line" href="structSAPoTMessage__solicitation.html#af00c27459ed1037e51533255c3e1c387">  413</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__solicitation.html#af00c27459ed1037e51533255c3e1c387">sensorOrActuatorId</a>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    </div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="line" href="structSAPoTMessage__solicitation.html#a4e455f0af9956083e271bf172c4f802b">  424</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__solicitation.html#a4e455f0af9956083e271bf172c4f802b">timeSet</a>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    </div>
+<div class="line"><a name="l00427"></a><span class="lineno"><a class="line" href="structSAPoTMessage__solicitation.html#ac02358e1c4c4682f3b89151a8db80ef7">  427</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__solicitation.html#ac02358e1c4c4682f3b89151a8db80ef7">degreeOfPerformance</a>; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;     </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;}<a class="code" href="structSAPoTMessage__solicitation.html">SAPoTMessage_solicitation</a>;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
+<div class="line"><a name="l00445"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html">  445</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html#afc9c945f56df1aef4980d904742c08a2">  448</a></span>&#160;    uint8_t label[10];</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
+<div class="line"><a name="l00451"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html#abeb00ba0a7d53318118171102f7af89c">  451</a></span>&#160;    uint8_t <span class="keywordtype">id</span>[18];</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html#ad965e46556b40a2169f93a27dba5c487">  463</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__access.html#ad965e46556b40a2169f93a27dba5c487">type</a>;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html#a20e7d148e832c2cec39b458d641b5e4b">  466</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__access.html#a20e7d148e832c2cec39b458d641b5e4b">sensor</a>;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    </div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="line" href="structSAPoTMessage__access.html#a22d4f86be3e5f4ca776f3e61e8ccce53">  469</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__access.html#a22d4f86be3e5f4ca776f3e61e8ccce53">actuator</a>;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;     </div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;}<a class="code" href="structSAPoTMessage__access.html">SAPoTMessage_access</a>;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00488"></a><span class="lineno"><a class="line" href="structSAPoTMessage__record.html">  488</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160; </div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="structSAPoTMessage__record.html#aa93ebd81018690ca5f1a3f4c72d2801d">  492</a></span>&#160;    uint8_t <a class="code" href="structSAPoTMessage__record.html#aa93ebd81018690ca5f1a3f4c72d2801d">dataLen</a>;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    </div>
+<div class="line"><a name="l00501"></a><span class="lineno"><a class="line" href="structSAPoTMessage__record.html#ac394312d44305eb78b76e05095a7081f">  501</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="structSAPoTMessage__record.html#ac394312d44305eb78b76e05095a7081f">data</a>;</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;     </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;}<a class="code" href="structSAPoTMessage__record.html">SAPoTMessage_record</a>;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
+<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="structSAPoTMessage__modification.html">  516</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
+<div class="line"><a name="l00519"></a><span class="lineno"><a class="line" href="structSAPoTMessage__modification.html#a512943cebf2035303d8ef662471a31c1">  519</a></span>&#160;    uint8_t macaddr[18];</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    </div>
+<div class="line"><a name="l00522"></a><span class="lineno"><a class="line" href="structSAPoTMessage__modification.html#a18bb1233b5e0cc709549e7f938c9e34d">  522</a></span>&#160;    uint8_t label[11];</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;     </div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;}<a class="code" href="structSAPoTMessage__modification.html">SAPoTMessage_modification</a>;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="structSAPoTMessage__actuatorDrive.html">  538</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
+<div class="line"><a name="l00541"></a><span class="lineno"><a class="line" href="structSAPoTMessage__actuatorDrive.html#a00fae1b0783bc1d4e6a3f4ba00736ea1">  541</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__actuatorDrive.html#a00fae1b0783bc1d4e6a3f4ba00736ea1">actuatorId</a>;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    </div>
+<div class="line"><a name="l00553"></a><span class="lineno"><a class="line" href="structSAPoTMessage__actuatorDrive.html#a47b96b8fe721aef104d7a56ffb58a1ad">  553</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__actuatorDrive.html#a47b96b8fe721aef104d7a56ffb58a1ad">timeSet</a>;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    </div>
+<div class="line"><a name="l00556"></a><span class="lineno"><a class="line" href="structSAPoTMessage__actuatorDrive.html#ada5a04cf8941301ce7d0788931ab61d5">  556</a></span>&#160;    uint16_t <a class="code" href="structSAPoTMessage__actuatorDrive.html#ada5a04cf8941301ce7d0788931ab61d5">degreeOfPerformance</a>;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    </div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;}<a class="code" href="structSAPoTMessage__actuatorDrive.html">SAPoTMessage_actuatorDrive</a>;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">                            /************************* Structs for SAPoTCentral *************************/</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160; </div>
+<div class="line"><a name="l00572"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html">  572</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
+<div class="line"><a name="l00577"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#a377932d4dd51422390490554b35ab44b">  577</a></span>&#160;    uint8_t <a class="code" href="structSAPoTCentral__create__options.html#a377932d4dd51422390490554b35ab44b">transmissionProtocol</a>;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    </div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        </div>
+<div class="line"><a name="l00582"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#a88e36c4f5f1f00fa7c26b22f7b0123c2">  582</a></span>&#160;        <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral__create__options.html#a88e36c4f5f1f00fa7c26b22f7b0123c2">host</a>; </div>
+<div class="line"><a name="l00584"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#a37630e63167b5c276b8868cca7eb2eb5">  584</a></span>&#160;        <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral__create__options.html#a37630e63167b5c276b8868cca7eb2eb5">port</a>; </div>
+<div class="line"><a name="l00586"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">  586</a></span>&#160;        <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">user</a>; </div>
+<div class="line"><a name="l00588"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">  588</a></span>&#160;        <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">pass</a>; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    }transmission;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    </div>
+<div class="line"><a name="l00595"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#ad8872d9093119ec3b10b24808541889a">  595</a></span>&#160;    uint8_t <a class="code" href="structSAPoTCentral__create__options.html#ad8872d9093119ec3b10b24808541889a">databaseProtocol</a>;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    </div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordtype">char</span>* host; </div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keywordtype">char</span>* port; </div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keywordtype">char</span>* user; </div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordtype">char</span>* pass; </div>
+<div class="line"><a name="l00608"></a><span class="lineno"><a class="line" href="structSAPoTCentral__create__options.html#a91570d1b8a2f2e29619356ed513e5711">  608</a></span>&#160;        <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral__create__options.html#a91570d1b8a2f2e29619356ed513e5711">dir</a>; </div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    }database;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    </div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;}<a class="code" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a>;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
+<div class="line"><a name="l00624"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html">  624</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a484d982f903b67d1b600e298ab2cdf7d">  627</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="structSAPoTCentral.html#a484d982f903b67d1b600e298ab2cdf7d">id</a>;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    </div>
+<div class="line"><a name="l00630"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#aa577cfe3c6e9b9874d400c6a40669f0f">  630</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structSAPoTCentral.html#aa577cfe3c6e9b9874d400c6a40669f0f">error</a>;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00636"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a58a030a90900c679c17c0240f6c04e5b">  636</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structSAPoTCentral.html#a58a030a90900c679c17c0240f6c04e5b">inLoop</a>;</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
+<div class="line"><a name="l00639"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a18082f2ba1f48af7d32b79a0c4eb062e">  639</a></span>&#160;    uint16_t <a class="code" href="structSAPoTCentral.html#a18082f2ba1f48af7d32b79a0c4eb062e">serial</a>;    </div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a117b0af3538d8d76272de2a94763cea7">  642</a></span>&#160;    uint8_t* <a class="code" href="structSAPoTCentral.html#a117b0af3538d8d76272de2a94763cea7">inMessage</a>;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
+<div class="line"><a name="l00645"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#af6a4ae2e16df8b51e66a45ef7956a2ce">  645</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="structSAPoTCentral.html#af6a4ae2e16df8b51e66a45ef7956a2ce">outMessage</a>;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    </div>
+<div class="line"><a name="l00648"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#ae8c73d026c8a37117417ec5b63b167a3">  648</a></span>&#160;    <a class="code" href="structSAPoTMessage__header.html">SAPoTMessage_header</a>* <a class="code" href="structSAPoTCentral.html#ae8c73d026c8a37117417ec5b63b167a3">header</a>;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    </div>
+<div class="line"><a name="l00651"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#aceb7fb023074ab7cf2c20b699bec8160">  651</a></span>&#160;    <a class="code" href="structSAPoTMessage__registration.html">SAPoTMessage_registration</a>* <a class="code" href="structSAPoTCentral.html#aceb7fb023074ab7cf2c20b699bec8160">registration</a>;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    </div>
+<div class="line"><a name="l00654"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#ad565bd56541e71d520b06b04428f1827">  654</a></span>&#160;    <a class="code" href="structSAPoTMessage__record.html">SAPoTMessage_record</a>* <a class="code" href="structSAPoTCentral.html#ad565bd56541e71d520b06b04428f1827">record</a>;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    </div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a06fb60a00af377ebff9cabe9d57232f0">  657</a></span>&#160;    <a class="code" href="structSAPoTMessage__modification.html">SAPoTMessage_modification</a>* <a class="code" href="structSAPoTCentral.html#a06fb60a00af377ebff9cabe9d57232f0">modification</a>;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    </div>
+<div class="line"><a name="l00660"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a76c4c014a610e6c71b7e10a21a5ce2b7">  660</a></span>&#160;    <a class="code" href="structSAPoTMessage__solicitation.html">SAPoTMessage_solicitation</a>* <a class="code" href="structSAPoTCentral.html#a76c4c014a610e6c71b7e10a21a5ce2b7">solicitation</a>;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    </div>
+<div class="line"><a name="l00663"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a854bd7bb4bf7d718505c0600fe07cb87">  663</a></span>&#160;    MQTTClient <a class="code" href="structSAPoTCentral.html#a854bd7bb4bf7d718505c0600fe07cb87">MQTTclient</a>;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    </div>
+<div class="line"><a name="l00666"></a><span class="lineno"><a class="line" href="structSAPoTCentral.html#a5072a32daadd71cd88548a07956e904b">  666</a></span>&#160;    MYSQL <a class="code" href="structSAPoTCentral.html#a5072a32daadd71cd88548a07956e904b">MYSQLclient</a>;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    </div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    </div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;}<a class="code" href="structSAPoTCentral.html">SAPoTCentral</a>;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160; </div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">                    /************************* Functions for SAPoTCentral *************************/</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a7c3440b33fdf6149a7b0f12cdcc435a9">SAPoTCentral_begin</a>(<a class="code" href="structSAPoTCentral.html">SAPoTCentral</a>* userPointer , <a class="code" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a>* <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>, <span class="keyword">const</span> <span class="keywordtype">char</span>* centralId);</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a>();</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160; </div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a>(); </div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message</a>(<span class="keywordtype">void</span>* message, <span class="keywordtype">int</span> messageLen);</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation</a>(<span class="keywordtype">int</span> (*publish)(<span class="keywordtype">char</span>*, <span class="keywordtype">void</span>*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>));</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160; </div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a23d1576a8815d5a03697ea9458e17e6b">SAPoTCentral_error</a>();</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160; </div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">                    /************************* Functions for MQTT **************************/</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a94f75c0b59e5618b064a4a1bb609ffa6">MQTTconnect</a>();</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160; </div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived</a>(<span class="keywordtype">void</span>* context, <span class="keywordtype">char</span>* topicName, <span class="keywordtype">int</span> topicLen, MQTTClient_message* MQTTmsg);</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#ad7895042774d348ddce8e52dd2b66693">MQTTdeliveryComplete</a>(<span class="keywordtype">void</span>* context, MQTTClient_deliveryToken dt);</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#a12d41058d0b06eb7899ff01b10cc6cc7">MQTTconnectionLost</a>(<span class="keywordtype">void</span>* context, <span class="keywordtype">char</span>* cause);</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160; </div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#aafc7f4c8be610fd729dbc5aee63556bc">MQTTpublish</a>(<span class="keywordtype">char</span>* topic, <span class="keywordtype">void</span>* payload, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> payloadLen);</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                    </div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                    </div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">                    /************************* Functions for MySQL *************************/</span></div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                    </div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#ab0ca1620aff9041ff2a79e7969046af0">MYSQLconnect</a>();</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a71b26b67e926649343294adf9b1aded4">MYSQLregistration</a>();</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160; </div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a3a5faa7464a826ea7d2fe471fda02b39">MYSQLmodification</a>();</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160; </div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#a644ba1e1936d3c54f54fb436f9d238a0">MYSQLaccess</a>();</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160; </div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment">                    /************************* Client control functions *************************/</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160; </div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160; </div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="keywordtype">int</span> <a class="code" href="SAPoTCentral_8h.html#aaf6530ab12307ca588e44236ac985b35">CTRLactuator</a>(<span class="keywordtype">int</span> (*publish)(<span class="keywordtype">char</span>*, <span class="keywordtype">void</span>*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>));</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160; </div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160; </div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        </div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;<span class="comment">                    /************************* Utility Functions **************************/</span></div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160; </div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#a6da6d1909277987c5e152cfb0c28de84">upper_string</a>(<span class="keywordtype">char</span> s[]);</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160; </div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="keywordtype">void</span> <a class="code" href="SAPoTCentral_8h.html#a8ae07957b6385433a52b18ddff55ff67">getmacID</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* MAC, uint8_t ID[6]);</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160; </div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160; </div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SAPOTCENTRAL_H */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aSAPoTCentral_8h_html_a47dfbf603689fa6491191b47b41c2757"><div class="ttname"><a href="SAPoTCentral_8h.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived</a></div><div class="ttdeci">int MQTTmessageArrived(void *context, char *topicName, int topicLen, MQTTClient_message *MQTTmsg)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:382</div></div>
+<div class="ttc" id="astructSAPoTMessage__actuatorDrive_html_a00fae1b0783bc1d4e6a3f4ba00736ea1"><div class="ttname"><a href="structSAPoTMessage__actuatorDrive.html#a00fae1b0783bc1d4e6a3f4ba00736ea1">SAPoTMessage_actuatorDrive::actuatorId</a></div><div class="ttdeci">uint16_t actuatorId</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:541</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a117b0af3538d8d76272de2a94763cea7"><div class="ttname"><a href="structSAPoTCentral.html#a117b0af3538d8d76272de2a94763cea7">SAPoTCentral::inMessage</a></div><div class="ttdeci">uint8_t * inMessage</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:642</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a3cc90bbd78c0449e9a886085577e852e"><div class="ttname"><a href="structSAPoTMessage__header.html#a3cc90bbd78c0449e9a886085577e852e">SAPoTMessage_header::version</a></div><div class="ttdeci">uint8_t version</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:325</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a23d1576a8815d5a03697ea9458e17e6b"><div class="ttname"><a href="SAPoTCentral_8h.html#a23d1576a8815d5a03697ea9458e17e6b">SAPoTCentral_error</a></div><div class="ttdeci">int SAPoTCentral_error()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:298</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_aceb7fb023074ab7cf2c20b699bec8160"><div class="ttname"><a href="structSAPoTCentral.html#aceb7fb023074ab7cf2c20b699bec8160">SAPoTCentral::registration</a></div><div class="ttdeci">SAPoTMessage_registration * registration</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:651</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html"><div class="ttname"><a href="structSAPoTMessage__header.html">SAPoTMessage_header</a></div><div class="ttdoc">Cabeçalho fixo das mensagem SAPoT.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:310</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a9d2af8ebeedfae25b58f203aa01f5d50"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">SAPoTCentral_create_options::user</a></div><div class="ttdeci">char * user</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:586</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a854bd7bb4bf7d718505c0600fe07cb87"><div class="ttname"><a href="structSAPoTCentral.html#a854bd7bb4bf7d718505c0600fe07cb87">SAPoTCentral::MQTTclient</a></div><div class="ttdeci">MQTTClient MQTTclient</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:663</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_aafc7f4c8be610fd729dbc5aee63556bc"><div class="ttname"><a href="SAPoTCentral_8h.html#aafc7f4c8be610fd729dbc5aee63556bc">MQTTpublish</a></div><div class="ttdeci">int MQTTpublish(char *topic, void *payload, unsigned int payloadLen)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:439</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a6da6d1909277987c5e152cfb0c28de84"><div class="ttname"><a href="SAPoTCentral_8h.html#a6da6d1909277987c5e152cfb0c28de84">upper_string</a></div><div class="ttdeci">void upper_string(char s[])</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:853</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a91570d1b8a2f2e29619356ed513e5711"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a91570d1b8a2f2e29619356ed513e5711">SAPoTCentral_create_options::dir</a></div><div class="ttdeci">char * dir</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:608</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a94f75c0b59e5618b064a4a1bb609ffa6"><div class="ttname"><a href="SAPoTCentral_8h.html#a94f75c0b59e5618b064a4a1bb609ffa6">MQTTconnect</a></div><div class="ttdeci">int MQTTconnect()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:307</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a3a5faa7464a826ea7d2fe471fda02b39"><div class="ttname"><a href="SAPoTCentral_8h.html#a3a5faa7464a826ea7d2fe471fda02b39">MYSQLmodification</a></div><div class="ttdeci">int MYSQLmodification()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:585</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a88e36c4f5f1f00fa7c26b22f7b0123c2"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a88e36c4f5f1f00fa7c26b22f7b0123c2">SAPoTCentral_create_options::host</a></div><div class="ttdeci">char * host</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:582</div></div>
+<div class="ttc" id="astructSAPoTMessage__solicitation_html_ac02358e1c4c4682f3b89151a8db80ef7"><div class="ttname"><a href="structSAPoTMessage__solicitation.html#ac02358e1c4c4682f3b89151a8db80ef7">SAPoTMessage_solicitation::degreeOfPerformance</a></div><div class="ttdeci">uint16_t degreeOfPerformance</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:427</div></div>
+<div class="ttc" id="astructSAPoTMessage__record_html_aa93ebd81018690ca5f1a3f4c72d2801d"><div class="ttname"><a href="structSAPoTMessage__record.html#aa93ebd81018690ca5f1a3f4c72d2801d">SAPoTMessage_record::dataLen</a></div><div class="ttdeci">uint8_t dataLen</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:492</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a8a0e25c7e75d7522e1dda79220b4a49c"><div class="ttname"><a href="structSAPoTMessage__header.html#a8a0e25c7e75d7522e1dda79220b4a49c">SAPoTMessage_header::rsv2</a></div><div class="ttdeci">uint8_t rsv2</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:316</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a692a20d220d85630dbf5a789b20ef371"><div class="ttname"><a href="SAPoTCentral_8h.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a></div><div class="ttdeci">void SAPoTCentral_end()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:122</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a5072a32daadd71cd88548a07956e904b"><div class="ttname"><a href="structSAPoTCentral.html#a5072a32daadd71cd88548a07956e904b">SAPoTCentral::MYSQLclient</a></div><div class="ttdeci">MYSQL MYSQLclient</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:666</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a12d41058d0b06eb7899ff01b10cc6cc7"><div class="ttname"><a href="SAPoTCentral_8h.html#a12d41058d0b06eb7899ff01b10cc6cc7">MQTTconnectionLost</a></div><div class="ttdeci">void MQTTconnectionLost(void *context, char *cause)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:423</div></div>
+<div class="ttc" id="astructSAPoTMessage__actuatorDrive_html_ada5a04cf8941301ce7d0788931ab61d5"><div class="ttname"><a href="structSAPoTMessage__actuatorDrive.html#ada5a04cf8941301ce7d0788931ab61d5">SAPoTMessage_actuatorDrive::degreeOfPerformance</a></div><div class="ttdeci">uint16_t degreeOfPerformance</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:556</div></div>
+<div class="ttc" id="astructSAPoTMessage__registration_html_a5e1a389c0870f9ce74c7e8d6c9803b3e"><div class="ttname"><a href="structSAPoTMessage__registration.html#a5e1a389c0870f9ce74c7e8d6c9803b3e">SAPoTMessage_registration::sensorQuantity</a></div><div class="ttdeci">uint8_t sensorQuantity</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:373</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_ad565bd56541e71d520b06b04428f1827"><div class="ttname"><a href="structSAPoTCentral.html#ad565bd56541e71d520b06b04428f1827">SAPoTCentral::record</a></div><div class="ttdeci">SAPoTMessage_record * record</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:654</div></div>
+<div class="ttc" id="astructSAPoTMessage__record_html_ac394312d44305eb78b76e05095a7081f"><div class="ttname"><a href="structSAPoTMessage__record.html#ac394312d44305eb78b76e05095a7081f">SAPoTMessage_record::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:501</div></div>
+<div class="ttc" id="aSAPoTCentral_8c_html_a396834ed85021a06cfa8acd7332249e9"><div class="ttname"><a href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a></div><div class="ttdeci">SAPoTCentral_create_options * opts</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:26</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_af6cc3982bc1e61a0e5283d1b757e19ca"><div class="ttname"><a href="SAPoTCentral_8h.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation</a></div><div class="ttdeci">int SAPoTCentral_set_operation(int(*publish)(char *, void *, unsigned int))</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:226</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a8ae07957b6385433a52b18ddff55ff67"><div class="ttname"><a href="SAPoTCentral_8h.html#a8ae07957b6385433a52b18ddff55ff67">getmacID</a></div><div class="ttdeci">void getmacID(const char *MAC, uint8_t ID[6])</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:868</div></div>
+<div class="ttc" id="astructSAPoTMessage__record_html"><div class="ttname"><a href="structSAPoTMessage__record.html">SAPoTMessage_record</a></div><div class="ttdoc">Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais: Dados dos Sensores,...</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:488</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a644ba1e1936d3c54f54fb436f9d238a0"><div class="ttname"><a href="SAPoTCentral_8h.html#a644ba1e1936d3c54f54fb436f9d238a0">MYSQLaccess</a></div><div class="ttdeci">int MYSQLaccess()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:643</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a37630e63167b5c276b8868cca7eb2eb5"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a37630e63167b5c276b8868cca7eb2eb5">SAPoTCentral_create_options::port</a></div><div class="ttdeci">char * port</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:584</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a96b36c6fa52e9fd205a69d1d25252133"><div class="ttname"><a href="structSAPoTMessage__header.html#a96b36c6fa52e9fd205a69d1d25252133">SAPoTMessage_header::ack</a></div><div class="ttdeci">uint8_t ack</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:322</div></div>
+<div class="ttc" id="astructSAPoTMessage__solicitation_html_a4e455f0af9956083e271bf172c4f802b"><div class="ttname"><a href="structSAPoTMessage__solicitation.html#a4e455f0af9956083e271bf172c4f802b">SAPoTMessage_solicitation::timeSet</a></div><div class="ttdeci">uint16_t timeSet</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:424</div></div>
+<div class="ttc" id="astructSAPoTMessage__access_html"><div class="ttname"><a href="structSAPoTMessage__access.html">SAPoTMessage_access</a></div><div class="ttdoc">Estrutura para acesso à informação dos clientes cadastrados.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:445</div></div>
+<div class="ttc" id="astructSAPoTMessage__registration_html"><div class="ttname"><a href="structSAPoTMessage__registration.html">SAPoTMessage_registration</a></div><div class="ttdoc">Payload para cadastro de novo cliente.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:358</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_aea33cb5f059d62e9e899925eafabe458"><div class="ttname"><a href="structSAPoTMessage__header.html#aea33cb5f059d62e9e899925eafabe458">SAPoTMessage_header::instruction</a></div><div class="ttdeci">uint8_t instruction</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:336</div></div>
+<div class="ttc" id="astructSAPoTMessage__solicitation_html"><div class="ttname"><a href="structSAPoTMessage__solicitation.html">SAPoTMessage_solicitation</a></div><div class="ttdoc">Payload para solicitar o acionamento ou sensoriamento de algum cliente cadastrado no banco de dados.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:407</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a809093077b89f4954bd32d19bcb13656"><div class="ttname"><a href="structSAPoTMessage__header.html#a809093077b89f4954bd32d19bcb13656">SAPoTMessage_header::serial</a></div><div class="ttdeci">uint16_t serial</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:339</div></div>
+<div class="ttc" id="astructSAPoTMessage__solicitation_html_af00c27459ed1037e51533255c3e1c387"><div class="ttname"><a href="structSAPoTMessage__solicitation.html#af00c27459ed1037e51533255c3e1c387">SAPoTMessage_solicitation::sensorOrActuatorId</a></div><div class="ttdeci">uint16_t sensorOrActuatorId</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:413</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a58a030a90900c679c17c0240f6c04e5b"><div class="ttname"><a href="structSAPoTCentral.html#a58a030a90900c679c17c0240f6c04e5b">SAPoTCentral::inLoop</a></div><div class="ttdeci">bool inLoop</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:636</div></div>
+<div class="ttc" id="astructSAPoTMessage__registration_html_ad65b2ae66ef2f4769272453bb7ae52d5"><div class="ttname"><a href="structSAPoTMessage__registration.html#ad65b2ae66ef2f4769272453bb7ae52d5">SAPoTMessage_registration::sensorActuatorType</a></div><div class="ttdeci">uint16_t * sensorActuatorType</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:392</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a0eaa02eee16967528ac9bea8bf908f8e"><div class="ttname"><a href="structSAPoTMessage__header.html#a0eaa02eee16967528ac9bea8bf908f8e">SAPoTMessage_header::rsv3</a></div><div class="ttdeci">uint8_t rsv3</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:313</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_ae8c73d026c8a37117417ec5b63b167a3"><div class="ttname"><a href="structSAPoTCentral.html#ae8c73d026c8a37117417ec5b63b167a3">SAPoTCentral::header</a></div><div class="ttdeci">SAPoTMessage_header * header</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:648</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a484d982f903b67d1b600e298ab2cdf7d"><div class="ttname"><a href="structSAPoTCentral.html#a484d982f903b67d1b600e298ab2cdf7d">SAPoTCentral::id</a></div><div class="ttdeci">const char * id</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:627</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_aac4a083422c3ca5810033a6549698114"><div class="ttname"><a href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a></div><div class="ttdeci">void SAPoTCentral_loop()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:138</div></div>
+<div class="ttc" id="astructSAPoTMessage__access_html_a22d4f86be3e5f4ca776f3e61e8ccce53"><div class="ttname"><a href="structSAPoTMessage__access.html#a22d4f86be3e5f4ca776f3e61e8ccce53">SAPoTMessage_access::actuator</a></div><div class="ttdeci">uint8_t actuator</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:469</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a806d1358a4e8781b2c2e61c25d8f1e4a"><div class="ttname"><a href="structSAPoTMessage__header.html#a806d1358a4e8781b2c2e61c25d8f1e4a">SAPoTMessage_header::rsv1</a></div><div class="ttdeci">uint8_t rsv1</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:319</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_ab0ca1620aff9041ff2a79e7969046af0"><div class="ttname"><a href="SAPoTCentral_8h.html#ab0ca1620aff9041ff2a79e7969046af0">MYSQLconnect</a></div><div class="ttdeci">int MYSQLconnect()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:465</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a18082f2ba1f48af7d32b79a0c4eb062e"><div class="ttname"><a href="structSAPoTCentral.html#a18082f2ba1f48af7d32b79a0c4eb062e">SAPoTCentral::serial</a></div><div class="ttdeci">uint16_t serial</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:639</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_ad8872d9093119ec3b10b24808541889a"><div class="ttname"><a href="structSAPoTCentral__create__options.html#ad8872d9093119ec3b10b24808541889a">SAPoTCentral_create_options::databaseProtocol</a></div><div class="ttdeci">uint8_t databaseProtocol</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:595</div></div>
+<div class="ttc" id="astructSAPoTMessage__registration_html_a6f50c11f44e1eeb02b800132b6ca2c96"><div class="ttname"><a href="structSAPoTMessage__registration.html#a6f50c11f44e1eeb02b800132b6ca2c96">SAPoTMessage_registration::actuatorQuantity</a></div><div class="ttdeci">uint8_t actuatorQuantity</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:376</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a06fb60a00af377ebff9cabe9d57232f0"><div class="ttname"><a href="structSAPoTCentral.html#a06fb60a00af377ebff9cabe9d57232f0">SAPoTCentral::modification</a></div><div class="ttdeci">SAPoTMessage_modification * modification</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:657</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_aa577cfe3c6e9b9874d400c6a40669f0f"><div class="ttname"><a href="structSAPoTCentral.html#aa577cfe3c6e9b9874d400c6a40669f0f">SAPoTCentral::error</a></div><div class="ttdeci">int error</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:630</div></div>
+<div class="ttc" id="astructSAPoTMessage__modification_html"><div class="ttname"><a href="structSAPoTMessage__modification.html">SAPoTMessage_modification</a></div><div class="ttdoc">Payload para etiquetagem de clientes no banco de dados da Central.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:516</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a71b26b67e926649343294adf9b1aded4"><div class="ttname"><a href="SAPoTCentral_8h.html#a71b26b67e926649343294adf9b1aded4">MYSQLregistration</a></div><div class="ttdeci">int MYSQLregistration()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:494</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a377932d4dd51422390490554b35ab44b"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a377932d4dd51422390490554b35ab44b">SAPoTCentral_create_options::transmissionProtocol</a></div><div class="ttdeci">uint8_t transmissionProtocol</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:577</div></div>
+<div class="ttc" id="astructSAPoTMessage__actuatorDrive_html_a47b96b8fe721aef104d7a56ffb58a1ad"><div class="ttname"><a href="structSAPoTMessage__actuatorDrive.html#a47b96b8fe721aef104d7a56ffb58a1ad">SAPoTMessage_actuatorDrive::timeSet</a></div><div class="ttdeci">uint16_t timeSet</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:553</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html"><div class="ttname"><a href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a></div><div class="ttdoc">Estrutura para definir as opções de criação de uma Central SAPoT.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:572</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a7c3440b33fdf6149a7b0f12cdcc435a9"><div class="ttname"><a href="SAPoTCentral_8h.html#a7c3440b33fdf6149a7b0f12cdcc435a9">SAPoTCentral_begin</a></div><div class="ttdeci">int SAPoTCentral_begin(SAPoTCentral *userPointer, SAPoTCentral_create_options *opts, const char *centralId)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:38</div></div>
+<div class="ttc" id="astructSAPoTCentral_html"><div class="ttname"><a href="structSAPoTCentral.html">SAPoTCentral</a></div><div class="ttdoc">Principal estrutura para operar uma Central SAPoT.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:624</div></div>
+<div class="ttc" id="astructSAPoTMessage__header_html_a9ebea9cf36368b27ec0afb8ab9a9de78"><div class="ttname"><a href="structSAPoTMessage__header.html#a9ebea9cf36368b27ec0afb8ab9a9de78">SAPoTMessage_header::length</a></div><div class="ttdeci">uint16_t length</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:342</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_acee3fe99435196509151f39b9b9c5834"><div class="ttname"><a href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">SAPoTCentral_create_options::pass</a></div><div class="ttdeci">char * pass</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:588</div></div>
+<div class="ttc" id="astructSAPoTMessage__actuatorDrive_html"><div class="ttname"><a href="structSAPoTMessage__actuatorDrive.html">SAPoTMessage_actuatorDrive</a></div><div class="ttdoc">Payload para acionar um atuador específico em um Cliente cadastrado.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:538</div></div>
+<div class="ttc" id="astructSAPoTMessage__registration_html_adde9d38e7532a5b4322b03f52d181570"><div class="ttname"><a href="structSAPoTMessage__registration.html#adde9d38e7532a5b4322b03f52d181570">SAPoTMessage_registration::clientType</a></div><div class="ttdeci">uint16_t clientType</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:370</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_aaf6530ab12307ca588e44236ac985b35"><div class="ttname"><a href="SAPoTCentral_8h.html#aaf6530ab12307ca588e44236ac985b35">CTRLactuator</a></div><div class="ttdeci">int CTRLactuator(int(*publish)(char *, void *, unsigned int))</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:739</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_ad7895042774d348ddce8e52dd2b66693"><div class="ttname"><a href="SAPoTCentral_8h.html#ad7895042774d348ddce8e52dd2b66693">MQTTdeliveryComplete</a></div><div class="ttdeci">void MQTTdeliveryComplete(void *context, MQTTClient_deliveryToken dt)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:407</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a9e8f80d3202a3cb91d727214db781e66"><div class="ttname"><a href="SAPoTCentral_8h.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message</a></div><div class="ttdeci">int SAPoTCentral_unpack_message(void *message, int messageLen)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:157</div></div>
+<div class="ttc" id="astructSAPoTMessage__access_html_a20e7d148e832c2cec39b458d641b5e4b"><div class="ttname"><a href="structSAPoTMessage__access.html#a20e7d148e832c2cec39b458d641b5e4b">SAPoTMessage_access::sensor</a></div><div class="ttdeci">uint8_t sensor</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:466</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_a76c4c014a610e6c71b7e10a21a5ce2b7"><div class="ttname"><a href="structSAPoTCentral.html#a76c4c014a610e6c71b7e10a21a5ce2b7">SAPoTCentral::solicitation</a></div><div class="ttdeci">SAPoTMessage_solicitation * solicitation</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:660</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_af6a4ae2e16df8b51e66a45ef7956a2ce"><div class="ttname"><a href="structSAPoTCentral.html#af6a4ae2e16df8b51e66a45ef7956a2ce">SAPoTCentral::outMessage</a></div><div class="ttdeci">void * outMessage</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:645</div></div>
+<div class="ttc" id="astructSAPoTMessage__access_html_ad965e46556b40a2169f93a27dba5c487"><div class="ttname"><a href="structSAPoTMessage__access.html#ad965e46556b40a2169f93a27dba5c487">SAPoTMessage_access::type</a></div><div class="ttdeci">uint16_t type</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:463</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

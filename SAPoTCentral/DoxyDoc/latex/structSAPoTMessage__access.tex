@@ -1,0 +1,76 @@
+\hypertarget{structSAPoTMessage__access}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+access}
+\label{structSAPoTMessage__access}\index{SAPoTMessage\_access@{SAPoTMessage\_access}}
+
+
+Estrutura para acesso à informação dos clientes cadastrados.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__access_afc9c945f56df1aef4980d904742c08a2}{label}} \mbox{[}10\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__access_abeb00ba0a7d53318118171102f7af89c}{id}} \mbox{[}18\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__access_ad965e46556b40a2169f93a27dba5c487}{type}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__access_a20e7d148e832c2cec39b458d641b5e4b}{sensor}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__access_a22d4f86be3e5f4ca776f3e61e8ccce53}{actuator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estrutura para acesso à informação dos clientes cadastrados. 
+
+Em uma solicitação de acesso realizada pelo usuário (instrução = 0x04) a Central busca em seu banco de dados as informações dos clientes cadastrados. Dessa forma, ela precisa organizar essas informações em uma carga útil para a mensagem de resposta ao usuário. Portanto, a \mbox{\hyperlink{structSAPoTMessage__access}{S\+A\+Po\+T\+Message\+\_\+access}} funciona como um ponteiro tanto para escrever, quanto para ler as informações daquela carga útil. As informações pertinentes à requisição de acesso são estruturadas em seções de 32 bytes, para cada cliente cadastrado na central, da seguinte maneira\+: 10 bytes para etiqueta, 18 bytes para o endereço M\+AC (X\+X\+:\+X\+X\+:\+X\+X\+:\+X\+X\+:\+XX\+:XX), 2 bytes para o tipo de cliente, 1 byte para quantidade de sensores e o último byte para quantidade de atuadores. ~\newline
+ 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__access_a22d4f86be3e5f4ca776f3e61e8ccce53}\label{structSAPoTMessage__access_a22d4f86be3e5f4ca776f3e61e8ccce53}} 
+\index{SAPoTMessage\_access@{SAPoTMessage\_access}!actuator@{actuator}}
+\index{actuator@{actuator}!SAPoTMessage\_access@{SAPoTMessage\_access}}
+\doxysubsubsection{\texorpdfstring{actuator}{actuator}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+access\+::actuator}
+
+Quantidade de atuadores \mbox{\Hypertarget{structSAPoTMessage__access_abeb00ba0a7d53318118171102f7af89c}\label{structSAPoTMessage__access_abeb00ba0a7d53318118171102f7af89c}} 
+\index{SAPoTMessage\_access@{SAPoTMessage\_access}!id@{id}}
+\index{id@{id}!SAPoTMessage\_access@{SAPoTMessage\_access}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+access\+::id\mbox{[}18\mbox{]}}
+
+Identificador de Macaddr \mbox{\Hypertarget{structSAPoTMessage__access_afc9c945f56df1aef4980d904742c08a2}\label{structSAPoTMessage__access_afc9c945f56df1aef4980d904742c08a2}} 
+\index{SAPoTMessage\_access@{SAPoTMessage\_access}!label@{label}}
+\index{label@{label}!SAPoTMessage\_access@{SAPoTMessage\_access}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+access\+::label\mbox{[}10\mbox{]}}
+
+Etiqueta referente ao cadastrado \mbox{\Hypertarget{structSAPoTMessage__access_a20e7d148e832c2cec39b458d641b5e4b}\label{structSAPoTMessage__access_a20e7d148e832c2cec39b458d641b5e4b}} 
+\index{SAPoTMessage\_access@{SAPoTMessage\_access}!sensor@{sensor}}
+\index{sensor@{sensor}!SAPoTMessage\_access@{SAPoTMessage\_access}}
+\doxysubsubsection{\texorpdfstring{sensor}{sensor}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+access\+::sensor}
+
+Quantidade de sensores \mbox{\Hypertarget{structSAPoTMessage__access_ad965e46556b40a2169f93a27dba5c487}\label{structSAPoTMessage__access_ad965e46556b40a2169f93a27dba5c487}} 
+\index{SAPoTMessage\_access@{SAPoTMessage\_access}!type@{type}}
+\index{type@{type}!SAPoTMessage\_access@{SAPoTMessage\_access}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+access\+::type}
+
+Tipo de Cliente\+:~\newline
+ 0x00\+: Interface do Usuário (U\+SR) ~\newline
+0x01\+: Sistema de Monitoramento e Controle para Ambientes Internos (S\+M\+C\+AI) ~\newline
+0x02\+: Sistema de Monitoramento e Controle para Ambientes Externos (S\+M\+C\+AE) ~\newline
+0x03\+: Sistema de Monitoramento de Rede Elétrica (S\+M\+RE) ~\newline
+0x04\+: Sistema de Monitoramento de Rede Hidráulica (S\+M\+RH) ~\newline
+0x05\+: Sistema de Reconhecimento Facial (S\+RF) ~\newline
+0x06 a 0x\+FF\+: Reservado para uso futuro. ~\newline
+
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

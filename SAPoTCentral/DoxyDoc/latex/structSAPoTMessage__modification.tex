@@ -1,0 +1,43 @@
+\hypertarget{structSAPoTMessage__modification}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+modification}
+\label{structSAPoTMessage__modification}\index{SAPoTMessage\_modification@{SAPoTMessage\_modification}}
+
+
+Payload para etiquetagem de clientes no banco de dados da Central.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__modification_a512943cebf2035303d8ef662471a31c1}{macaddr}} \mbox{[}18\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__modification_a18bb1233b5e0cc709549e7f938c9e34d}{label}} \mbox{[}11\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Payload para etiquetagem de clientes no banco de dados da Central. 
+
+Payload enviado pelo Usuário e recebido pela Central. Tem o intuito de relacionar o endereço M\+AC de um Cliente já cadastrado a uma etiqueta definida pelo usuário. Dessa forma, a resolução de nomes dos Clientes fica mais intuitiva para as solicitações do Usuário . Esse payload possui 29 bytes de comprimento divididos em\+: 18 bytes identificadores do endereço M\+AC cadastrado, seguidos por 11 bytes referentes a etiqueta definida pelo usuário. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__modification_a18bb1233b5e0cc709549e7f938c9e34d}\label{structSAPoTMessage__modification_a18bb1233b5e0cc709549e7f938c9e34d}} 
+\index{SAPoTMessage\_modification@{SAPoTMessage\_modification}!label@{label}}
+\index{label@{label}!SAPoTMessage\_modification@{SAPoTMessage\_modification}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+modification\+::label\mbox{[}11\mbox{]}}
+
+Etiqueta \mbox{\Hypertarget{structSAPoTMessage__modification_a512943cebf2035303d8ef662471a31c1}\label{structSAPoTMessage__modification_a512943cebf2035303d8ef662471a31c1}} 
+\index{SAPoTMessage\_modification@{SAPoTMessage\_modification}!macaddr@{macaddr}}
+\index{macaddr@{macaddr}!SAPoTMessage\_modification@{SAPoTMessage\_modification}}
+\doxysubsubsection{\texorpdfstring{macaddr}{macaddr}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+modification\+::macaddr\mbox{[}18\mbox{]}}
+
+Identificador do macaddr que será etiquetado 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

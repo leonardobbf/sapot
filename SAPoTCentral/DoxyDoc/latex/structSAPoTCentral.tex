@@ -1,0 +1,131 @@
+\hypertarget{structSAPoTCentral}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Central}
+\label{structSAPoTCentral}\index{SAPoTCentral@{SAPoTCentral}}
+
+
+Principal estrutura para operar uma Central S\+A\+PoT.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{structSAPoTCentral_a484d982f903b67d1b600e298ab2cdf7d}{id}}
+\item 
+int \mbox{\hyperlink{structSAPoTCentral_aa577cfe3c6e9b9874d400c6a40669f0f}{error}}
+\item 
+bool \mbox{\hyperlink{structSAPoTCentral_a58a030a90900c679c17c0240f6c04e5b}{in\+Loop}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTCentral_a18082f2ba1f48af7d32b79a0c4eb062e}{serial}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{structSAPoTCentral_a117b0af3538d8d76272de2a94763cea7}{in\+Message}}
+\item 
+void $\ast$ \mbox{\hyperlink{structSAPoTCentral_af6a4ae2e16df8b51e66a45ef7956a2ce}{out\+Message}}
+\item 
+\mbox{\hyperlink{structSAPoTMessage__header}{S\+A\+Po\+T\+Message\+\_\+header}} $\ast$ \mbox{\hyperlink{structSAPoTCentral_ae8c73d026c8a37117417ec5b63b167a3}{header}}
+\item 
+\mbox{\hyperlink{structSAPoTMessage__registration}{S\+A\+Po\+T\+Message\+\_\+registration}} $\ast$ \mbox{\hyperlink{structSAPoTCentral_aceb7fb023074ab7cf2c20b699bec8160}{registration}}
+\item 
+\mbox{\hyperlink{structSAPoTMessage__record}{S\+A\+Po\+T\+Message\+\_\+record}} $\ast$ \mbox{\hyperlink{structSAPoTCentral_ad565bd56541e71d520b06b04428f1827}{record}}
+\item 
+\mbox{\hyperlink{structSAPoTMessage__modification}{S\+A\+Po\+T\+Message\+\_\+modification}} $\ast$ \mbox{\hyperlink{structSAPoTCentral_a06fb60a00af377ebff9cabe9d57232f0}{modification}}
+\item 
+\mbox{\hyperlink{structSAPoTMessage__solicitation}{S\+A\+Po\+T\+Message\+\_\+solicitation}} $\ast$ \mbox{\hyperlink{structSAPoTCentral_a76c4c014a610e6c71b7e10a21a5ce2b7}{solicitation}}
+\item 
+M\+Q\+T\+T\+Client \mbox{\hyperlink{structSAPoTCentral_a854bd7bb4bf7d718505c0600fe07cb87}{M\+Q\+T\+Tclient}}
+\item 
+M\+Y\+S\+QL \mbox{\hyperlink{structSAPoTCentral_a5072a32daadd71cd88548a07956e904b}{M\+Y\+S\+Q\+Lclient}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Principal estrutura para operar uma Central S\+A\+PoT. 
+
+Essa estrutura armazena as ferramentas necessárias para recepção, manipulação e envio de mensagem na Central S\+A\+PoT, bem como os maniuladores dos clientes M\+Q\+TT e My\+S\+QL. Além disso, existem outras informações e flags importantes como\+: o identificador da Central no formato de endereço M\+AC, o indicador de erro, o contador serial de mensagens enviadas pela central e a flag de autorização da rotina de repetição \mbox{\hyperlink{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop()}}. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTCentral_aa577cfe3c6e9b9874d400c6a40669f0f}\label{structSAPoTCentral_aa577cfe3c6e9b9874d400c6a40669f0f}} 
+\index{SAPoTCentral@{SAPoTCentral}!error@{error}}
+\index{error@{error}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+::error}
+
+Indicador de numero de erro \mbox{\Hypertarget{structSAPoTCentral_ae8c73d026c8a37117417ec5b63b167a3}\label{structSAPoTCentral_ae8c73d026c8a37117417ec5b63b167a3}} 
+\index{SAPoTCentral@{SAPoTCentral}!header@{header}}
+\index{header@{header}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{header}{header}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTMessage__header}{S\+A\+Po\+T\+Message\+\_\+header}}$\ast$ S\+A\+Po\+T\+Central\+::header}
+
+Ponteiro para o cabeçalho da mensagem recebida \mbox{\Hypertarget{structSAPoTCentral_a484d982f903b67d1b600e298ab2cdf7d}\label{structSAPoTCentral_a484d982f903b67d1b600e298ab2cdf7d}} 
+\index{SAPoTCentral@{SAPoTCentral}!id@{id}}
+\index{id@{id}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily const char$\ast$ S\+A\+Po\+T\+Central\+::id}
+
+identificador da Central no formato macaddr (xx\+:xx\+:xx\+:xx\+:xx\+:xx) \mbox{\Hypertarget{structSAPoTCentral_a58a030a90900c679c17c0240f6c04e5b}\label{structSAPoTCentral_a58a030a90900c679c17c0240f6c04e5b}} 
+\index{SAPoTCentral@{SAPoTCentral}!inLoop@{inLoop}}
+\index{inLoop@{inLoop}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{inLoop}{inLoop}}
+{\footnotesize\ttfamily bool S\+A\+Po\+T\+Central\+::in\+Loop}
+
+Flag que permite a execução da \mbox{\hyperlink{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop()}} se a Central for inciada corretamente via \mbox{\hyperlink{SAPoTCentral_8c_a96d4874e6303a37c5f3866ab5c2bb6d9}{S\+A\+Po\+T\+Central\+\_\+begin()}}. \mbox{\Hypertarget{structSAPoTCentral_a117b0af3538d8d76272de2a94763cea7}\label{structSAPoTCentral_a117b0af3538d8d76272de2a94763cea7}} 
+\index{SAPoTCentral@{SAPoTCentral}!inMessage@{inMessage}}
+\index{inMessage@{inMessage}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{inMessage}{inMessage}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ S\+A\+Po\+T\+Central\+::in\+Message}
+
+Ponteiro indicador da mensagem recebida \mbox{\Hypertarget{structSAPoTCentral_a06fb60a00af377ebff9cabe9d57232f0}\label{structSAPoTCentral_a06fb60a00af377ebff9cabe9d57232f0}} 
+\index{SAPoTCentral@{SAPoTCentral}!modification@{modification}}
+\index{modification@{modification}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{modification}{modification}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTMessage__modification}{S\+A\+Po\+T\+Message\+\_\+modification}}$\ast$ S\+A\+Po\+T\+Central\+::modification}
+
+Ponteiro para o payload de modificação de informação \mbox{\Hypertarget{structSAPoTCentral_a854bd7bb4bf7d718505c0600fe07cb87}\label{structSAPoTCentral_a854bd7bb4bf7d718505c0600fe07cb87}} 
+\index{SAPoTCentral@{SAPoTCentral}!MQTTclient@{MQTTclient}}
+\index{MQTTclient@{MQTTclient}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{MQTTclient}{MQTTclient}}
+{\footnotesize\ttfamily M\+Q\+T\+T\+Client S\+A\+Po\+T\+Central\+::\+M\+Q\+T\+Tclient}
+
+Objeto referente ao cliente M\+Q\+TT \mbox{\Hypertarget{structSAPoTCentral_a5072a32daadd71cd88548a07956e904b}\label{structSAPoTCentral_a5072a32daadd71cd88548a07956e904b}} 
+\index{SAPoTCentral@{SAPoTCentral}!MYSQLclient@{MYSQLclient}}
+\index{MYSQLclient@{MYSQLclient}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{MYSQLclient}{MYSQLclient}}
+{\footnotesize\ttfamily M\+Y\+S\+QL S\+A\+Po\+T\+Central\+::\+M\+Y\+S\+Q\+Lclient}
+
+Objeto referente ao cliente M\+Y\+S\+QL \mbox{\Hypertarget{structSAPoTCentral_af6a4ae2e16df8b51e66a45ef7956a2ce}\label{structSAPoTCentral_af6a4ae2e16df8b51e66a45ef7956a2ce}} 
+\index{SAPoTCentral@{SAPoTCentral}!outMessage@{outMessage}}
+\index{outMessage@{outMessage}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{outMessage}{outMessage}}
+{\footnotesize\ttfamily void$\ast$ S\+A\+Po\+T\+Central\+::out\+Message}
+
+Ponteiro indicador da mensagem a ser enviada para o Usuário \mbox{\Hypertarget{structSAPoTCentral_ad565bd56541e71d520b06b04428f1827}\label{structSAPoTCentral_ad565bd56541e71d520b06b04428f1827}} 
+\index{SAPoTCentral@{SAPoTCentral}!record@{record}}
+\index{record@{record}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{record}{record}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTMessage__record}{S\+A\+Po\+T\+Message\+\_\+record}}$\ast$ S\+A\+Po\+T\+Central\+::record}
+
+Ponteiro para o payload de registro de informação \mbox{\Hypertarget{structSAPoTCentral_aceb7fb023074ab7cf2c20b699bec8160}\label{structSAPoTCentral_aceb7fb023074ab7cf2c20b699bec8160}} 
+\index{SAPoTCentral@{SAPoTCentral}!registration@{registration}}
+\index{registration@{registration}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{registration}{registration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTMessage__registration}{S\+A\+Po\+T\+Message\+\_\+registration}}$\ast$ S\+A\+Po\+T\+Central\+::registration}
+
+Ponteiro para o payload de cadastro de novo cliente \mbox{\Hypertarget{structSAPoTCentral_a18082f2ba1f48af7d32b79a0c4eb062e}\label{structSAPoTCentral_a18082f2ba1f48af7d32b79a0c4eb062e}} 
+\index{SAPoTCentral@{SAPoTCentral}!serial@{serial}}
+\index{serial@{serial}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{serial}{serial}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Central\+::serial}
+
+Número serial referente as mensagem enviadas pela central \mbox{\Hypertarget{structSAPoTCentral_a76c4c014a610e6c71b7e10a21a5ce2b7}\label{structSAPoTCentral_a76c4c014a610e6c71b7e10a21a5ce2b7}} 
+\index{SAPoTCentral@{SAPoTCentral}!solicitation@{solicitation}}
+\index{solicitation@{solicitation}!SAPoTCentral@{SAPoTCentral}}
+\doxysubsubsection{\texorpdfstring{solicitation}{solicitation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTMessage__solicitation}{S\+A\+Po\+T\+Message\+\_\+solicitation}}$\ast$ S\+A\+Po\+T\+Central\+::solicitation}
+
+Ponteiro para o payload de solicitação de uso de algum cliente cadastrado 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

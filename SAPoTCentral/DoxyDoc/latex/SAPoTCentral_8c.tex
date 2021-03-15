@@ -1,0 +1,222 @@
+\hypertarget{SAPoTCentral_8c}{}\doxysection{Referência do Arquivo S\+A\+Po\+T\+Central.\+c}
+\label{SAPoTCentral_8c}\index{SAPoTCentral.c@{SAPoTCentral.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$M\+Q\+T\+T\+Client.\+h$>$}\newline
+{\ttfamily \#include $<$mysql/mysql.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}S\+A\+Po\+T\+Central.\+h\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a96d4874e6303a37c5f3866ab5c2bb6d9}{S\+A\+Po\+T\+Central\+\_\+begin}} (\mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} $\ast$central\+Handle, \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} $\ast$opts\+Handle, const char $\ast$central\+Id)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_a692a20d220d85630dbf5a789b20ef371}{S\+A\+Po\+T\+Central\+\_\+end}} ()
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a9e8f80d3202a3cb91d727214db781e66}{S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message}} (void $\ast$message, int message\+Len)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_af6cc3982bc1e61a0e5283d1b757e19ca}{S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation}} (int($\ast$publish)(char $\ast$, void $\ast$, unsigned int))
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a23d1576a8815d5a03697ea9458e17e6b}{S\+A\+Po\+T\+Central\+\_\+error}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a94f75c0b59e5618b064a4a1bb609ffa6}{M\+Q\+T\+Tconnect}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a47dfbf603689fa6491191b47b41c2757}{M\+Q\+T\+Tmessage\+Arrived}} (void $\ast$context, char $\ast$topic\+Name, int topic\+Len, M\+Q\+T\+T\+Client\+\_\+message $\ast$M\+Q\+T\+Tmsg)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_ad7895042774d348ddce8e52dd2b66693}{M\+Q\+T\+Tdelivery\+Complete}} (void $\ast$context, M\+Q\+T\+T\+Client\+\_\+delivery\+Token dt)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_a12d41058d0b06eb7899ff01b10cc6cc7}{M\+Q\+T\+Tconnection\+Lost}} (void $\ast$context, char $\ast$cause)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_aafc7f4c8be610fd729dbc5aee63556bc}{M\+Q\+T\+Tpublish}} (char $\ast$topic, void $\ast$payload, unsigned int payload\+Len)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_ab0ca1620aff9041ff2a79e7969046af0}{M\+Y\+S\+Q\+Lconnect}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a71b26b67e926649343294adf9b1aded4}{M\+Y\+S\+Q\+Lregistration}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a3a5faa7464a826ea7d2fe471fda02b39}{M\+Y\+S\+Q\+Lmodification}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a644ba1e1936d3c54f54fb436f9d238a0}{M\+Y\+S\+Q\+Laccess}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_aaf6530ab12307ca588e44236ac985b35}{C\+T\+R\+Lactuator}} (int($\ast$publish)(char $\ast$, void $\ast$, unsigned int))
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_a6da6d1909277987c5e152cfb0c28de84}{upper\+\_\+string}} (char s\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8c_a8ae07957b6385433a52b18ddff55ff67}{getmac\+ID}} (const char $\ast$M\+AC, uint8\+\_\+t ID\mbox{[}6\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} $\ast$ \mbox{\hyperlink{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}{handle}}
+\item 
+\mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} $\ast$ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}
+\item 
+volatile M\+Q\+T\+T\+Client\+\_\+delivery\+Token \mbox{\hyperlink{SAPoTCentral_8c_a3624b7b001322632240e51ddd583402f}{M\+Q\+T\+Tdeliveredtoken}}
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a6f8059414f0228f0256115e024eeed4b}{fd}}
+\item 
+void $\ast$ \mbox{\hyperlink{SAPoTCentral_8c_a4d523ae4ac23147de85134941f4ba3b9}{bff\+\_\+log}}
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8c_a28ec0ecb9995f36ade2bdf2b26f4ad58}{M\+Q\+T\+Tstatus}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{SAPoTCentral_8c_aaf6530ab12307ca588e44236ac985b35}\label{SAPoTCentral_8c_aaf6530ab12307ca588e44236ac985b35}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!CTRLactuator@{CTRLactuator}}
+\index{CTRLactuator@{CTRLactuator}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{CTRLactuator()}{CTRLactuator()}}
+{\footnotesize\ttfamily int C\+T\+R\+Lactuator (\begin{DoxyParamCaption}\item[{int($\ast$)(char $\ast$, void $\ast$, unsigned int)}]{publish }\end{DoxyParamCaption})}
+
+\mbox{[}Controle de Clientes\mbox{]} C\+T\+R\+Lactuator Estrutura que representa o resultado de uma query solicitada
+
+Dá acesso a uma linha do resultado de uma query solicitada\mbox{\Hypertarget{SAPoTCentral_8c_a8ae07957b6385433a52b18ddff55ff67}\label{SAPoTCentral_8c_a8ae07957b6385433a52b18ddff55ff67}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!getmacID@{getmacID}}
+\index{getmacID@{getmacID}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{getmacID()}{getmacID()}}
+{\footnotesize\ttfamily void getmac\+ID (\begin{DoxyParamCaption}\item[{const char $\ast$}]{M\+AC,  }\item[{uint8\+\_\+t}]{ID\mbox{[}6\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{[}Utilitário\mbox{]} getmac\+ID \mbox{\Hypertarget{SAPoTCentral_8c_a94f75c0b59e5618b064a4a1bb609ffa6}\label{SAPoTCentral_8c_a94f75c0b59e5618b064a4a1bb609ffa6}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTconnect@{MQTTconnect}}
+\index{MQTTconnect@{MQTTconnect}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTconnect()}{MQTTconnect()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tconnect \mbox{\Hypertarget{SAPoTCentral_8c_a12d41058d0b06eb7899ff01b10cc6cc7}\label{SAPoTCentral_8c_a12d41058d0b06eb7899ff01b10cc6cc7}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTconnectionLost@{MQTTconnectionLost}}
+\index{MQTTconnectionLost@{MQTTconnectionLost}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTconnectionLost()}{MQTTconnectionLost()}}
+{\footnotesize\ttfamily void M\+Q\+T\+Tconnection\+Lost (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{char $\ast$}]{cause }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tconnection\+Lost \mbox{\Hypertarget{SAPoTCentral_8c_ad7895042774d348ddce8e52dd2b66693}\label{SAPoTCentral_8c_ad7895042774d348ddce8e52dd2b66693}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTdeliveryComplete@{MQTTdeliveryComplete}}
+\index{MQTTdeliveryComplete@{MQTTdeliveryComplete}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTdeliveryComplete()}{MQTTdeliveryComplete()}}
+{\footnotesize\ttfamily void M\+Q\+T\+Tdelivery\+Complete (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{M\+Q\+T\+T\+Client\+\_\+delivery\+Token}]{dt }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tdelivery\+Complete \mbox{\Hypertarget{SAPoTCentral_8c_a47dfbf603689fa6491191b47b41c2757}\label{SAPoTCentral_8c_a47dfbf603689fa6491191b47b41c2757}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTmessageArrived@{MQTTmessageArrived}}
+\index{MQTTmessageArrived@{MQTTmessageArrived}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTmessageArrived()}{MQTTmessageArrived()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tmessage\+Arrived (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{char $\ast$}]{topic\+Name,  }\item[{int}]{topic\+Len,  }\item[{M\+Q\+T\+T\+Client\+\_\+message $\ast$}]{M\+Q\+T\+Tmsg }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tmessage\+Arrived \mbox{\Hypertarget{SAPoTCentral_8c_aafc7f4c8be610fd729dbc5aee63556bc}\label{SAPoTCentral_8c_aafc7f4c8be610fd729dbc5aee63556bc}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTpublish@{MQTTpublish}}
+\index{MQTTpublish@{MQTTpublish}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTpublish()}{MQTTpublish()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tpublish (\begin{DoxyParamCaption}\item[{char $\ast$}]{topic,  }\item[{void $\ast$}]{payload,  }\item[{unsigned int}]{payload\+Len }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tpublish \mbox{\Hypertarget{SAPoTCentral_8c_a644ba1e1936d3c54f54fb436f9d238a0}\label{SAPoTCentral_8c_a644ba1e1936d3c54f54fb436f9d238a0}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MYSQLaccess@{MYSQLaccess}}
+\index{MYSQLaccess@{MYSQLaccess}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MYSQLaccess()}{MYSQLaccess()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Laccess (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lacess \mbox{\Hypertarget{SAPoTCentral_8c_ab0ca1620aff9041ff2a79e7969046af0}\label{SAPoTCentral_8c_ab0ca1620aff9041ff2a79e7969046af0}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MYSQLconnect@{MYSQLconnect}}
+\index{MYSQLconnect@{MYSQLconnect}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MYSQLconnect()}{MYSQLconnect()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lconnect \mbox{\Hypertarget{SAPoTCentral_8c_a3a5faa7464a826ea7d2fe471fda02b39}\label{SAPoTCentral_8c_a3a5faa7464a826ea7d2fe471fda02b39}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MYSQLmodification@{MYSQLmodification}}
+\index{MYSQLmodification@{MYSQLmodification}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MYSQLmodification()}{MYSQLmodification()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lmodification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lmodification \mbox{\Hypertarget{SAPoTCentral_8c_a71b26b67e926649343294adf9b1aded4}\label{SAPoTCentral_8c_a71b26b67e926649343294adf9b1aded4}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MYSQLregistration@{MYSQLregistration}}
+\index{MYSQLregistration@{MYSQLregistration}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MYSQLregistration()}{MYSQLregistration()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lregistration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lregistration Estrutura que representa o resultado de uma query solicitada
+
+Dá acesso a uma linha do resultado de uma query solicitada\mbox{\Hypertarget{SAPoTCentral_8c_a96d4874e6303a37c5f3866ab5c2bb6d9}\label{SAPoTCentral_8c_a96d4874e6303a37c5f3866ab5c2bb6d9}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_begin@{SAPoTCentral\_begin}}
+\index{SAPoTCentral\_begin@{SAPoTCentral\_begin}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_begin()}{SAPoTCentral\_begin()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} $\ast$}]{central\+Handle,  }\item[{\mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} $\ast$}]{opts\+Handle,  }\item[{const char $\ast$}]{central\+Id }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+begin \mbox{\Hypertarget{SAPoTCentral_8c_a692a20d220d85630dbf5a789b20ef371}\label{SAPoTCentral_8c_a692a20d220d85630dbf5a789b20ef371}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_end@{SAPoTCentral\_end}}
+\index{SAPoTCentral\_end@{SAPoTCentral\_end}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_end()}{SAPoTCentral\_end()}}
+{\footnotesize\ttfamily void S\+A\+Po\+T\+Central\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+end \mbox{\Hypertarget{SAPoTCentral_8c_a23d1576a8815d5a03697ea9458e17e6b}\label{SAPoTCentral_8c_a23d1576a8815d5a03697ea9458e17e6b}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_error@{SAPoTCentral\_error}}
+\index{SAPoTCentral\_error@{SAPoTCentral\_error}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_error()}{SAPoTCentral\_error()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+error \mbox{\Hypertarget{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}\label{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_loop@{SAPoTCentral\_loop}}
+\index{SAPoTCentral\_loop@{SAPoTCentral\_loop}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_loop()}{SAPoTCentral\_loop()}}
+{\footnotesize\ttfamily void S\+A\+Po\+T\+Central\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+loop \mbox{\Hypertarget{SAPoTCentral_8c_af6cc3982bc1e61a0e5283d1b757e19ca}\label{SAPoTCentral_8c_af6cc3982bc1e61a0e5283d1b757e19ca}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_set\_operation@{SAPoTCentral\_set\_operation}}
+\index{SAPoTCentral\_set\_operation@{SAPoTCentral\_set\_operation}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_set\_operation()}{SAPoTCentral\_set\_operation()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation (\begin{DoxyParamCaption}\item[{int($\ast$)(char $\ast$, void $\ast$, unsigned int)}]{publish }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation \mbox{\Hypertarget{SAPoTCentral_8c_a9e8f80d3202a3cb91d727214db781e66}\label{SAPoTCentral_8c_a9e8f80d3202a3cb91d727214db781e66}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!SAPoTCentral\_unpack\_message@{SAPoTCentral\_unpack\_message}}
+\index{SAPoTCentral\_unpack\_message@{SAPoTCentral\_unpack\_message}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_unpack\_message()}{SAPoTCentral\_unpack\_message()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message (\begin{DoxyParamCaption}\item[{void $\ast$}]{message,  }\item[{int}]{message\+Len }\end{DoxyParamCaption})}
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message \mbox{\Hypertarget{SAPoTCentral_8c_a6da6d1909277987c5e152cfb0c28de84}\label{SAPoTCentral_8c_a6da6d1909277987c5e152cfb0c28de84}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!upper\_string@{upper\_string}}
+\index{upper\_string@{upper\_string}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{upper\_string()}{upper\_string()}}
+{\footnotesize\ttfamily void upper\+\_\+string (\begin{DoxyParamCaption}\item[{char}]{s\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{[}Utilitário\mbox{]} upper\+\_\+string 
+
+\doxysubsection{Variáveis}
+\mbox{\Hypertarget{SAPoTCentral_8c_a4d523ae4ac23147de85134941f4ba3b9}\label{SAPoTCentral_8c_a4d523ae4ac23147de85134941f4ba3b9}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!bff\_log@{bff\_log}}
+\index{bff\_log@{bff\_log}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{bff\_log}{bff\_log}}
+{\footnotesize\ttfamily void$\ast$ bff\+\_\+log}
+
+\mbox{\Hypertarget{SAPoTCentral_8c_a6f8059414f0228f0256115e024eeed4b}\label{SAPoTCentral_8c_a6f8059414f0228f0256115e024eeed4b}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!fd@{fd}}
+\index{fd@{fd}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{fd}{fd}}
+{\footnotesize\ttfamily int fd}
+
+\mbox{\Hypertarget{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}\label{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!handle@{handle}}
+\index{handle@{handle}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}$\ast$ handle}
+
+\mbox{\Hypertarget{SAPoTCentral_8c_a3624b7b001322632240e51ddd583402f}\label{SAPoTCentral_8c_a3624b7b001322632240e51ddd583402f}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTdeliveredtoken@{MQTTdeliveredtoken}}
+\index{MQTTdeliveredtoken@{MQTTdeliveredtoken}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTdeliveredtoken}{MQTTdeliveredtoken}}
+{\footnotesize\ttfamily volatile M\+Q\+T\+T\+Client\+\_\+delivery\+Token M\+Q\+T\+Tdeliveredtoken}
+
+\mbox{\Hypertarget{SAPoTCentral_8c_a28ec0ecb9995f36ade2bdf2b26f4ad58}\label{SAPoTCentral_8c_a28ec0ecb9995f36ade2bdf2b26f4ad58}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!MQTTstatus@{MQTTstatus}}
+\index{MQTTstatus@{MQTTstatus}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{MQTTstatus}{MQTTstatus}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tstatus = -\/1}
+
+\mbox{\Hypertarget{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}\label{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}} 
+\index{SAPoTCentral.c@{SAPoTCentral.c}!opts@{opts}}
+\index{opts@{opts}!SAPoTCentral.c@{SAPoTCentral.c}}
+\doxysubsubsection{\texorpdfstring{opts}{opts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}$\ast$ opts}
+

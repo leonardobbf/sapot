@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central SAPoT: Coordenador de operações para redes IoT.</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="[Logo]SAPoT_V1_b_50x50.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Central SAPoT
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Biblioteca para a implementação de uma Central SAPoT em C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Coordenador de operações para redes IoT. </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>&copy; Copyright Associação GigaCandanga 2019, 2020.</p>
+<h1><a class="anchor" id="intro"></a>
+Introdução</h1>
+<p>O Protocolo para Sensoriamento e Atuação de Coisas (SAPoT) é um leve e enxuto protocolo de fonte aberta desenvolvido para traduzir as mensagens em uma rede IoT no modelo Central/Sentinela (vide <a href="https://drive.google.com/drive/u/2/my-drive">SAPoTv1.0 Especificação de Protocolo</a> ). Na atual versão, a Central SAPoT opera em sistemas Linux e sua rotina de operação local-padrão <br  />
+ depende dos serviços: de transmissão de dados MQTTv3.1.1 e de banco de dados MySQLv8.0. De qualquer forma, a Central SAPoT suporta outros tipos de protocolos para transmissão e armazenamento de dados que podem ser configurados manualmente pelo usuário. Para maiores detalhes veja, <a href="https://www.google.com/">Documentação SAPoTCentral</a>. </p><dl class="section see"><dt>Veja também</dt><dd><a href="http://mqtt.org/documentation">http://mqtt.org/documentation</a> </dd>
+<dd>
+<a href="https://dev.mysql.com/doc/refman/8.0/en/">https://dev.mysql.com/doc/refman/8.0/en/</a></dd></dl>
+<h1><a class="anchor" id="utilizacao"></a>
+Utilizando a Central</h1>
+<p>As aplicações que utilizam essa biblioteca geralmente são implementadas da seguinte maneira: </p><ul>
+<li>
+Cria-se uma entidade <a class="el" href="structSAPoTCentral.html" title="Principal estrutura para operar uma Central SAPoT.">SAPoTCentral</a>  </li>
+<li>
+Crie-se uma constante <a class="el" href="structSAPoTCentral__create__options.html" title="Estrutura para definir as opções de criação de uma Central SAPoT.">SAPoTCentral_create_options</a>, inicializando-a através da definição SAPOTCENTRAL_OPTS_STDLOCAL  </li>
+<li>
+Inicia-se as operações da Central através da função <a class="el" href="SAPoTCentral_8h.html#a7c3440b33fdf6149a7b0f12cdcc435a9">SAPoTCentral_begin()</a> </li>
+<li>
+Inicia-se a rotina de repetição através de <a class="el" href="SAPoTCentral_8h.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop()</a> que opera da seguinte maneira: <ul>
+<li>
+Recebe a mensagem do broker via <a class="el" href="SAPoTCentral_8h.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived()</a>  </li>
+<li>
+Estrutura a mensagem via <a class="el" href="SAPoTCentral_8h.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message()</a>  </li>
+<li>
+Executa a operação referente à instrução recebida via <a class="el" href="SAPoTCentral_8h.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation()</a>  </li>
+</ul>
+</li>
+<li>
+Finaliza-se os serviços da Central através da função <a class="el" href="SAPoTCentral_8h.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end()</a> </li>
+</ul>
+<p>O código a seguir mostra uma simples aplicação que utiliza da <a class="el" href="SAPoTCentral_8h.html">SAPoTCentral.h</a> em sua configuração local-padrão:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="SAPoTCentral_8h.html">SAPoTCentral.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define MQTT_USER &quot;user&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_PASS &quot;password&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MYSQL_USER &quot;user&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MYSQL_PASS &quot;password&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MYSQL_DIR &quot;directory&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//Objeto para manipulação da Central</span></div>
+<div class="line"><a class="code" href="structSAPoTCentral.html">SAPoTCentral</a> <a class="code" href="SAPoTCentral_8c.html#ad1b32a3733b79b2f9e96acaa89492e93">handle</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code" href="main_8c.html#afc8872f109261b5a9732e63a809078cf">signalHandling</a>(<span class="keywordtype">int</span> signum){</div>
+<div class="line"> </div>
+<div class="line"> printf(<span class="stringliteral">&quot;Finalizando a Central SAPoT...\n&quot;</span>);</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a>();</div>
+<div class="line"> exit(1);</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]) {</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">//Tratrando o sinal de terminação (Ctrl + C)</span></div>
+<div class="line"> signal(SIGINT, <a class="code" href="main_8c.html#afc8872f109261b5a9732e63a809078cf">signalHandling</a>);</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">//Definindo o identificador da Central</span></div>
+<div class="line"> <span class="keyword">const</span> <span class="keywordtype">char</span>* centralId = <span class="stringliteral">&quot;00:00:00:00:00:00&quot;</span>;</div>
+<div class="line">    </div>
+<div class="line"> <span class="comment">//Configurando as opções de inicialização da central</span></div>
+<div class="line"> <a class="code" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a> = <a class="code" href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a>;</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>.<a class="code" href="structSAPoTCentral__create__options.html#af3c459698d3bbd546220fb944c55cedd">transmission</a>.<a class="code" href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">user</a> = MQTT_USER;</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>.<a class="code" href="structSAPoTCentral__create__options.html#af3c459698d3bbd546220fb944c55cedd">transmission</a>.<a class="code" href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">pass</a> = MQTT_PASS;</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>.<a class="code" href="structSAPoTCentral__create__options.html#a4f2228a9e207b9b8f519889bf89b0cda">database</a>.<a class="code" href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">user</a> = MYSQL_USER;</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>.<a class="code" href="structSAPoTCentral__create__options.html#a4f2228a9e207b9b8f519889bf89b0cda">database</a>.<a class="code" href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">pass</a> = MYSQL_PASS;</div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>.<a class="code" href="structSAPoTCentral__create__options.html#a4f2228a9e207b9b8f519889bf89b0cda">database</a>.<a class="code" href="structSAPoTCentral__create__options.html#a91570d1b8a2f2e29619356ed513e5711">dir</a> = MYSQL_DIR;</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">//Iniciando os serviços da Central</span></div>
+<div class="line"> <span class="keywordflow">if</span>(<a class="code" href="SAPoTCentral_8c.html#a96d4874e6303a37c5f3866ab5c2bb6d9">SAPoTCentral_begin</a>(&amp;<a class="code" href="SAPoTCentral_8c.html#ad1b32a3733b79b2f9e96acaa89492e93">handle</a>, &amp;<a class="code" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a>, centralId) != <a class="code" href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a>){</div>
+<div class="line">    printf(<span class="stringliteral">&quot;SAPoTCentral_begin error (%d)&quot;</span>, <a class="code" href="SAPoTCentral_8c.html#ad1b32a3733b79b2f9e96acaa89492e93">handle</a>.<a class="code" href="structSAPoTCentral.html#aa577cfe3c6e9b9874d400c6a40669f0f">error</a>);</div>
+<div class="line">    <span class="keywordflow">return</span> -1;</div>
+<div class="line"> }</div>
+<div class="line">    </div>
+<div class="line"> <span class="comment">//Entrando em modo loop    </span></div>
+<div class="line"> <a class="code" href="SAPoTCentral_8c.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a>(); </div>
+<div class="line">        </div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line"> </div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="pre_req"></a>
+Pré-requisitos</h1>
+<p>O usuário com a inteção de utilizar a central no modelo local-padrão deve instalar na mesma máquina que rodará sua aplicação um broker MQTTv3.1.1, bem como um servidor MYSQLv8.0. Para o servidor MQTT não existe configurações adicionais além das demandadas em sua instalação. Portanto apenas instale seu broker de preferência e inicie o serviço na máquina.</p>
+<p><b>Configurando o servidor MySQL</b><br  />
+ </p><ul>
+<li>
+Após a instalação do servidor MySQLv8.0, abra um terminal e acesse o serviço  <div class="fragment"><div class="line">mysql -u root -p   </div>
+</div><!-- fragment --> </li>
+<li>
+Após digitar a senha de root e acessar o banco de dados, crie um diretorio chamado db_UCC  <div class="fragment"><div class="line"><span class="keyword">CREATE</span> DATABASE db_UCC;</div>
+</div><!-- fragment --> </li>
+<li>
+Verifique se o diretório foi criado corretamente e então o acesse <div class="fragment"><div class="line">SHOW DATABASES;</div>
+<div class="line">USE db_UCC;</div>
+</div><!-- fragment --> </li>
+<li>
+Uma vez dentro do diretório crie uma tabela chamada tb_cadastrados <div class="fragment"><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tb_cadastrados(</div>
+<div class="line"> id <span class="keywordtype">INT</span> <span class="keyword">NOT</span> <span class="stringliteral">NULL</span> AUTO_INCREMENT,</div>
+<div class="line"> label <span class="keywordtype">VARCHAR</span>(<span class="stringliteral">11</span>) <span class="keyword">NOT</span> <span class="stringliteral">NULL</span>,</div>
+<div class="line"> macaddr <span class="keywordtype">VARCHAR</span>(<span class="stringliteral">18</span>) <span class="keyword">NOT</span> <span class="stringliteral">NULL</span>,</div>
+<div class="line"> type <span class="keywordtype">INT</span>(<span class="stringliteral">6</span>) <span class="keyword">NOT</span> <span class="stringliteral">NULL</span>,</div>
+<div class="line"> sensor <span class="keywordtype">INT</span>(<span class="stringliteral">4</span>) <span class="keyword">NOT</span> <span class="stringliteral">NULL</span>,</div>
+<div class="line"> actuator <span class="keywordtype">INT</span>(<span class="stringliteral">4</span>) <span class="keyword">NOT</span> <span class="stringliteral">NULL</span>,</div>
+<div class="line"> <span class="keyword">PRIMARY</span> KEY (id)</div>
+<div class="line"> );</div>
+</div><!-- fragment --> </li>
+<li>
+Com tabela devidamente configurada, deve-se criar um usuário chamado guest com senha de mesmo nome e dar a ele permissões para modificar a tabela tb_cadastrados  <div class="fragment"><div class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="stringliteral">&#39;guest&#39;</span>@<span class="stringliteral">&#39;localhost&#39;</span> IDENTIFIED <span class="keyword">BY</span> <span class="stringliteral">&#39;guest&#39;</span>;</div>
+<div class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> db_UCC.* <span class="keyword">TO</span> <span class="stringliteral">&#39;guest&#39;</span>@<span class="stringliteral">&#39;localhost&#39;</span>;</div>
+</div><!-- fragment --> </li>
+</ul>
+<p><b>Observações:</b> As configurações de login para acessar tanto o broker MQTT quanto o banco de dados podem ser alteradas, desde que se atente em modifica-las nas opções de configurações da Central. Assim como pode ser observado no código da aplicação de exemplo da seção <a class="el" href="index.html#utilizacao">Utilizando a Central</a>. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<div class="ttc" id="aSAPoTCentral_8c_html_a692a20d220d85630dbf5a789b20ef371"><div class="ttname"><a href="SAPoTCentral_8c.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a></div><div class="ttdeci">void SAPoTCentral_end()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:122</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a9d2af8ebeedfae25b58f203aa01f5d50"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a9d2af8ebeedfae25b58f203aa01f5d50">SAPoTCentral_create_options::user</a></div><div class="ttdeci">char * user</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:586</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a91570d1b8a2f2e29619356ed513e5711"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a91570d1b8a2f2e29619356ed513e5711">SAPoTCentral_create_options::dir</a></div><div class="ttdeci">char * dir</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:608</div></div>
+<div class="ttc" id="aSAPoTCentral_8c_html_a96d4874e6303a37c5f3866ab5c2bb6d9"><div class="ttname"><a href="SAPoTCentral_8c.html#a96d4874e6303a37c5f3866ab5c2bb6d9">SAPoTCentral_begin</a></div><div class="ttdeci">int SAPoTCentral_begin(SAPoTCentral *centralHandle, SAPoTCentral_create_options *optsHandle, const char *centralId)</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:38</div></div>
+<div class="ttc" id="aSAPoTCentral_8c_html_aac4a083422c3ca5810033a6549698114"><div class="ttname"><a href="SAPoTCentral_8c.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a></div><div class="ttdeci">void SAPoTCentral_loop()</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:138</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_a4f2228a9e207b9b8f519889bf89b0cda"><div class="ttname"><a href="structSAPoTCentral__create__options.html#a4f2228a9e207b9b8f519889bf89b0cda">SAPoTCentral_create_options::database</a></div><div class="ttdeci">struct SAPoTCentral_create_options::@1 database</div></div>
+<div class="ttc" id="aSAPoTCentral_8c_html_a396834ed85021a06cfa8acd7332249e9"><div class="ttname"><a href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a></div><div class="ttdeci">SAPoTCentral_create_options * opts</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:26</div></div>
+<div class="ttc" id="aSAPoTCentral_8c_html_ad1b32a3733b79b2f9e96acaa89492e93"><div class="ttname"><a href="SAPoTCentral_8c.html#ad1b32a3733b79b2f9e96acaa89492e93">handle</a></div><div class="ttdeci">SAPoTCentral * handle</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.c:25</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_af3c459698d3bbd546220fb944c55cedd"><div class="ttname"><a href="structSAPoTCentral__create__options.html#af3c459698d3bbd546220fb944c55cedd">SAPoTCentral_create_options::transmission</a></div><div class="ttdeci">struct SAPoTCentral_create_options::@0 transmission</div></div>
+<div class="ttc" id="amain_8c_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> main.c:37</div></div>
+<div class="ttc" id="astructSAPoTCentral_html_aa577cfe3c6e9b9874d400c6a40669f0f"><div class="ttname"><a href="structSAPoTCentral.html#aa577cfe3c6e9b9874d400c6a40669f0f">SAPoTCentral::error</a></div><div class="ttdeci">int error</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:630</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a231f625d9460901a8efd4e52fd589a06"><div class="ttname"><a href="SAPoTCentral_8h.html#a231f625d9460901a8efd4e52fd589a06">SAPOTCENTRAL_SUCCESS</a></div><div class="ttdeci">#define SAPOTCENTRAL_SUCCESS</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:163</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html"><div class="ttname"><a href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a></div><div class="ttdoc">Estrutura para definir as opções de criação de uma Central SAPoT.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:572</div></div>
+<div class="ttc" id="astructSAPoTCentral_html"><div class="ttname"><a href="structSAPoTCentral.html">SAPoTCentral</a></div><div class="ttdoc">Principal estrutura para operar uma Central SAPoT.</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:624</div></div>
+<div class="ttc" id="astructSAPoTCentral__create__options_html_acee3fe99435196509151f39b9b9c5834"><div class="ttname"><a href="structSAPoTCentral__create__options.html#acee3fe99435196509151f39b9b9c5834">SAPoTCentral_create_options::pass</a></div><div class="ttdeci">char * pass</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:588</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html"><div class="ttname"><a href="SAPoTCentral_8h.html">SAPoTCentral.h</a></div></div>
+<div class="ttc" id="amain_8c_html_afc8872f109261b5a9732e63a809078cf"><div class="ttname"><a href="main_8c.html#afc8872f109261b5a9732e63a809078cf">signalHandling</a></div><div class="ttdeci">void signalHandling(int signum)</div><div class="ttdef"><b>Definition:</b> main.c:28</div></div>
+<div class="ttc" id="aSAPoTCentral_8h_html_a099732253b21fd4fa7cd8b4c460c3300"><div class="ttname"><a href="SAPoTCentral_8h.html#a099732253b21fd4fa7cd8b4c460c3300">SAPOTCENTRAL_OPTS_STDLOCAL</a></div><div class="ttdeci">#define SAPOTCENTRAL_OPTS_STDLOCAL</div><div class="ttdef"><b>Definition:</b> SAPoTCentral.h:282</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

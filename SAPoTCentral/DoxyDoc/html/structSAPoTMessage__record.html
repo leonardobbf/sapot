@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central SAPoT: Referência da Estrutura SAPoTMessage_record</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="[Logo]SAPoT_V1_b_50x50.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Central SAPoT
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Biblioteca para a implementação de uma Central SAPoT em C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de Dados</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Estrutura SAPoTMessage_record</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação.  
+ <a href="structSAPoTMessage__record.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SAPoTCentral_8h_source.html">SAPoTCentral.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de Dados</h2></td></tr>
+<tr class="memitem:aa93ebd81018690ca5f1a3f4c72d2801d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__record.html#aa93ebd81018690ca5f1a3f4c72d2801d">dataLen</a></td></tr>
+<tr class="separator:aa93ebd81018690ca5f1a3f4c72d2801d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac394312d44305eb78b76e05095a7081f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSAPoTMessage__record.html#ac394312d44305eb78b76e05095a7081f">data</a></td></tr>
+<tr class="separator:ac394312d44305eb78b76e05095a7081f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação. </p>
+<p>A partir de uma solicitação do Usuário à Central que posteriormente é encaminhada ao Cliente, esse emite uma mensagem de resposta para a Central com as informações pertinentes à instrução recebida: 0x01: Requsição dos dados de todos os sensores (Solicitation) <br  />
+0x02: Requisição dos dados de um sensor em específico (Solicitation) <br  />
+0x03: Acionamento de um atuador em específico (Solicitation) <br  />
+ <br  />
+ Ou em casos de erro em alguma operação, o Cliente enviará uma mensagem de log para a central com a instrução 0x07. Dessa maneira, a Central utiliza da estrutura <a class="el" href="structSAPoTMessage__record.html" title="Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais: Dados dos Sensores,...">SAPoTMessage_record</a> para interpretar as informações contidadas No pacote enviado pelo Cliente. </p>
+</div><h2 class="groupheader">Campos</h2>
+<a id="ac394312d44305eb78b76e05095a7081f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac394312d44305eb78b76e05095a7081f">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SAPoTMessage_record::data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ponteiro identificador da informação a ser guardada no bando de dados. <br  />
+de acordo com a instrução recebida: <br  />
+0x01: (float*) Dados de todos os sensores <br  />
+0x02: (float) Dados de um sensor em específico <br  />
+0x03: (uint8_t) Status do atuador acionado <br  />
+0x07: (int) Log de erro <br  />
+ <br  />
+ </p>
+
+</div>
+</div>
+<a id="aa93ebd81018690ca5f1a3f4c72d2801d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93ebd81018690ca5f1a3f4c72d2801d">&#9670;&nbsp;</a></span>dataLen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t SAPoTMessage_record::dataLen</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tamanho referente à quantidade de informação recebida <br  />
+ </p>
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li><a class="el" href="SAPoTCentral_8h_source.html">SAPoTCentral.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

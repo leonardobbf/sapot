@@ -1,0 +1,118 @@
+\hypertarget{structSAPoTCentral__create__options}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}
+\label{structSAPoTCentral__create__options}\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+
+
+Estrutura para definir as opções de criação de uma Central S\+A\+PoT.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTCentral__create__options_a377932d4dd51422390490554b35ab44b}{transmission\+Protocol}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a88e36c4f5f1f00fa7c26b22f7b0123c2}{host}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a37630e63167b5c276b8868cca7eb2eb5}{port}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}{user}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}{pass}}\\
+\} \mbox{\hyperlink{structSAPoTCentral__create__options_af3c459698d3bbd546220fb944c55cedd}{transmission}}\\
+
+\end{tabbing}\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTCentral__create__options_ad8872d9093119ec3b10b24808541889a}{database\+Protocol}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a88e36c4f5f1f00fa7c26b22f7b0123c2}{host}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a37630e63167b5c276b8868cca7eb2eb5}{port}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}{user}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}{pass}}\\
+\>char $\ast$ \mbox{\hyperlink{structSAPoTCentral__create__options_a91570d1b8a2f2e29619356ed513e5711}{dir}}\\
+\} \mbox{\hyperlink{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}{database}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estrutura para definir as opções de criação de uma Central S\+A\+PoT. 
+
+Essa estrutura armazena as informações pertinentes aos serviços de transmissão e banco de dados. Na atual versão de protocolo, a Central S\+A\+PoT tem suporte apenas para o protocolo M\+Q\+TT e S\+QL. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}\label{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!database@{database}}
+\index{database@{database}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{database}{database}}
+{\footnotesize\ttfamily struct \{ ... \}  S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::database}
+
+Informações referente ao servidor de banco de dados \mbox{\Hypertarget{structSAPoTCentral__create__options_ad8872d9093119ec3b10b24808541889a}\label{structSAPoTCentral__create__options_ad8872d9093119ec3b10b24808541889a}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!databaseProtocol@{databaseProtocol}}
+\index{databaseProtocol@{databaseProtocol}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{databaseProtocol}{databaseProtocol}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::database\+Protocol}
+
+identificador de protocolo de banco de dados\+: ~\newline
+ 1\+: S\+QL ~\newline
+ \mbox{\Hypertarget{structSAPoTCentral__create__options_a91570d1b8a2f2e29619356ed513e5711}\label{structSAPoTCentral__create__options_a91570d1b8a2f2e29619356ed513e5711}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!dir@{dir}}
+\index{dir@{dir}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily char$\ast$ S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::dir}
+
+Diretório da base de dados \mbox{\Hypertarget{structSAPoTCentral__create__options_a88e36c4f5f1f00fa7c26b22f7b0123c2}\label{structSAPoTCentral__create__options_a88e36c4f5f1f00fa7c26b22f7b0123c2}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!host@{host}}
+\index{host@{host}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{host}{host}}
+{\footnotesize\ttfamily char$\ast$ S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::host}
+
+Endereço do servidor de transmissão
+
+Endereço do servidor de banco de dados \mbox{\Hypertarget{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}\label{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!pass@{pass}}
+\index{pass@{pass}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{pass}{pass}}
+{\footnotesize\ttfamily char$\ast$ S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::pass}
+
+Senha para acessar o servidor de transmissão
+
+Senha para acessar o servidor de banco de dados \mbox{\Hypertarget{structSAPoTCentral__create__options_a37630e63167b5c276b8868cca7eb2eb5}\label{structSAPoTCentral__create__options_a37630e63167b5c276b8868cca7eb2eb5}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!port@{port}}
+\index{port@{port}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily char$\ast$ S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::port}
+
+Porta de escuta do servidor de transmissão
+
+Porta de escuta do servidor de banco de dados \mbox{\Hypertarget{structSAPoTCentral__create__options_af3c459698d3bbd546220fb944c55cedd}\label{structSAPoTCentral__create__options_af3c459698d3bbd546220fb944c55cedd}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!transmission@{transmission}}
+\index{transmission@{transmission}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{transmission}{transmission}}
+{\footnotesize\ttfamily struct \{ ... \}  S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::transmission}
+
+Informações referente ao servidor de transmissão de mensagens \mbox{\Hypertarget{structSAPoTCentral__create__options_a377932d4dd51422390490554b35ab44b}\label{structSAPoTCentral__create__options_a377932d4dd51422390490554b35ab44b}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!transmissionProtocol@{transmissionProtocol}}
+\index{transmissionProtocol@{transmissionProtocol}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{transmissionProtocol}{transmissionProtocol}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::transmission\+Protocol}
+
+identificador de protocolo de transmissão\+: ~\newline
+ 1\+: M\+Q\+TT ~\newline
+ \mbox{\Hypertarget{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}\label{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}} 
+\index{SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}!user@{user}}
+\index{user@{user}!SAPoTCentral\_create\_options@{SAPoTCentral\_create\_options}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily char$\ast$ S\+A\+Po\+T\+Central\+\_\+create\+\_\+options\+::user}
+
+Usuário para acessar o servidor de transmissão
+
+Usuário para acessar o servidor de banco de dados 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

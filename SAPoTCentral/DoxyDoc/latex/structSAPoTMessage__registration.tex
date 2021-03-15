@@ -1,0 +1,79 @@
+\hypertarget{structSAPoTMessage__registration}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+registration}
+\label{structSAPoTMessage__registration}\index{SAPoTMessage\_registration@{SAPoTMessage\_registration}}
+
+
+Payload para cadastro de novo cliente.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__registration_adde9d38e7532a5b4322b03f52d181570}{client\+Type}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__registration_a5e1a389c0870f9ce74c7e8d6c9803b3e}{sensor\+Quantity}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__registration_a6f50c11f44e1eeb02b800132b6ca2c96}{actuator\+Quantity}}
+\item 
+uint16\+\_\+t $\ast$ \mbox{\hyperlink{structSAPoTMessage__registration_ad65b2ae66ef2f4769272453bb7ae52d5}{sensor\+Actuator\+Type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Payload para cadastro de novo cliente. 
+
+Payload emitido por um novo cliente que tem o intuito de se cadastrar no banco de dados da Central. Organiza-\/se em\+: 16 bits definidores do tipo de cliente, 8 bits para quantidade de sensores que operam neste cliente, 8 bits para quantidade de atuatores que operam neste cliente, um vetor com posições de 16 bits para identificar os tipos de sensores e atuadores que operam neste cliente. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__registration_a6f50c11f44e1eeb02b800132b6ca2c96}\label{structSAPoTMessage__registration_a6f50c11f44e1eeb02b800132b6ca2c96}} 
+\index{SAPoTMessage\_registration@{SAPoTMessage\_registration}!actuatorQuantity@{actuatorQuantity}}
+\index{actuatorQuantity@{actuatorQuantity}!SAPoTMessage\_registration@{SAPoTMessage\_registration}}
+\doxysubsubsection{\texorpdfstring{actuatorQuantity}{actuatorQuantity}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+registration\+::actuator\+Quantity}
+
+Quantidade de atuadores em operação no Cliente \mbox{\Hypertarget{structSAPoTMessage__registration_adde9d38e7532a5b4322b03f52d181570}\label{structSAPoTMessage__registration_adde9d38e7532a5b4322b03f52d181570}} 
+\index{SAPoTMessage\_registration@{SAPoTMessage\_registration}!clientType@{clientType}}
+\index{clientType@{clientType}!SAPoTMessage\_registration@{SAPoTMessage\_registration}}
+\doxysubsubsection{\texorpdfstring{clientType}{clientType}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+registration\+::client\+Type}
+
+Tipo de Cliente\+:~\newline
+ 0x00\+: Interface do Usuário (U\+SR) ~\newline
+0x01\+: Sistema de Monitoramento e Controle para Ambientes Internos (S\+M\+C\+AI) ~\newline
+0x02\+: Sistema de Monitoramento e Controle para Ambientes Externos (S\+M\+C\+AE) ~\newline
+0x03\+: Sistema de Monitoramento de Rede Elétrica (S\+M\+RE) ~\newline
+0x04\+: Sistema de Monitoramento de Rede Hidráulica (S\+M\+RH) ~\newline
+0x05\+: Sistema de Reconhecimento Facial (S\+RF) ~\newline
+0x06 a 0x\+FF\+: Reservado para uso futuro. ~\newline
+\mbox{\Hypertarget{structSAPoTMessage__registration_ad65b2ae66ef2f4769272453bb7ae52d5}\label{structSAPoTMessage__registration_ad65b2ae66ef2f4769272453bb7ae52d5}} 
+\index{SAPoTMessage\_registration@{SAPoTMessage\_registration}!sensorActuatorType@{sensorActuatorType}}
+\index{sensorActuatorType@{sensorActuatorType}!SAPoTMessage\_registration@{SAPoTMessage\_registration}}
+\doxysubsubsection{\texorpdfstring{sensorActuatorType}{sensorActuatorType}}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ S\+A\+Po\+T\+Message\+\_\+registration\+::sensor\+Actuator\+Type}
+
+Ponteiro identificador dos tipos de sensores e atuadores em operação no Cliente\+: ~\newline
+0x0000\+: Sensor de Temperatura (T\+MP)~\newline
+0x0001\+: Sensor de Umidade (U\+MD)~\newline
+0x0002\+: Sensor de Luminosidade (L\+UX)~\newline
+0x0003\+: Sensor de detecção de presença (D\+TP)~\newline
+0x0004\+: Câmera de captação de imagens (C\+AM)~\newline
+0x0005\+: Sensor de tensão em rede elétrica CA (V\+CA)~\newline
+0x0006\+: Sensor de corrente em rede elétrica CA (I\+CA)~\newline
+0x0007\+: Sensor de potência em rede elétrica CA (P\+CA)~\newline
+0x0008\+: Sensor de fator de potêncial em rede elétrica CA (FP)~\newline
+0x0009\+: Sensor de consumo energético em rede elétrica CA (K\+WH)~\newline
+0x000A a 0x\+F\+F\+FF\+: reservado para uso futuro. ~\newline
+ \mbox{\Hypertarget{structSAPoTMessage__registration_a5e1a389c0870f9ce74c7e8d6c9803b3e}\label{structSAPoTMessage__registration_a5e1a389c0870f9ce74c7e8d6c9803b3e}} 
+\index{SAPoTMessage\_registration@{SAPoTMessage\_registration}!sensorQuantity@{sensorQuantity}}
+\index{sensorQuantity@{sensorQuantity}!SAPoTMessage\_registration@{SAPoTMessage\_registration}}
+\doxysubsubsection{\texorpdfstring{sensorQuantity}{sensorQuantity}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+registration\+::sensor\+Quantity}
+
+Quantidade de sensores em operação no Cliente 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

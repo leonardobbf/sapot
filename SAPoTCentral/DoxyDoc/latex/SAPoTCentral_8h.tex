@@ -1,0 +1,427 @@
+\hypertarget{SAPoTCentral_8h}{}\doxysection{Referência do Arquivo S\+A\+Po\+T\+Central.\+h}
+\label{SAPoTCentral_8h}\index{SAPoTCentral.h@{SAPoTCentral.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$M\+Q\+T\+T\+Client.\+h$>$}\newline
+{\ttfamily \#include $<$mysql/mysql.\+h$>$}\newline
+\doxysubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSAPoTMessage__header}{S\+A\+Po\+T\+Message\+\_\+header}}
+\begin{DoxyCompactList}\small\item\em Cabeçalho fixo das mensagem S\+A\+PoT. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__registration}{S\+A\+Po\+T\+Message\+\_\+registration}}
+\begin{DoxyCompactList}\small\item\em Payload para cadastro de novo cliente. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__solicitation}{S\+A\+Po\+T\+Message\+\_\+solicitation}}
+\begin{DoxyCompactList}\small\item\em Payload para solicitar o acionamento ou sensoriamento de algum cliente cadastrado no banco de dados. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__access}{S\+A\+Po\+T\+Message\+\_\+access}}
+\begin{DoxyCompactList}\small\item\em Estrutura para acesso à informação dos clientes cadastrados. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__record}{S\+A\+Po\+T\+Message\+\_\+record}}
+\begin{DoxyCompactList}\small\item\em Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais\+: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__modification}{S\+A\+Po\+T\+Message\+\_\+modification}}
+\begin{DoxyCompactList}\small\item\em Payload para etiquetagem de clientes no banco de dados da Central. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTMessage__actuatorDrive}{S\+A\+Po\+T\+Message\+\_\+actuator\+Drive}}
+\begin{DoxyCompactList}\small\item\em Payload para acionar um atuador específico em um Cliente cadastrado. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}
+\begin{DoxyCompactList}\small\item\em Estrutura para definir as opções de criação de uma Central S\+A\+PoT. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}
+\begin{DoxyCompactList}\small\item\em Principal estrutura para operar uma Central S\+A\+PoT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Definições e Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_ac2b0ae25a6411389f8d7412e0aeaefb6}{S\+A\+P\+O\+T\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V\+E\+R\+S\+I\+ON}}~1
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+S\+U\+C\+C\+E\+SS}}~0
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE}}~-\/1
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a009b5267627aab67c351d043f0fc1e2d}{S\+A\+P\+O\+T\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+E\+R\+R\+OR}}~-\/2
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_afba02718a52e1311b85e24cca9d57da5}{E\+R\+R\+O\+R\+\_\+\+S\+E\+T\+T\+I\+N\+G\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}~-\/3
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a833c6cfcf6e6ff679d75d9bff80c48f8}{E\+R\+R\+O\+R\+\_\+\+S\+E\+T\+T\+I\+N\+G\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}~-\/4
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_ab46db548868b26dc49a8ac27dba01902}{E\+R\+R\+O\+R\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}~-\/5
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a912fac580f2c86c9ffc3b01420e577de}{E\+R\+R\+O\+R\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}~-\/6
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a6b2c2e49ea2a1b555d985937da02f4e7}{E\+R\+R\+O\+R\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+I\+N\+Q\+U\+I\+RY}}~-\/7
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a130c0c602edfe60aa93663b2f1cc440d}{E\+R\+R\+O\+R\+\_\+\+M\+Q\+T\+T\+\_\+\+P\+U\+B\+L\+I\+SH}}~-\/8
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a348bd63004ee143a78e94fec23082ba0}{E\+R\+R\+O\+R\+\_\+\+L\+O\+G\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON}}~-\/9
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a10b266e122ac3a1f5d7469fee7427829}{E\+R\+R\+O\+R\+\_\+\+L\+A\+B\+E\+L\+\_\+\+N\+O\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+ED}}~-\/10
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a2dc3870be25a19efa2940150507aaf71}{U\+N\+D\+E\+F\+I\+N\+ED}}~0
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_ae1abe60e35e8bef559df4270f2849f29}{M\+Q\+TT}}~1
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a7aad18faa9ed07aac5fdb9c76dc041da}{S\+QL}}~1
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL}}~\{1, \{\char`\"{}localhost\char`\"{}, \char`\"{}1883\char`\"{}, N\+U\+LL, N\+U\+LL\}, 1, \{\char`\"{}localhost\char`\"{}, \char`\"{}3306\char`\"{}, \char`\"{}guest\char`\"{}, \char`\"{}guest\char`\"{}, \char`\"{}db\+\_\+\+U\+CC\char`\"{}\}\}
+\item 
+\#define \mbox{\hyperlink{SAPoTCentral_8h_a53ab5da562709f06fe5586ab89165062}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+U\+N\+D\+E\+F\+I\+N\+E\+D\+\_\+\+P\+R\+O\+T\+O\+C\+O\+LS}}~\{0, \{N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL\}, 0, \{N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL\}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a7c3440b33fdf6149a7b0f12cdcc435a9}{S\+A\+Po\+T\+Central\+\_\+begin}} (\mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} $\ast$user\+Pointer, \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} $\ast$\mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}, const char $\ast$central\+Id)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_a692a20d220d85630dbf5a789b20ef371}{S\+A\+Po\+T\+Central\+\_\+end}} ()
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a9e8f80d3202a3cb91d727214db781e66}{S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message}} (void $\ast$message, int message\+Len)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_af6cc3982bc1e61a0e5283d1b757e19ca}{S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation}} (int($\ast$publish)(char $\ast$, void $\ast$, unsigned int))
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a23d1576a8815d5a03697ea9458e17e6b}{S\+A\+Po\+T\+Central\+\_\+error}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a94f75c0b59e5618b064a4a1bb609ffa6}{M\+Q\+T\+Tconnect}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a47dfbf603689fa6491191b47b41c2757}{M\+Q\+T\+Tmessage\+Arrived}} (void $\ast$context, char $\ast$topic\+Name, int topic\+Len, M\+Q\+T\+T\+Client\+\_\+message $\ast$M\+Q\+T\+Tmsg)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_ad7895042774d348ddce8e52dd2b66693}{M\+Q\+T\+Tdelivery\+Complete}} (void $\ast$context, M\+Q\+T\+T\+Client\+\_\+delivery\+Token dt)
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_a12d41058d0b06eb7899ff01b10cc6cc7}{M\+Q\+T\+Tconnection\+Lost}} (void $\ast$context, char $\ast$cause)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_aafc7f4c8be610fd729dbc5aee63556bc}{M\+Q\+T\+Tpublish}} (char $\ast$topic, void $\ast$payload, unsigned int payload\+Len)
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_ab0ca1620aff9041ff2a79e7969046af0}{M\+Y\+S\+Q\+Lconnect}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a71b26b67e926649343294adf9b1aded4}{M\+Y\+S\+Q\+Lregistration}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a3a5faa7464a826ea7d2fe471fda02b39}{M\+Y\+S\+Q\+Lmodification}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_a644ba1e1936d3c54f54fb436f9d238a0}{M\+Y\+S\+Q\+Laccess}} ()
+\item 
+int \mbox{\hyperlink{SAPoTCentral_8h_aaf6530ab12307ca588e44236ac985b35}{C\+T\+R\+Lactuator}} (int($\ast$publish)(char $\ast$, void $\ast$, unsigned int))
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_a6da6d1909277987c5e152cfb0c28de84}{upper\+\_\+string}} (char s\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{SAPoTCentral_8h_a8ae07957b6385433a52b18ddff55ff67}{getmac\+ID}} (const char $\ast$M\+AC, uint8\+\_\+t ID\mbox{[}6\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Definições e macros}
+\mbox{\Hypertarget{SAPoTCentral_8h_a6b2c2e49ea2a1b555d985937da02f4e7}\label{SAPoTCentral_8h_a6b2c2e49ea2a1b555d985937da02f4e7}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_DATABASE\_INQUIRY@{ERROR\_DATABASE\_INQUIRY}}
+\index{ERROR\_DATABASE\_INQUIRY@{ERROR\_DATABASE\_INQUIRY}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_DATABASE\_INQUIRY}{ERROR\_DATABASE\_INQUIRY}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+I\+N\+Q\+U\+I\+RY~-\/7}
+
+Código de Erro\+: Problemas na solicitação de uma query ao banco de dados. Indica que a central não conseguiu se comunicar com o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central S\+A\+PoT com o servidor de banco de dados. Como por exemplo, quando existe um problema com rede e a comunicação entre a Central e o servidor de banco de dados é interrompida. Contudo, esse erro também tem origem da corrupção de dados no momento em que uma query é estruturada nas funções M\+Y\+S\+Q\+L\+Registration, M\+Y\+S\+Q\+Laccess, M\+Y\+S\+Q\+Lmodification e C\+T\+R\+Lactuator. \mbox{\Hypertarget{SAPoTCentral_8h_a10b266e122ac3a1f5d7469fee7427829}\label{SAPoTCentral_8h_a10b266e122ac3a1f5d7469fee7427829}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_LABEL\_NOT\_REGISTERED@{ERROR\_LABEL\_NOT\_REGISTERED}}
+\index{ERROR\_LABEL\_NOT\_REGISTERED@{ERROR\_LABEL\_NOT\_REGISTERED}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_LABEL\_NOT\_REGISTERED}{ERROR\_LABEL\_NOT\_REGISTERED}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+L\+A\+B\+E\+L\+\_\+\+N\+O\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+ED~-\/10}
+
+Código de Erro\+: Indica que a label solicitada não esta cadastradas no banco de dados. \mbox{\Hypertarget{SAPoTCentral_8h_a348bd63004ee143a78e94fec23082ba0}\label{SAPoTCentral_8h_a348bd63004ee143a78e94fec23082ba0}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_LOG\_OPERATION@{ERROR\_LOG\_OPERATION}}
+\index{ERROR\_LOG\_OPERATION@{ERROR\_LOG\_OPERATION}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_LOG\_OPERATION}{ERROR\_LOG\_OPERATION}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+L\+O\+G\+\_\+\+O\+P\+E\+R\+A\+T\+I\+ON~-\/9}
+
+Código de Erro\+: Indica fracasso ao operar com arquivo de log. \mbox{\Hypertarget{SAPoTCentral_8h_a130c0c602edfe60aa93663b2f1cc440d}\label{SAPoTCentral_8h_a130c0c602edfe60aa93663b2f1cc440d}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_MQTT\_PUBLISH@{ERROR\_MQTT\_PUBLISH}}
+\index{ERROR\_MQTT\_PUBLISH@{ERROR\_MQTT\_PUBLISH}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_MQTT\_PUBLISH}{ERROR\_MQTT\_PUBLISH}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+M\+Q\+T\+T\+\_\+\+P\+U\+B\+L\+I\+SH~-\/8}
+
+Código de Erro\+: Problemas na publicação de uma query ao banco de dados ~\newline
+ Indica que a central não conseguiu se comunicar com o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central S\+A\+PoT com o servidor de banco de dados. Como por exemplo, quando existe um problema com rede e a comunicação entre a Central e o servidor de banco de dados é interrompida. Contudo, esse erro também tem origem da corrupção de dados na momento em que é estruturada uma query. \mbox{\Hypertarget{SAPoTCentral_8h_afba02718a52e1311b85e24cca9d57da5}\label{SAPoTCentral_8h_afba02718a52e1311b85e24cca9d57da5}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_SETTING\_DATABASE\_PROTOCOL@{ERROR\_SETTING\_DATABASE\_PROTOCOL}}
+\index{ERROR\_SETTING\_DATABASE\_PROTOCOL@{ERROR\_SETTING\_DATABASE\_PROTOCOL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SETTING\_DATABASE\_PROTOCOL}{ERROR\_SETTING\_DATABASE\_PROTOCOL}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+S\+E\+T\+T\+I\+N\+G\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+P\+R\+O\+T\+O\+C\+OL~-\/3}
+
+Código de Erro\+: Banco de dados configurado incorretamente. Indica que a \mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}} não suporta o protocolo de banco de dados ou que esse foi configurado incorretamente pelo usuário. ~\newline
+ \mbox{\Hypertarget{SAPoTCentral_8h_a833c6cfcf6e6ff679d75d9bff80c48f8}\label{SAPoTCentral_8h_a833c6cfcf6e6ff679d75d9bff80c48f8}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_SETTING\_TRANSMISSION\_PROTOCOL@{ERROR\_SETTING\_TRANSMISSION\_PROTOCOL}}
+\index{ERROR\_SETTING\_TRANSMISSION\_PROTOCOL@{ERROR\_SETTING\_TRANSMISSION\_PROTOCOL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_SETTING\_TRANSMISSION\_PROTOCOL}{ERROR\_SETTING\_TRANSMISSION\_PROTOCOL}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+S\+E\+T\+T\+I\+N\+G\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL~-\/4}
+
+Código de Erro\+: Protocolo de transmissão de dados configurado incorretamente. Indica que a \mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}} não suporta o protocolo de transmissão de dados ou que esse foi configurado incorretamente pelo usuário. ~\newline
+ \mbox{\Hypertarget{SAPoTCentral_8h_ab46db548868b26dc49a8ac27dba01902}\label{SAPoTCentral_8h_ab46db548868b26dc49a8ac27dba01902}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_STARTING\_DATABASE\_PROTOCOL@{ERROR\_STARTING\_DATABASE\_PROTOCOL}}
+\index{ERROR\_STARTING\_DATABASE\_PROTOCOL@{ERROR\_STARTING\_DATABASE\_PROTOCOL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_STARTING\_DATABASE\_PROTOCOL}{ERROR\_STARTING\_DATABASE\_PROTOCOL}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+D\+A\+T\+A\+B\+A\+S\+E\+\_\+\+P\+R\+O\+T\+O\+C\+OL~-\/5}
+
+Código de Erro\+: Problemas ao iniciar a comunicação com o serviço de banco de dados. Indica que a central não conseguiu iniciar o serviço de banco de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central S\+A\+PoT com o servidor de banco de dados. Como por exemplo, quando a Central opera em uma máquina diferente do servidor de banco de dados e existe um problema com rede aonde a comunicação entre essas duas entidades é interrompida. Contudo, esse erro também se propaga de uma incorreta configuração dos paramêtros do serviço de bando de dados. Para evita-\/lo é aconselhado que o usuário utilize um servidor local My\+S\+Q\+Lv8.\+0 e inicialize as opções de criação da Central (\mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}) através da definição S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+L\+O\+C\+AL. \mbox{\Hypertarget{SAPoTCentral_8h_a912fac580f2c86c9ffc3b01420e577de}\label{SAPoTCentral_8h_a912fac580f2c86c9ffc3b01420e577de}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!ERROR\_STARTING\_TRANSMISSION\_PROTOCOL@{ERROR\_STARTING\_TRANSMISSION\_PROTOCOL}}
+\index{ERROR\_STARTING\_TRANSMISSION\_PROTOCOL@{ERROR\_STARTING\_TRANSMISSION\_PROTOCOL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{ERROR\_STARTING\_TRANSMISSION\_PROTOCOL}{ERROR\_STARTING\_TRANSMISSION\_PROTOCOL}}
+{\footnotesize\ttfamily \#define E\+R\+R\+O\+R\+\_\+\+S\+T\+A\+R\+T\+I\+N\+G\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+I\+O\+N\+\_\+\+P\+R\+O\+T\+O\+C\+OL~-\/6}
+
+Código de Erro\+: Problemas ao iniciar a comunicação com o serviço de transmissão de dados. ~\newline
+ Indica que a central não conseguiu iniciar o serviço de transmissão de dados. Esse cógido de erro decorre geralmente de uma falha na comunicação da Central S\+A\+PoT com o servidor de transmissão de dados. Como por exemplo, quando a Central opera em uma máquina diferente do servidor de transmissão de dados e existe um problema com rede aonde a comunicação entre essas duas entidades é interrompida. Contudo, esse erro também se propaga de uma incorreta configuração dos paramêtros do serviço de transmissão de dados. Para evita-\/lo é aconselhado que o usuário utilize um servidor local M\+Q\+T\+Tv3.\+1.\+1 e inicialize as opções de criação da Central (\mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}) através da definição S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+L\+O\+C\+AL. \mbox{\Hypertarget{SAPoTCentral_8h_ae1abe60e35e8bef559df4270f2849f29}\label{SAPoTCentral_8h_ae1abe60e35e8bef559df4270f2849f29}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTT@{MQTT}}
+\index{MQTT@{MQTT}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTT}{MQTT}}
+{\footnotesize\ttfamily \#define M\+Q\+TT~1}
+
+Código de Configuração\+: Indica que o protocolo de transmissão que será usado pela central será o M\+Q\+TT \mbox{\Hypertarget{SAPoTCentral_8h_ac2b0ae25a6411389f8d7412e0aeaefb6}\label{SAPoTCentral_8h_ac2b0ae25a6411389f8d7412e0aeaefb6}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOT\_PROTOCOL\_VERSION@{SAPOT\_PROTOCOL\_VERSION}}
+\index{SAPOT\_PROTOCOL\_VERSION@{SAPOT\_PROTOCOL\_VERSION}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOT\_PROTOCOL\_VERSION}{SAPOT\_PROTOCOL\_VERSION}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V\+E\+R\+S\+I\+ON~1}
+
+Indicador da Versão do protocolo\+: Uma definição utilizada para verificar a versão do protocolo S\+A\+PoT da mensagem recebida. \mbox{\Hypertarget{SAPoTCentral_8h_a009b5267627aab67c351d043f0fc1e2d}\label{SAPoTCentral_8h_a009b5267627aab67c351d043f0fc1e2d}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOT\_VERSION\_ERROR@{SAPOT\_VERSION\_ERROR}}
+\index{SAPOT\_VERSION\_ERROR@{SAPOT\_VERSION\_ERROR}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOT\_VERSION\_ERROR}{SAPOT\_VERSION\_ERROR}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+E\+R\+R\+OR~-\/2}
+
+Código de Erro\+: Versão Invalida. Indica que o pacote recebido possui uma versão diferente de S\+A\+P\+O\+T\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+V\+E\+R\+S\+I\+ON. ~\newline
+ \mbox{\Hypertarget{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}\label{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOTCENTRAL\_FAILURE@{SAPOTCENTRAL\_FAILURE}}
+\index{SAPOTCENTRAL\_FAILURE@{SAPOTCENTRAL\_FAILURE}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOTCENTRAL\_FAILURE}{SAPOTCENTRAL\_FAILURE}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE~-\/1}
+
+Código de Retorno\+: Fracasso\+: Indica fracasso na operação realizada pela Central S\+A\+PoT. \mbox{\Hypertarget{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}\label{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOTCENTRAL\_OPTS\_STDLOCAL@{SAPOTCENTRAL\_OPTS\_STDLOCAL}}
+\index{SAPOTCENTRAL\_OPTS\_STDLOCAL@{SAPOTCENTRAL\_OPTS\_STDLOCAL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOTCENTRAL\_OPTS\_STDLOCAL}{SAPOTCENTRAL\_OPTS\_STDLOCAL}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL~\{1, \{\char`\"{}localhost\char`\"{}, \char`\"{}1883\char`\"{}, N\+U\+LL, N\+U\+LL\}, 1, \{\char`\"{}localhost\char`\"{}, \char`\"{}3306\char`\"{}, \char`\"{}guest\char`\"{}, \char`\"{}guest\char`\"{}, \char`\"{}db\+\_\+\+U\+CC\char`\"{}\}\}}
+
+Opção de inicialização (Servidores Locais). Define as opções de inicialização \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}. Indicando que o protocolo de transmissão será o M\+Q\+T\+Tv3.\+1.\+1 e que o protocolo de banco de dados será o My\+S\+Q\+Lv8.\+0. Além disso, define que os servidores estão localizados na mesma máquina em que a Central S\+A\+PoT está operando. Para o servidor M\+Q\+TT não será definido nenhum parâmetro de login (user e pass) e será definida a porta de escuta padrão como 1883. Para o servidor My\+S\+QL os parâmetros de login serão definidos como convidado (user=\textquotesingle{}guest\textquotesingle{}, pass=\textquotesingle{}guest\textquotesingle{}) e o diretório da base de dados será definido como db\+\_\+\+U\+CC (dir=\textquotesingle{}db\+\_\+\+U\+CC\textquotesingle{}). ~\newline
+ \mbox{\Hypertarget{SAPoTCentral_8h_a53ab5da562709f06fe5586ab89165062}\label{SAPoTCentral_8h_a53ab5da562709f06fe5586ab89165062}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS@{SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS}}
+\index{SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS@{SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS}{SAPOTCENTRAL\_OPTS\_UNDEFINED\_PROTOCOLS}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+U\+N\+D\+E\+F\+I\+N\+E\+D\+\_\+\+P\+R\+O\+T\+O\+C\+O\+LS~\{0, \{N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL\}, 0, \{N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL, N\+U\+LL\}\}}
+
+Opção de inicialização (Servidores Indefinidos) Define as opções de inicialização \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}. Indicando a indefinição dos protocolos de transmissão de dados e de banco de dados. Isso faz com que a função \mbox{\hyperlink{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop()}} não possa ser utilizada. Além disso, indica que o usuário utilizará outros protocolos não padronizados na \mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}. ~\newline
+ \mbox{\Hypertarget{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}\label{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPOTCENTRAL\_SUCCESS@{SAPOTCENTRAL\_SUCCESS}}
+\index{SAPOTCENTRAL\_SUCCESS@{SAPOTCENTRAL\_SUCCESS}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPOTCENTRAL\_SUCCESS}{SAPOTCENTRAL\_SUCCESS}}
+{\footnotesize\ttfamily \#define S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+S\+U\+C\+C\+E\+SS~0}
+
+Código de Retorno\+: Sucesso\+: Indica sucesso na operação realizada pela Central S\+A\+PoT. \mbox{\Hypertarget{SAPoTCentral_8h_a7aad18faa9ed07aac5fdb9c76dc041da}\label{SAPoTCentral_8h_a7aad18faa9ed07aac5fdb9c76dc041da}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SQL@{SQL}}
+\index{SQL@{SQL}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SQL}{SQL}}
+{\footnotesize\ttfamily \#define S\+QL~1}
+
+Código de Configuração\+: Indica que o protocolo de banco de dados que será usado pela central será o My\+S\+QL \mbox{\Hypertarget{SAPoTCentral_8h_a2dc3870be25a19efa2940150507aaf71}\label{SAPoTCentral_8h_a2dc3870be25a19efa2940150507aaf71}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!UNDEFINED@{UNDEFINED}}
+\index{UNDEFINED@{UNDEFINED}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{UNDEFINED}{UNDEFINED}}
+{\footnotesize\ttfamily \#define U\+N\+D\+E\+F\+I\+N\+ED~0}
+
+Código de Configuração\+: Indica que o usuário irá utilizar um protocolo não padronizado na \mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}. E portanto a função \mbox{\hyperlink{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop()}} não será utilizada. 
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{SAPoTCentral_8h_aaf6530ab12307ca588e44236ac985b35}\label{SAPoTCentral_8h_aaf6530ab12307ca588e44236ac985b35}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!CTRLactuator@{CTRLactuator}}
+\index{CTRLactuator@{CTRLactuator}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{CTRLactuator()}{CTRLactuator()}}
+{\footnotesize\ttfamily int C\+T\+R\+Lactuator (\begin{DoxyParamCaption}\item[{int($\ast$)(char $\ast$, void $\ast$, unsigned int)}]{publish }\end{DoxyParamCaption})}
+
+\mbox{[}Controle de Clientes\mbox{]} C\+T\+R\+Lactuator Estrutura que representa o resultado de uma query solicitada
+
+Dá acesso a uma linha do resultado de uma query solicitada\mbox{\Hypertarget{SAPoTCentral_8h_a8ae07957b6385433a52b18ddff55ff67}\label{SAPoTCentral_8h_a8ae07957b6385433a52b18ddff55ff67}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!getmacID@{getmacID}}
+\index{getmacID@{getmacID}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{getmacID()}{getmacID()}}
+{\footnotesize\ttfamily void getmac\+ID (\begin{DoxyParamCaption}\item[{const char $\ast$}]{M\+AC,  }\item[{uint8\+\_\+t}]{ID\mbox{[}6\mbox{]} }\end{DoxyParamCaption})}
+
+Função\+: Transforma o endereço M\+AC (string) em I\+D(uint8\+\_\+t$\ast$)
+
+\mbox{[}Utilitário\mbox{]} getmac\+ID \mbox{\Hypertarget{SAPoTCentral_8h_a94f75c0b59e5618b064a4a1bb609ffa6}\label{SAPoTCentral_8h_a94f75c0b59e5618b064a4a1bb609ffa6}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTTconnect@{MQTTconnect}}
+\index{MQTTconnect@{MQTTconnect}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTTconnect()}{MQTTconnect()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Essa função foi implementada através da biblioteca M\+Q\+T\+T\+Client.\+h desenvolvida pelo projeto Eclipse Paho. ~\newline
+ Ela tem o intuito de conectar a Central S\+A\+PoT ao broker M\+Q\+TT, através de um objeto M\+Q\+T\+T\+Client, da seguinte maneira\+: Primeiramente, ela verifica a existência de conexão com o broker e se caso a conexão não exista, ela destrói o possivel objeto M\+Q\+T\+T\+Client que esteja com problemas na conexão e o cria novamente. (veja \href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#a6e8231e8c47f6f67f7ebbb5dcb4c69c0}{\texttt{ M\+Q\+T\+T\+Client\+\_\+is\+Connected()}}, \href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#ae700c3f5cfea3813264ce95e7c8cf498}{\texttt{ M\+Q\+T\+T\+Client\+\_\+destroy()}}, \href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#a9a0518d9ca924d12c1329dbe3de5f2b6}{\texttt{ M\+Q\+T\+T\+Client\+\_\+create()}}). Após criar e configurar um novo M\+Q\+T\+T\+Client, essa função configura o recebimento de mensagens em modo assíncrono a partir da função \href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#aad27d07782991a4937ebf2f39a021f83}{\texttt{ M\+Q\+T\+T\+Client\+\_\+set\+Callbacks()}} que recebe a função \mbox{\hyperlink{SAPoTCentral_8c_a47dfbf603689fa6491191b47b41c2757}{M\+Q\+T\+Tmessage\+Arrived()}} como parâmetro para tratar as mensagens recebidas. Em seguida, o M\+Q\+T\+T\+Client requisita a conexão com o broker via \href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#aaa8ae61cd65c9dc0846df10122d7bd4e}{\texttt{ M\+Q\+T\+T\+Client\+\_\+connect()}} e se for estabelecida com sucesso, realiza-\/se a subscrição no tópico de mesmo nome do identificador da central (veja \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}). ~\newline
+
+
+\begin{DoxySeeAlso}{Veja também}
+\href{https://www.eclipse.org/paho}{\texttt{ Projeto Eclipse Paho }} ~\newline
+
+\end{DoxySeeAlso}
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tconnect \mbox{\Hypertarget{SAPoTCentral_8h_a12d41058d0b06eb7899ff01b10cc6cc7}\label{SAPoTCentral_8h_a12d41058d0b06eb7899ff01b10cc6cc7}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTTconnectionLost@{MQTTconnectionLost}}
+\index{MQTTconnectionLost@{MQTTconnectionLost}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTTconnectionLost()}{MQTTconnectionLost()}}
+{\footnotesize\ttfamily void M\+Q\+T\+Tconnection\+Lost (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{char $\ast$}]{cause }\end{DoxyParamCaption})}
+
+Trata a perda de conexão entre o M\+Q\+T\+T\+Client e o servidor M\+Q\+TT
+
+\begin{DoxySeeAlso}{Veja também}
+\href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#a6bb253f16754e7cc81798c9fda0e36cf}{\texttt{ Projeto Eclipse Paho\+: M\+Q\+T\+T\+Client\+\_\+connection\+Lost }}
+\end{DoxySeeAlso}
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tconnection\+Lost \mbox{\Hypertarget{SAPoTCentral_8h_ad7895042774d348ddce8e52dd2b66693}\label{SAPoTCentral_8h_ad7895042774d348ddce8e52dd2b66693}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTTdeliveryComplete@{MQTTdeliveryComplete}}
+\index{MQTTdeliveryComplete@{MQTTdeliveryComplete}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTTdeliveryComplete()}{MQTTdeliveryComplete()}}
+{\footnotesize\ttfamily void M\+Q\+T\+Tdelivery\+Complete (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{M\+Q\+T\+T\+Client\+\_\+delivery\+Token}]{dt }\end{DoxyParamCaption})}
+
+Executa a conclusão do recebimento da mensagem via M\+Q\+T\+Tmessage\+Arrived
+
+\begin{DoxySeeAlso}{Veja também}
+\href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#abef83794d8252551ed248cde6eb845a6}{\texttt{ Projeto Eclipse Paho\+: M\+Q\+T\+T\+Client\+\_\+delivery\+Complete }}
+\end{DoxySeeAlso}
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tdelivery\+Complete \mbox{\Hypertarget{SAPoTCentral_8h_a47dfbf603689fa6491191b47b41c2757}\label{SAPoTCentral_8h_a47dfbf603689fa6491191b47b41c2757}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTTmessageArrived@{MQTTmessageArrived}}
+\index{MQTTmessageArrived@{MQTTmessageArrived}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTTmessageArrived()}{MQTTmessageArrived()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tmessage\+Arrived (\begin{DoxyParamCaption}\item[{void $\ast$}]{context,  }\item[{char $\ast$}]{topic\+Name,  }\item[{int}]{topic\+Len,  }\item[{M\+Q\+T\+T\+Client\+\_\+message $\ast$}]{M\+Q\+T\+Tmsg }\end{DoxyParamCaption})}
+
+Essa função foi implementada baseada na biblioteca M\+Q\+T\+T\+Client.\+h do projeto Eclipse Paho. Ela possui um padrão de argumentos definidos para manipular as mensagem recebidas via M\+Q\+TT, quando a função M\+Q\+T\+T\+Client\+\_\+set\+Callbacks() configura a recepção assíncrona das mensagem (veja \mbox{\hyperlink{SAPoTCentral_8c_a94f75c0b59e5618b064a4a1bb609ffa6}{M\+Q\+T\+Tconnect()}}). Em sua rotina de execução, quando uma mensagem é recebida, ela primeiro extrai o payload da mensagem M\+Q\+TT e o estrutura em uma mensagem S\+A\+PoT via \mbox{\hyperlink{SAPoTCentral_8c_a9e8f80d3202a3cb91d727214db781e66}{S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message()}}. Em sequência, se ocorrer tudo certo com a extração, ela evoca a função \mbox{\hyperlink{SAPoTCentral_8c_af6cc3982bc1e61a0e5283d1b757e19ca}{S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation()}} que utiliza da mensagem S\+A\+PoT estruturada anteriormente para realizar a instrução recebida.
+
+\begin{DoxySeeAlso}{Veja também}
+\href{https://www.eclipse.org/paho/files/mqttdoc/MQTTClient/html/_m_q_t_t_client_8h.html\#aa42130dd069e7e949bcab37b6dce64a5}{\texttt{ Projeto Eclipse Paho\+: M\+Q\+T\+T\+Client\+\_\+message\+Arrived }}
+\end{DoxySeeAlso}
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tmessage\+Arrived \mbox{\Hypertarget{SAPoTCentral_8h_aafc7f4c8be610fd729dbc5aee63556bc}\label{SAPoTCentral_8h_aafc7f4c8be610fd729dbc5aee63556bc}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MQTTpublish@{MQTTpublish}}
+\index{MQTTpublish@{MQTTpublish}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MQTTpublish()}{MQTTpublish()}}
+{\footnotesize\ttfamily int M\+Q\+T\+Tpublish (\begin{DoxyParamCaption}\item[{char $\ast$}]{topic,  }\item[{void $\ast$}]{payload,  }\item[{unsigned int}]{payload\+Len }\end{DoxyParamCaption})}
+
+Publica a mensagem em um topico especifico no broker M\+Q\+TT
+
+\mbox{[}Subrotina\mbox{]} M\+Q\+T\+Tpublish \mbox{\Hypertarget{SAPoTCentral_8h_a644ba1e1936d3c54f54fb436f9d238a0}\label{SAPoTCentral_8h_a644ba1e1936d3c54f54fb436f9d238a0}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MYSQLaccess@{MYSQLaccess}}
+\index{MYSQLaccess@{MYSQLaccess}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MYSQLaccess()}{MYSQLaccess()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Laccess (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função\+: Acessa os dados de todos os clientes cadastrados no banco de dados M\+Y\+S\+QL.
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lacess \mbox{\Hypertarget{SAPoTCentral_8h_ab0ca1620aff9041ff2a79e7969046af0}\label{SAPoTCentral_8h_ab0ca1620aff9041ff2a79e7969046af0}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MYSQLconnect@{MYSQLconnect}}
+\index{MYSQLconnect@{MYSQLconnect}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MYSQLconnect()}{MYSQLconnect()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função\+: Conecta o cliente ao servidor My\+S\+QL
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lconnect \mbox{\Hypertarget{SAPoTCentral_8h_a3a5faa7464a826ea7d2fe471fda02b39}\label{SAPoTCentral_8h_a3a5faa7464a826ea7d2fe471fda02b39}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MYSQLmodification@{MYSQLmodification}}
+\index{MYSQLmodification@{MYSQLmodification}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MYSQLmodification()}{MYSQLmodification()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lmodification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função\+: Realiza a etiquetagem de um cliente S\+A\+PoT ja cadastrados no banco de dados M\+Y\+S\+QL.
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lmodification \mbox{\Hypertarget{SAPoTCentral_8h_a71b26b67e926649343294adf9b1aded4}\label{SAPoTCentral_8h_a71b26b67e926649343294adf9b1aded4}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!MYSQLregistration@{MYSQLregistration}}
+\index{MYSQLregistration@{MYSQLregistration}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{MYSQLregistration()}{MYSQLregistration()}}
+{\footnotesize\ttfamily int M\+Y\+S\+Q\+Lregistration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Função\+: Realiza as operações necessárias no banco de dados M\+Y\+S\+QL para cadastrar ou atualizar as informações de cadastrado de um cliente S\+A\+PoT.
+
+\mbox{[}Subrotina\mbox{]} M\+Y\+S\+Q\+Lregistration Estrutura que representa o resultado de uma query solicitada
+
+Dá acesso a uma linha do resultado de uma query solicitada\mbox{\Hypertarget{SAPoTCentral_8h_a7c3440b33fdf6149a7b0f12cdcc435a9}\label{SAPoTCentral_8h_a7c3440b33fdf6149a7b0f12cdcc435a9}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_begin@{SAPoTCentral\_begin}}
+\index{SAPoTCentral\_begin@{SAPoTCentral\_begin}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_begin()}{SAPoTCentral\_begin()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} $\ast$}]{central\+Handle,  }\item[{\mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} $\ast$}]{opts\+Handle,  }\item[{const char $\ast$}]{central\+Id }\end{DoxyParamCaption})}
+
+Essa função inicia a central S\+A\+PoT preenchendo as informações passadas pelo usuário através das estruturas \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} e \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}. Além disso, inicia o arquivo de log e se o usuário optar por utilizar o modo local-\/padrão essa função inicia os clientes para comunicação com os serviços M\+Q\+TT e My\+S\+QL.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em user\+Pointer} & Um ponteiro para o espaço de memória do tipo \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} que deseja ser iniciado como Central. \\
+\hline
+{\em opts} & Um ponteiro para o espaço de memória do tipo \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} que contém as configurações iniciais para operação da Central. \\
+\hline
+{\em central\+Id} & Uma string no formato de um endereço M\+AC (X\+X\+:\+X\+X\+:\+X\+X\+:\+X\+X\+:\+XX\+:XX) que identifica a Central. Esse parâmetro deve ser único em uma rede que possua mais de uma Central S\+A\+PoT em operação. ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Essa função retorna \mbox{\hyperlink{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE}} no caso de não conseguir iniciar a Central, ou retorna \mbox{\hyperlink{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+S\+U\+C\+C\+E\+SS}} em caso de sucesso.
+\end{DoxyReturn}
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+begin \mbox{\Hypertarget{SAPoTCentral_8h_a692a20d220d85630dbf5a789b20ef371}\label{SAPoTCentral_8h_a692a20d220d85630dbf5a789b20ef371}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_end@{SAPoTCentral\_end}}
+\index{SAPoTCentral\_end@{SAPoTCentral\_end}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_end()}{SAPoTCentral\_end()}}
+{\footnotesize\ttfamily void S\+A\+Po\+T\+Central\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Essa função finaliza os serviços da central S\+A\+PoT. Fecha o arquivo de log e se estiver operando no modo local-\/padrão, encerra os serviços M\+Q\+TT e My\+S\+QL. Não possue parâmetros de entrada nem retorno.
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+end \mbox{\Hypertarget{SAPoTCentral_8h_a23d1576a8815d5a03697ea9458e17e6b}\label{SAPoTCentral_8h_a23d1576a8815d5a03697ea9458e17e6b}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_error@{SAPoTCentral\_error}}
+\index{SAPoTCentral\_error@{SAPoTCentral\_error}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_error()}{SAPoTCentral\_error()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Essa função mostra na tela através de um printf a definição do error contido no manipulador \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}.
+
+@retrun retorna o número do erro contido no manipulador \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}.
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+error \mbox{\Hypertarget{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}\label{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_loop@{SAPoTCentral\_loop}}
+\index{SAPoTCentral\_loop@{SAPoTCentral\_loop}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_loop()}{SAPoTCentral\_loop()}}
+{\footnotesize\ttfamily void S\+A\+Po\+T\+Central\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Essa função pode ser utilizada se, e somente se a Central for configurada no modelo local-\/padrão através da definição \mbox{\hyperlink{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL}} (veja também \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}). Além disso, essa função mantém a conexão entre a Central e o broker M\+Q\+TT realizando um ping no servidor M\+Q\+TT a cada 30 segundos. Não possue parâmetros de entrada nem retorno. ~\newline
+
+
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+loop \mbox{\Hypertarget{SAPoTCentral_8h_af6cc3982bc1e61a0e5283d1b757e19ca}\label{SAPoTCentral_8h_af6cc3982bc1e61a0e5283d1b757e19ca}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_set\_operation@{SAPoTCentral\_set\_operation}}
+\index{SAPoTCentral\_set\_operation@{SAPoTCentral\_set\_operation}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_set\_operation()}{SAPoTCentral\_set\_operation()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation (\begin{DoxyParamCaption}\item[{int($\ast$)(char $\ast$, void $\ast$, unsigned int)}]{publish }\end{DoxyParamCaption})}
+
+Essa função pode ser utilizada se, e somente se a Central for configurada no modelo local-\/padrão através da definição \mbox{\hyperlink{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL}} (veja também \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}). Após a execução da \mbox{\hyperlink{SAPoTCentral_8c_a9e8f80d3202a3cb91d727214db781e66}{S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message()}} essa função utiliza da instrução contida no cabeçalho do manipulador \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} para operar com tais possibilidades\+: 
+\begin{DoxyItemize}
+\item 0x00\+: \mbox{\hyperlink{SAPoTCentral_8c_a71b26b67e926649343294adf9b1aded4}{M\+Y\+S\+Q\+Lregistration()}}  
+\item 0x01\+:  
+\item 0x02\+:  
+\item 0x03\+: \mbox{\hyperlink{SAPoTCentral_8c_aaf6530ab12307ca588e44236ac985b35}{C\+T\+R\+Lactuator()}}  
+\item 0x04\+: \mbox{\hyperlink{SAPoTCentral_8c_a644ba1e1936d3c54f54fb436f9d238a0}{M\+Y\+S\+Q\+Laccess()}}  
+\item 0x05\+:  
+\item 0x06\+: \mbox{\hyperlink{SAPoTCentral_8c_a3a5faa7464a826ea7d2fe471fda02b39}{M\+Y\+S\+Q\+Lmodification()}}  
+\end{DoxyItemize}
+
+Além disso, após operar com sucesso envia-\/se uma mensagem de reconhecimento para o emissor da instrução.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em publish} & Ponteiro para uma função que realiza a transmissão de mensagens para comunicar a Central com os Clientes e Usuários. Essa função deve receber uma string com o endereço do destinatário da mensagem, um {\ttfamily void$\ast$} com o conteúdo da mensagem e um inteiro positivo com o comprimento total da mensagem. ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Essa função retorna \mbox{\hyperlink{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE}} em dois casos\+: Primeiramente se ocorrer algum erro na operação realizada, ou em segundo momento se não for possível enviar a mensagem de reconhecimento. Contudo, essa função retorna \mbox{\hyperlink{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+S\+U\+C\+C\+E\+SS}} se a operação for realizada com sucesso e se a mensagem de reconhecimento for enviada ao emissor da instrução.
+\end{DoxyReturn}
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation \mbox{\Hypertarget{SAPoTCentral_8h_a9e8f80d3202a3cb91d727214db781e66}\label{SAPoTCentral_8h_a9e8f80d3202a3cb91d727214db781e66}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!SAPoTCentral\_unpack\_message@{SAPoTCentral\_unpack\_message}}
+\index{SAPoTCentral\_unpack\_message@{SAPoTCentral\_unpack\_message}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{SAPoTCentral\_unpack\_message()}{SAPoTCentral\_unpack\_message()}}
+{\footnotesize\ttfamily int S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message (\begin{DoxyParamCaption}\item[{void $\ast$}]{message,  }\item[{int}]{message\+Len }\end{DoxyParamCaption})}
+
+Essa função recebe uma mensagem e à estrutura utilizando os ponteiros S\+A\+Po\+T\+Message do manipulador \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}} de acordo com a instrução contida em seu cabeçalho. No caso da Central operar em modeo local-\/padrão (veja \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}} e \mbox{\hyperlink{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL}}) as mensagem são recebidas via \mbox{\hyperlink{SAPoTCentral_8c_a47dfbf603689fa6491191b47b41c2757}{M\+Q\+T\+Tmessage\+Arrived()}} através do procotocolo M\+Q\+TT. Não obstante, essa função também armazena no arquivo de log os parâmetros do cabeçalho de todas as mensagem recebidas. (veja \mbox{\hyperlink{structSAPoTMessage__header}{S\+A\+Po\+T\+Message\+\_\+header}}).
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em message} & Ponteiro {\ttfamily void$\ast$} para o espaço de memória da mensagem. \\
+\hline
+{\em message\+Len} & Um número inteiro referente ao comprimento da mensagem.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Essa função retorna \mbox{\hyperlink{SAPoTCentral_8h_a6598247c62938f24bcc8fd9d8f54b494}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+F\+A\+I\+L\+U\+RE}} para o caso da versão de protocolo da mensagem não coincidir com versão de protocolo da Central, ou retorna \mbox{\hyperlink{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}{S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+S\+U\+C\+C\+E\+SS}} caso contrário. ~\newline
+
+\end{DoxyReturn}
+\mbox{[}Principal\mbox{]} S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message \mbox{\Hypertarget{SAPoTCentral_8h_a6da6d1909277987c5e152cfb0c28de84}\label{SAPoTCentral_8h_a6da6d1909277987c5e152cfb0c28de84}} 
+\index{SAPoTCentral.h@{SAPoTCentral.h}!upper\_string@{upper\_string}}
+\index{upper\_string@{upper\_string}!SAPoTCentral.h@{SAPoTCentral.h}}
+\doxysubsubsection{\texorpdfstring{upper\_string()}{upper\_string()}}
+{\footnotesize\ttfamily void upper\+\_\+string (\begin{DoxyParamCaption}\item[{char}]{s\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Função\+: Deixa as letras de uma string em caixa alta
+
+\mbox{[}Utilitário\mbox{]} upper\+\_\+string 

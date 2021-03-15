@@ -1,0 +1,108 @@
+\hypertarget{structSAPoTMessage__header}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+header}
+\label{structSAPoTMessage__header}\index{SAPoTMessage\_header@{SAPoTMessage\_header}}
+
+
+Cabeçalho fixo das mensagem S\+A\+PoT.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a0eaa02eee16967528ac9bea8bf908f8e}{rsv3}}\+:1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a8a0e25c7e75d7522e1dda79220b4a49c}{rsv2}}\+:1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a806d1358a4e8781b2c2e61c25d8f1e4a}{rsv1}}\+:1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a96b36c6fa52e9fd205a69d1d25252133}{ack}}\+:1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a3cc90bbd78c0449e9a886085577e852e}{version}}\+:4
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_aea33cb5f059d62e9e899925eafabe458}{instruction}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a809093077b89f4954bd32d19bcb13656}{serial}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_a9ebea9cf36368b27ec0afb8ab9a9de78}{length}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__header_aeb3dfb68d6c9343a8f119b2c6d78de1c}{emitter\+Id}} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Cabeçalho fixo das mensagem S\+A\+PoT. 
+
+Todas as mensagens ​\+S\+A\+PoT possuem um cabeçalho fixo com 12 bytes de comprimento organizados em\+: 4 bits de flags, 4 bits identificadores da versão do protocolo S\+A\+PoT que gerou essa mensagem, 8 bits que definem a instrução da operação, 16 bits para o numero serial da mensagem, 16 bits que determinam o tamanho total da mensagem e os últimos 6 bytes indentificadores do emissor da mensagem. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__header_a96b36c6fa52e9fd205a69d1d25252133}\label{structSAPoTMessage__header_a96b36c6fa52e9fd205a69d1d25252133}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!ack@{ack}}
+\index{ack@{ack}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{ack}{ack}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::ack}
+
+Flag identificadora de mensagens de retorno \mbox{\Hypertarget{structSAPoTMessage__header_aeb3dfb68d6c9343a8f119b2c6d78de1c}\label{structSAPoTMessage__header_aeb3dfb68d6c9343a8f119b2c6d78de1c}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!emitterId@{emitterId}}
+\index{emitterId@{emitterId}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{emitterId}{emitterId}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::emitter\+Id\mbox{[}6\mbox{]}}
+
+Identificador do Cliente emissor da mensagem (6 bytes referentes ao endereço M\+AC da interface de rede do emissor) \mbox{\Hypertarget{structSAPoTMessage__header_aea33cb5f059d62e9e899925eafabe458}\label{structSAPoTMessage__header_aea33cb5f059d62e9e899925eafabe458}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!instruction@{instruction}}
+\index{instruction@{instruction}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{instruction}{instruction}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::instruction}
+
+Identificador da instrução de operação\+: ~\newline
+0x00\+: Cadastro de um novo Cliente (Registration) ~\newline
+0x01\+: Requsição dos dados de todos os sensores (Solicitation) ~\newline
+0x02\+: Requisição dos dados de um sensor em específico (Solicitation) ~\newline
+0x03\+: Acionamento de um atuador em específico (Solicitation) ~\newline
+0x04\+: Acesso à informação dos clientes cadastrados no banco de dados da Central (Acess) ~\newline
+0x05\+: Registro de informação proveniente de sensores e atuadores (Record) ~\newline
+0x06\+: Etiquetagem de um cliente que está cadastrado no banco de dados da Central (Modification) ~\newline
+ \mbox{\Hypertarget{structSAPoTMessage__header_a9ebea9cf36368b27ec0afb8ab9a9de78}\label{structSAPoTMessage__header_a9ebea9cf36368b27ec0afb8ab9a9de78}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!length@{length}}
+\index{length@{length}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::length}
+
+Comprimento total da mensagem (Header + Payload) \mbox{\Hypertarget{structSAPoTMessage__header_a806d1358a4e8781b2c2e61c25d8f1e4a}\label{structSAPoTMessage__header_a806d1358a4e8781b2c2e61c25d8f1e4a}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!rsv1@{rsv1}}
+\index{rsv1@{rsv1}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{rsv1}{rsv1}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::rsv1}
+
+Flag reservada para uso futuro \mbox{\Hypertarget{structSAPoTMessage__header_a8a0e25c7e75d7522e1dda79220b4a49c}\label{structSAPoTMessage__header_a8a0e25c7e75d7522e1dda79220b4a49c}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!rsv2@{rsv2}}
+\index{rsv2@{rsv2}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{rsv2}{rsv2}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::rsv2}
+
+Flag reservada para uso futuro \mbox{\Hypertarget{structSAPoTMessage__header_a0eaa02eee16967528ac9bea8bf908f8e}\label{structSAPoTMessage__header_a0eaa02eee16967528ac9bea8bf908f8e}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!rsv3@{rsv3}}
+\index{rsv3@{rsv3}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{rsv3}{rsv3}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::rsv3}
+
+Flag reservada para uso futuro \mbox{\Hypertarget{structSAPoTMessage__header_a809093077b89f4954bd32d19bcb13656}\label{structSAPoTMessage__header_a809093077b89f4954bd32d19bcb13656}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!serial@{serial}}
+\index{serial@{serial}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{serial}{serial}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::serial}
+
+Número serial da mensagem. Refere-\/se a ordem de emissão da origem. \mbox{\Hypertarget{structSAPoTMessage__header_a3cc90bbd78c0449e9a886085577e852e}\label{structSAPoTMessage__header_a3cc90bbd78c0449e9a886085577e852e}} 
+\index{SAPoTMessage\_header@{SAPoTMessage\_header}!version@{version}}
+\index{version@{version}!SAPoTMessage\_header@{SAPoTMessage\_header}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+header\+::version}
+
+Identificador de versão de protocolo ~\newline
+ 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

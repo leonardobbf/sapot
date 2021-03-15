@@ -1,0 +1,66 @@
+\hypertarget{structSAPoTMessage__solicitation}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+solicitation}
+\label{structSAPoTMessage__solicitation}\index{SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}}
+
+
+Payload para solicitar o acionamento ou sensoriamento de algum cliente cadastrado no banco de dados.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__solicitation_abfa3c40ee1df67d947980e59d1fe7900}{label}} \mbox{[}11\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__solicitation_af00c27459ed1037e51533255c3e1c387}{sensor\+Or\+Actuator\+Id}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__solicitation_a4e455f0af9956083e271bf172c4f802b}{time\+Set}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__solicitation_ac02358e1c4c4682f3b89151a8db80ef7}{degree\+Of\+Performance}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Payload para solicitar o acionamento ou sensoriamento de algum cliente cadastrado no banco de dados. 
+
+Payload emitido pelo usuário e recebido pela central. Tem o intuito de solicitar o acionamento de um atuador ou requisitar os dados provenientes de um sensor que estejam operando em algum cliente cadastrado no banco de dados da Central. São 17 bytes divididos em\+: 11 bytes referentes a etiqueta do cliente cadastrado no banco de dados da Central, 16 bits para identificar o sensor ou o atuador a ser acionado, 16 bits para o temporizador de acionamento do atuador ou para o intervalo de tempo em que o cliente deve enviar as informações do sensor pra a central e os ultimos 16 bits referentes à intensidade de atuação a qual o atuador será submetido. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__solicitation_ac02358e1c4c4682f3b89151a8db80ef7}\label{structSAPoTMessage__solicitation_ac02358e1c4c4682f3b89151a8db80ef7}} 
+\index{SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}!degreeOfPerformance@{degreeOfPerformance}}
+\index{degreeOfPerformance@{degreeOfPerformance}!SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}}
+\doxysubsubsection{\texorpdfstring{degreeOfPerformance}{degreeOfPerformance}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+solicitation\+::degree\+Of\+Performance}
+
+Grau de performace do atuador\+: de 0x0000 (0\%) a 0xffff (100\%) \mbox{\Hypertarget{structSAPoTMessage__solicitation_abfa3c40ee1df67d947980e59d1fe7900}\label{structSAPoTMessage__solicitation_abfa3c40ee1df67d947980e59d1fe7900}} 
+\index{SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}!label@{label}}
+\index{label@{label}!SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+solicitation\+::label\mbox{[}11\mbox{]}}
+
+Etiqueta do cliente cadastrado que será acionado pelo usuário \mbox{\Hypertarget{structSAPoTMessage__solicitation_af00c27459ed1037e51533255c3e1c387}\label{structSAPoTMessage__solicitation_af00c27459ed1037e51533255c3e1c387}} 
+\index{SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}!sensorOrActuatorId@{sensorOrActuatorId}}
+\index{sensorOrActuatorId@{sensorOrActuatorId}!SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}}
+\doxysubsubsection{\texorpdfstring{sensorOrActuatorId}{sensorOrActuatorId}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+solicitation\+::sensor\+Or\+Actuator\+Id}
+
+Identificador do Sensor ou do Atuador \mbox{\Hypertarget{structSAPoTMessage__solicitation_a4e455f0af9956083e271bf172c4f802b}\label{structSAPoTMessage__solicitation_a4e455f0af9956083e271bf172c4f802b}} 
+\index{SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}!timeSet@{timeSet}}
+\index{timeSet@{timeSet}!SAPoTMessage\_solicitation@{SAPoTMessage\_solicitation}}
+\doxysubsubsection{\texorpdfstring{timeSet}{timeSet}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+solicitation\+::time\+Set}
+
+Tempo de requisição do sensor ou tempo de acionamento do atuador (16 bits)\+: ~\newline
+4 bits M\+SB\+:~\newline
+ 0x0 Milisegundos~\newline
+0x1 Segundos~\newline
+0x2 Minutos~\newline
+0x3 Horas~\newline
+0x4 Dias~\newline
+12 bits L\+SB\+: de 0x000 (0b10) a 0x\+F\+FF (4096b10) 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

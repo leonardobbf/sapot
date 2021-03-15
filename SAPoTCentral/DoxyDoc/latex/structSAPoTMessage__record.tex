@@ -1,0 +1,55 @@
+\hypertarget{structSAPoTMessage__record}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+record}
+\label{structSAPoTMessage__record}\index{SAPoTMessage\_record@{SAPoTMessage\_record}}
+
+
+Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais\+: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structSAPoTMessage__record_aa93ebd81018690ca5f1a3f4c72d2801d}{data\+Len}}
+\item 
+void $\ast$ \mbox{\hyperlink{structSAPoTMessage__record_ac394312d44305eb78b76e05095a7081f}{data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estrutura para acessar as de informação enviadas pelo cliente, dentre as quais\+: Dados dos Sensores, Status dos Atuadores e possíveis erros de operação. 
+
+A partir de uma solicitação do Usuário à Central que posteriormente é encaminhada ao Cliente, esse emite uma mensagem de resposta para a Central com as informações pertinentes à instrução recebida\+: 0x01\+: Requsição dos dados de todos os sensores (Solicitation) ~\newline
+0x02\+: Requisição dos dados de um sensor em específico (Solicitation) ~\newline
+0x03\+: Acionamento de um atuador em específico (Solicitation) ~\newline
+ ~\newline
+ Ou em casos de erro em alguma operação, o Cliente enviará uma mensagem de log para a central com a instrução 0x07. Dessa maneira, a Central utiliza da estrutura \mbox{\hyperlink{structSAPoTMessage__record}{S\+A\+Po\+T\+Message\+\_\+record}} para interpretar as informações contidadas No pacote enviado pelo Cliente. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__record_ac394312d44305eb78b76e05095a7081f}\label{structSAPoTMessage__record_ac394312d44305eb78b76e05095a7081f}} 
+\index{SAPoTMessage\_record@{SAPoTMessage\_record}!data@{data}}
+\index{data@{data}!SAPoTMessage\_record@{SAPoTMessage\_record}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily void$\ast$ S\+A\+Po\+T\+Message\+\_\+record\+::data}
+
+Ponteiro identificador da informação a ser guardada no bando de dados. ~\newline
+de acordo com a instrução recebida\+: ~\newline
+0x01\+: (float$\ast$) Dados de todos os sensores ~\newline
+0x02\+: (float) Dados de um sensor em específico ~\newline
+0x03\+: (uint8\+\_\+t) Status do atuador acionado ~\newline
+0x07\+: (int) Log de erro ~\newline
+ ~\newline
+ \mbox{\Hypertarget{structSAPoTMessage__record_aa93ebd81018690ca5f1a3f4c72d2801d}\label{structSAPoTMessage__record_aa93ebd81018690ca5f1a3f4c72d2801d}} 
+\index{SAPoTMessage\_record@{SAPoTMessage\_record}!dataLen@{dataLen}}
+\index{dataLen@{dataLen}!SAPoTMessage\_record@{SAPoTMessage\_record}}
+\doxysubsubsection{\texorpdfstring{dataLen}{dataLen}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+A\+Po\+T\+Message\+\_\+record\+::data\+Len}
+
+Tamanho referente à quantidade de informação recebida ~\newline
+ 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{structSAPoTMessage__actuatorDrive}{}\doxysection{Referência da Estrutura S\+A\+Po\+T\+Message\+\_\+actuator\+Drive}
+\label{structSAPoTMessage__actuatorDrive}\index{SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}}
+
+
+Payload para acionar um atuador específico em um Cliente cadastrado.  
+
+
+
+
+{\ttfamily \#include $<$S\+A\+Po\+T\+Central.\+h$>$}
+
+\doxysubsection*{Campos de Dados}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__actuatorDrive_a00fae1b0783bc1d4e6a3f4ba00736ea1}{actuator\+Id}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__actuatorDrive_a47b96b8fe721aef104d7a56ffb58a1ad}{time\+Set}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structSAPoTMessage__actuatorDrive_ada5a04cf8941301ce7d0788931ab61d5}{degree\+Of\+Performance}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Payload para acionar um atuador específico em um Cliente cadastrado. 
+
+Payload Enviado pela Central para um Cliente. Após uma solicitação do Usuário com instrução 0x03 (Acionamento de um atuador em específico) a Central encaminha essa solicitaão para o Cliente através desse Payload que é composto por 6 bytes divididos em\+: 2 bytes para identificar qual será o atuador acionado, 2 bytes para definir por quanto tempo esss atuador será acionado e os ultimos dois bytes para definir a potência de atuação. 
+
+\doxysubsection{Campos}
+\mbox{\Hypertarget{structSAPoTMessage__actuatorDrive_a00fae1b0783bc1d4e6a3f4ba00736ea1}\label{structSAPoTMessage__actuatorDrive_a00fae1b0783bc1d4e6a3f4ba00736ea1}} 
+\index{SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}!actuatorId@{actuatorId}}
+\index{actuatorId@{actuatorId}!SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}}
+\doxysubsubsection{\texorpdfstring{actuatorId}{actuatorId}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+actuator\+Drive\+::actuator\+Id}
+
+Identificador do atuador \mbox{\Hypertarget{structSAPoTMessage__actuatorDrive_ada5a04cf8941301ce7d0788931ab61d5}\label{structSAPoTMessage__actuatorDrive_ada5a04cf8941301ce7d0788931ab61d5}} 
+\index{SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}!degreeOfPerformance@{degreeOfPerformance}}
+\index{degreeOfPerformance@{degreeOfPerformance}!SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}}
+\doxysubsubsection{\texorpdfstring{degreeOfPerformance}{degreeOfPerformance}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+actuator\+Drive\+::degree\+Of\+Performance}
+
+Grau de performace do atuador\+: tem alcance de 0 (0\%) a 65535(100\%). \mbox{\Hypertarget{structSAPoTMessage__actuatorDrive_a47b96b8fe721aef104d7a56ffb58a1ad}\label{structSAPoTMessage__actuatorDrive_a47b96b8fe721aef104d7a56ffb58a1ad}} 
+\index{SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}!timeSet@{timeSet}}
+\index{timeSet@{timeSet}!SAPoTMessage\_actuatorDrive@{SAPoTMessage\_actuatorDrive}}
+\doxysubsubsection{\texorpdfstring{timeSet}{timeSet}}
+{\footnotesize\ttfamily uint16\+\_\+t S\+A\+Po\+T\+Message\+\_\+actuator\+Drive\+::time\+Set}
+
+Tempo de acionamento do atuador (16 bits)\+: ~\newline
+4 bits M\+SB\+:~\newline
+ 0x0 Milisegundos~\newline
+0x1 Segundos~\newline
+0x2 Minutos~\newline
+0x3 Horas~\newline
+0x4 Dias~\newline
+12 bits L\+SB\+: de 0x000 (0) a 0xfff (4096) 
+
+A documentação para essa estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}}\end{DoxyCompactItemize}

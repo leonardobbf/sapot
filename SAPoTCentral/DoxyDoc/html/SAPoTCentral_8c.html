@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Central SAPoT: Referência do Arquivo SAPoTCentral.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="[Logo]SAPoT_V1_b_50x50.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Central SAPoT
+   &#160;<span id="projectnumber">v1.0</span>
+   </div>
+   <div id="projectbrief">Biblioteca para a implementação de uma Central SAPoT em C</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo SAPoTCentral.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;MQTTClient.h&gt;</code><br />
+<code>#include &lt;mysql/mysql.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="SAPoTCentral_8h_source.html">SAPoTCentral.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a96d4874e6303a37c5f3866ab5c2bb6d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a96d4874e6303a37c5f3866ab5c2bb6d9">SAPoTCentral_begin</a> (<a class="el" href="structSAPoTCentral.html">SAPoTCentral</a> *centralHandle, <a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> *optsHandle, const char *centralId)</td></tr>
+<tr class="separator:a96d4874e6303a37c5f3866ab5c2bb6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692a20d220d85630dbf5a789b20ef371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a692a20d220d85630dbf5a789b20ef371">SAPoTCentral_end</a> ()</td></tr>
+<tr class="separator:a692a20d220d85630dbf5a789b20ef371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac4a083422c3ca5810033a6549698114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#aac4a083422c3ca5810033a6549698114">SAPoTCentral_loop</a> ()</td></tr>
+<tr class="separator:aac4a083422c3ca5810033a6549698114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8f80d3202a3cb91d727214db781e66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a9e8f80d3202a3cb91d727214db781e66">SAPoTCentral_unpack_message</a> (void *message, int messageLen)</td></tr>
+<tr class="separator:a9e8f80d3202a3cb91d727214db781e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6cc3982bc1e61a0e5283d1b757e19ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#af6cc3982bc1e61a0e5283d1b757e19ca">SAPoTCentral_set_operation</a> (int(*publish)(char *, void *, unsigned int))</td></tr>
+<tr class="separator:af6cc3982bc1e61a0e5283d1b757e19ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d1576a8815d5a03697ea9458e17e6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a23d1576a8815d5a03697ea9458e17e6b">SAPoTCentral_error</a> ()</td></tr>
+<tr class="separator:a23d1576a8815d5a03697ea9458e17e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f75c0b59e5618b064a4a1bb609ffa6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a94f75c0b59e5618b064a4a1bb609ffa6">MQTTconnect</a> ()</td></tr>
+<tr class="separator:a94f75c0b59e5618b064a4a1bb609ffa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47dfbf603689fa6491191b47b41c2757"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a47dfbf603689fa6491191b47b41c2757">MQTTmessageArrived</a> (void *context, char *topicName, int topicLen, MQTTClient_message *MQTTmsg)</td></tr>
+<tr class="separator:a47dfbf603689fa6491191b47b41c2757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7895042774d348ddce8e52dd2b66693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#ad7895042774d348ddce8e52dd2b66693">MQTTdeliveryComplete</a> (void *context, MQTTClient_deliveryToken dt)</td></tr>
+<tr class="separator:ad7895042774d348ddce8e52dd2b66693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12d41058d0b06eb7899ff01b10cc6cc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a12d41058d0b06eb7899ff01b10cc6cc7">MQTTconnectionLost</a> (void *context, char *cause)</td></tr>
+<tr class="separator:a12d41058d0b06eb7899ff01b10cc6cc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc7f4c8be610fd729dbc5aee63556bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#aafc7f4c8be610fd729dbc5aee63556bc">MQTTpublish</a> (char *topic, void *payload, unsigned int payloadLen)</td></tr>
+<tr class="separator:aafc7f4c8be610fd729dbc5aee63556bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ca1620aff9041ff2a79e7969046af0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#ab0ca1620aff9041ff2a79e7969046af0">MYSQLconnect</a> ()</td></tr>
+<tr class="separator:ab0ca1620aff9041ff2a79e7969046af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b26b67e926649343294adf9b1aded4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a71b26b67e926649343294adf9b1aded4">MYSQLregistration</a> ()</td></tr>
+<tr class="separator:a71b26b67e926649343294adf9b1aded4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5faa7464a826ea7d2fe471fda02b39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a3a5faa7464a826ea7d2fe471fda02b39">MYSQLmodification</a> ()</td></tr>
+<tr class="separator:a3a5faa7464a826ea7d2fe471fda02b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a644ba1e1936d3c54f54fb436f9d238a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a644ba1e1936d3c54f54fb436f9d238a0">MYSQLaccess</a> ()</td></tr>
+<tr class="separator:a644ba1e1936d3c54f54fb436f9d238a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6530ab12307ca588e44236ac985b35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#aaf6530ab12307ca588e44236ac985b35">CTRLactuator</a> (int(*publish)(char *, void *, unsigned int))</td></tr>
+<tr class="separator:aaf6530ab12307ca588e44236ac985b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da6d1909277987c5e152cfb0c28de84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a6da6d1909277987c5e152cfb0c28de84">upper_string</a> (char s[])</td></tr>
+<tr class="separator:a6da6d1909277987c5e152cfb0c28de84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae07957b6385433a52b18ddff55ff67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a8ae07957b6385433a52b18ddff55ff67">getmacID</a> (const char *MAC, uint8_t ID[6])</td></tr>
+<tr class="separator:a8ae07957b6385433a52b18ddff55ff67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:ad1b32a3733b79b2f9e96acaa89492e93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSAPoTCentral.html">SAPoTCentral</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#ad1b32a3733b79b2f9e96acaa89492e93">handle</a></td></tr>
+<tr class="separator:ad1b32a3733b79b2f9e96acaa89492e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a396834ed85021a06cfa8acd7332249e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a396834ed85021a06cfa8acd7332249e9">opts</a></td></tr>
+<tr class="separator:a396834ed85021a06cfa8acd7332249e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3624b7b001322632240e51ddd583402f"><td class="memItemLeft" align="right" valign="top">volatile MQTTClient_deliveryToken&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a3624b7b001322632240e51ddd583402f">MQTTdeliveredtoken</a></td></tr>
+<tr class="separator:a3624b7b001322632240e51ddd583402f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8059414f0228f0256115e024eeed4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a6f8059414f0228f0256115e024eeed4b">fd</a></td></tr>
+<tr class="separator:a6f8059414f0228f0256115e024eeed4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d523ae4ac23147de85134941f4ba3b9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a4d523ae4ac23147de85134941f4ba3b9">bff_log</a></td></tr>
+<tr class="separator:a4d523ae4ac23147de85134941f4ba3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ec0ecb9995f36ade2bdf2b26f4ad58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="SAPoTCentral_8c.html#a28ec0ecb9995f36ade2bdf2b26f4ad58">MQTTstatus</a> = -1</td></tr>
+<tr class="separator:a28ec0ecb9995f36ade2bdf2b26f4ad58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Funções</h2>
+<a id="aaf6530ab12307ca588e44236ac985b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6530ab12307ca588e44236ac985b35">&#9670;&nbsp;</a></span>CTRLactuator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CTRLactuator </td>
+          <td>(</td>
+          <td class="paramtype">int(*)(char *, void *, unsigned int)&#160;</td>
+          <td class="paramname"><em>publish</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Controle de Clientes] CTRLactuator </p>
+<p>Estrutura que representa o resultado de uma query solicitada</p>
+<p>Dá acesso a uma linha do resultado de uma query solicitada</p>
+
+</div>
+</div>
+<a id="a8ae07957b6385433a52b18ddff55ff67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae07957b6385433a52b18ddff55ff67">&#9670;&nbsp;</a></span>getmacID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getmacID </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>MAC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>ID</em>[6]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Utilitário] getmacID </p>
+
+</div>
+</div>
+<a id="a94f75c0b59e5618b064a4a1bb609ffa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f75c0b59e5618b064a4a1bb609ffa6">&#9670;&nbsp;</a></span>MQTTconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MQTTconnect </p>
+
+</div>
+</div>
+<a id="a12d41058d0b06eb7899ff01b10cc6cc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d41058d0b06eb7899ff01b10cc6cc7">&#9670;&nbsp;</a></span>MQTTconnectionLost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MQTTconnectionLost </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cause</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MQTTconnectionLost </p>
+
+</div>
+</div>
+<a id="ad7895042774d348ddce8e52dd2b66693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7895042774d348ddce8e52dd2b66693">&#9670;&nbsp;</a></span>MQTTdeliveryComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MQTTdeliveryComplete </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MQTTClient_deliveryToken&#160;</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MQTTdeliveryComplete </p>
+
+</div>
+</div>
+<a id="a47dfbf603689fa6491191b47b41c2757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47dfbf603689fa6491191b47b41c2757">&#9670;&nbsp;</a></span>MQTTmessageArrived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTmessageArrived </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>topicName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>topicLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MQTTClient_message *&#160;</td>
+          <td class="paramname"><em>MQTTmsg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MQTTmessageArrived </p>
+
+</div>
+</div>
+<a id="aafc7f4c8be610fd729dbc5aee63556bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafc7f4c8be610fd729dbc5aee63556bc">&#9670;&nbsp;</a></span>MQTTpublish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTpublish </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>topic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>payload</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>payloadLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MQTTpublish </p>
+
+</div>
+</div>
+<a id="a644ba1e1936d3c54f54fb436f9d238a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644ba1e1936d3c54f54fb436f9d238a0">&#9670;&nbsp;</a></span>MYSQLaccess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLaccess </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MYSQLacess </p>
+
+</div>
+</div>
+<a id="ab0ca1620aff9041ff2a79e7969046af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ca1620aff9041ff2a79e7969046af0">&#9670;&nbsp;</a></span>MYSQLconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLconnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MYSQLconnect </p>
+
+</div>
+</div>
+<a id="a3a5faa7464a826ea7d2fe471fda02b39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5faa7464a826ea7d2fe471fda02b39">&#9670;&nbsp;</a></span>MYSQLmodification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLmodification </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MYSQLmodification </p>
+
+</div>
+</div>
+<a id="a71b26b67e926649343294adf9b1aded4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b26b67e926649343294adf9b1aded4">&#9670;&nbsp;</a></span>MYSQLregistration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MYSQLregistration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Subrotina] MYSQLregistration </p>
+<p>Estrutura que representa o resultado de uma query solicitada</p>
+<p>Dá acesso a uma linha do resultado de uma query solicitada</p>
+
+</div>
+</div>
+<a id="a96d4874e6303a37c5f3866ab5c2bb6d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d4874e6303a37c5f3866ab5c2bb6d9">&#9670;&nbsp;</a></span>SAPoTCentral_begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_begin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSAPoTCentral.html">SAPoTCentral</a> *&#160;</td>
+          <td class="paramname"><em>centralHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a> *&#160;</td>
+          <td class="paramname"><em>optsHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>centralId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_begin </p>
+
+</div>
+</div>
+<a id="a692a20d220d85630dbf5a789b20ef371"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692a20d220d85630dbf5a789b20ef371">&#9670;&nbsp;</a></span>SAPoTCentral_end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SAPoTCentral_end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_end </p>
+
+</div>
+</div>
+<a id="a23d1576a8815d5a03697ea9458e17e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d1576a8815d5a03697ea9458e17e6b">&#9670;&nbsp;</a></span>SAPoTCentral_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_error </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_error </p>
+
+</div>
+</div>
+<a id="aac4a083422c3ca5810033a6549698114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4a083422c3ca5810033a6549698114">&#9670;&nbsp;</a></span>SAPoTCentral_loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SAPoTCentral_loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_loop </p>
+
+</div>
+</div>
+<a id="af6cc3982bc1e61a0e5283d1b757e19ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6cc3982bc1e61a0e5283d1b757e19ca">&#9670;&nbsp;</a></span>SAPoTCentral_set_operation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_set_operation </td>
+          <td>(</td>
+          <td class="paramtype">int(*)(char *, void *, unsigned int)&#160;</td>
+          <td class="paramname"><em>publish</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_set_operation </p>
+
+</div>
+</div>
+<a id="a9e8f80d3202a3cb91d727214db781e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e8f80d3202a3cb91d727214db781e66">&#9670;&nbsp;</a></span>SAPoTCentral_unpack_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SAPoTCentral_unpack_message </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>messageLen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Principal] SAPoTCentral_unpack_message </p>
+
+</div>
+</div>
+<a id="a6da6d1909277987c5e152cfb0c28de84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da6d1909277987c5e152cfb0c28de84">&#9670;&nbsp;</a></span>upper_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void upper_string </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>s</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[Utilitário] upper_string </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="a4d523ae4ac23147de85134941f4ba3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d523ae4ac23147de85134941f4ba3b9">&#9670;&nbsp;</a></span>bff_log</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* bff_log</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f8059414f0228f0256115e024eeed4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8059414f0228f0256115e024eeed4b">&#9670;&nbsp;</a></span>fd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1b32a3733b79b2f9e96acaa89492e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b32a3733b79b2f9e96acaa89492e93">&#9670;&nbsp;</a></span>handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSAPoTCentral.html">SAPoTCentral</a>* handle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3624b7b001322632240e51ddd583402f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3624b7b001322632240e51ddd583402f">&#9670;&nbsp;</a></span>MQTTdeliveredtoken</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile MQTTClient_deliveryToken MQTTdeliveredtoken</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28ec0ecb9995f36ade2bdf2b26f4ad58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28ec0ecb9995f36ade2bdf2b26f4ad58">&#9670;&nbsp;</a></span>MQTTstatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MQTTstatus = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a396834ed85021a06cfa8acd7332249e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a396834ed85021a06cfa8acd7332249e9">&#9670;&nbsp;</a></span>opts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSAPoTCentral__create__options.html">SAPoTCentral_create_options</a>* opts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

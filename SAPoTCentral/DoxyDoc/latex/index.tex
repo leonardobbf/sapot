@@ -1,0 +1,121 @@
+\copyright{} Copyright Associação Giga\+Candanga 2019, 2020.\hypertarget{index_intro}{}\doxysection{Introdução}\label{index_intro}
+O Protocolo para Sensoriamento e Atuação de Coisas (S\+A\+PoT) é um leve e enxuto protocolo de fonte aberta desenvolvido para traduzir as mensagens em uma rede IoT no modelo Central/\+Sentinela (vide \href{https://drive.google.com/drive/u/2/my-drive}{\texttt{ S\+A\+Po\+Tv1.\+0 Especificação de Protocolo}} ). Na atual versão, a Central S\+A\+PoT opera em sistemas Linux e sua rotina de operação local-\/padrão ~\newline
+ depende dos serviços\+: de transmissão de dados M\+Q\+T\+Tv3.\+1.\+1 e de banco de dados My\+S\+Q\+Lv8.\+0. De qualquer forma, a Central S\+A\+PoT suporta outros tipos de protocolos para transmissão e armazenamento de dados que podem ser configurados manualmente pelo usuário. Para maiores detalhes veja, \href{https://www.google.com/}{\texttt{ Documentação S\+A\+Po\+T\+Central}}. \begin{DoxySeeAlso}{Veja também}
+\href{http://mqtt.org/documentation}{\texttt{ http\+://mqtt.\+org/documentation}} 
+
+\href{https://dev.mysql.com/doc/refman/8.0/en/}{\texttt{ https\+://dev.\+mysql.\+com/doc/refman/8.\+0/en/}}
+\end{DoxySeeAlso}
+\hypertarget{index_utilizacao}{}\doxysection{Utilizando a Central}\label{index_utilizacao}
+As aplicações que utilizam essa biblioteca geralmente são implementadas da seguinte maneira\+: 
+\begin{DoxyItemize}
+\item Cria-\/se uma entidade \mbox{\hyperlink{structSAPoTCentral}{S\+A\+Po\+T\+Central}}  
+\item Crie-\/se uma constante \mbox{\hyperlink{structSAPoTCentral__create__options}{S\+A\+Po\+T\+Central\+\_\+create\+\_\+options}}, inicializando-\/a através da definição S\+A\+P\+O\+T\+C\+E\+N\+T\+R\+A\+L\+\_\+\+O\+P\+T\+S\+\_\+\+S\+T\+D\+L\+O\+C\+AL  
+\item Inicia-\/se as operações da Central através da função \mbox{\hyperlink{SAPoTCentral_8h_a7c3440b33fdf6149a7b0f12cdcc435a9}{S\+A\+Po\+T\+Central\+\_\+begin()}} 
+\item Inicia-\/se a rotina de repetição através de \mbox{\hyperlink{SAPoTCentral_8h_aac4a083422c3ca5810033a6549698114}{S\+A\+Po\+T\+Central\+\_\+loop()}} que opera da seguinte maneira\+: 
+\begin{DoxyItemize}
+\item Recebe a mensagem do broker via \mbox{\hyperlink{SAPoTCentral_8h_a47dfbf603689fa6491191b47b41c2757}{M\+Q\+T\+Tmessage\+Arrived()}}  
+\item Estrutura a mensagem via \mbox{\hyperlink{SAPoTCentral_8h_a9e8f80d3202a3cb91d727214db781e66}{S\+A\+Po\+T\+Central\+\_\+unpack\+\_\+message()}}  
+\item Executa a operação referente à instrução recebida via \mbox{\hyperlink{SAPoTCentral_8h_af6cc3982bc1e61a0e5283d1b757e19ca}{S\+A\+Po\+T\+Central\+\_\+set\+\_\+operation()}}  
+\end{DoxyItemize}
+\item Finaliza-\/se os serviços da Central através da função \mbox{\hyperlink{SAPoTCentral_8h_a692a20d220d85630dbf5a789b20ef371}{S\+A\+Po\+T\+Central\+\_\+end()}} 
+\end{DoxyItemize}
+
+O código a seguir mostra uma simples aplicação que utiliza da \mbox{\hyperlink{SAPoTCentral_8h}{S\+A\+Po\+T\+Central.\+h}} em sua configuração local-\/padrão\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <signal.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "\mbox{\hyperlink{SAPoTCentral_8h}{SAPoTCentral.h}}"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MQTT\_USER "user"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MQTT\_PASS "password"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MYSQL\_USER "user"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MYSQL\_PASS "password"}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MYSQL\_DIR "directory"}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//Objeto para manipulação da Central}}
+\DoxyCodeLine{\mbox{\hyperlink{structSAPoTCentral}{SAPoTCentral}} \mbox{\hyperlink{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}{handle}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_afc8872f109261b5a9732e63a809078cf}{signalHandling}}(\textcolor{keywordtype}{int} signum)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{ printf(\textcolor{stringliteral}{"Finalizando a Central SAPoT...\(\backslash\)n"});}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a692a20d220d85630dbf5a789b20ef371}{SAPoTCentral\_end}}();}
+\DoxyCodeLine{ exit(1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} *argv[]) \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{ \textcolor{comment}{//Tratrando o sinal de terminação (Ctrl + C)}}
+\DoxyCodeLine{ signal(SIGINT, \mbox{\hyperlink{main_8c_afc8872f109261b5a9732e63a809078cf}{signalHandling}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{ \textcolor{comment}{//Definindo o identificador da Central}}
+\DoxyCodeLine{ \textcolor{keyword}{const} \textcolor{keywordtype}{char}* centralId = \textcolor{stringliteral}{"00:00:00:00:00:00"};}
+\DoxyCodeLine{    }
+\DoxyCodeLine{ \textcolor{comment}{//Configurando as opções de inicialização da central}}
+\DoxyCodeLine{ \mbox{\hyperlink{structSAPoTCentral__create__options}{SAPoTCentral\_create\_options}} \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}} = \mbox{\hyperlink{SAPoTCentral_8h_a099732253b21fd4fa7cd8b4c460c3300}{SAPOTCENTRAL\_OPTS\_STDLOCAL}};}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}.\mbox{\hyperlink{structSAPoTCentral__create__options_af3c459698d3bbd546220fb944c55cedd}{transmission}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}{user}} = MQTT\_USER;}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}.\mbox{\hyperlink{structSAPoTCentral__create__options_af3c459698d3bbd546220fb944c55cedd}{transmission}}.\mbox{\hyperlink{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}{pass}} = MQTT\_PASS;}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}{database}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a9d2af8ebeedfae25b58f203aa01f5d50}{user}} = MYSQL\_USER;}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}{database}}.\mbox{\hyperlink{structSAPoTCentral__create__options_acee3fe99435196509151f39b9b9c5834}{pass}} = MYSQL\_PASS;}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a4f2228a9e207b9b8f519889bf89b0cda}{database}}.\mbox{\hyperlink{structSAPoTCentral__create__options_a91570d1b8a2f2e29619356ed513e5711}{dir}} = MYSQL\_DIR;}
+\DoxyCodeLine{ }
+\DoxyCodeLine{ \textcolor{comment}{//Iniciando os serviços da Central}}
+\DoxyCodeLine{ \textcolor{keywordflow}{if}(\mbox{\hyperlink{SAPoTCentral_8c_a96d4874e6303a37c5f3866ab5c2bb6d9}{SAPoTCentral\_begin}}(\&\mbox{\hyperlink{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}{handle}}, \&\mbox{\hyperlink{SAPoTCentral_8c_a396834ed85021a06cfa8acd7332249e9}{opts}}, centralId) != \mbox{\hyperlink{SAPoTCentral_8h_a231f625d9460901a8efd4e52fd589a06}{SAPOTCENTRAL\_SUCCESS}})\{}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"SAPoTCentral\_begin error (\%d)"}, \mbox{\hyperlink{SAPoTCentral_8c_ad1b32a3733b79b2f9e96acaa89492e93}{handle}}.\mbox{\hyperlink{structSAPoTCentral_aa577cfe3c6e9b9874d400c6a40669f0f}{error}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{ \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{ \textcolor{comment}{//Entrando em modo loop    }}
+\DoxyCodeLine{ \mbox{\hyperlink{SAPoTCentral_8c_aac4a083422c3ca5810033a6549698114}{SAPoTCentral\_loop}}(); }
+\DoxyCodeLine{        }
+\DoxyCodeLine{ \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+\hypertarget{index_pre_req}{}\doxysection{Pré-\/requisitos}\label{index_pre_req}
+O usuário com a inteção de utilizar a central no modelo local-\/padrão deve instalar na mesma máquina que rodará sua aplicação um broker M\+Q\+T\+Tv3.\+1.\+1, bem como um servidor M\+Y\+S\+Q\+Lv8.\+0. Para o servidor M\+Q\+TT não existe configurações adicionais além das demandadas em sua instalação. Portanto apenas instale seu broker de preferência e inicie o serviço na máquina.
+
+{\bfseries{Configurando o servidor My\+S\+QL}}~\newline
+ 
+\begin{DoxyItemize}
+\item Após a instalação do servidor My\+S\+Q\+Lv8.\+0, abra um terminal e acesse o serviço  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mysql -\/u root -\/p   }
+\end{DoxyCode}
+ 
+\item Após digitar a senha de root e acessar o banco de dados, crie um diretorio chamado db\+\_\+\+U\+CC  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{CREATE} DATABASE db\_UCC;}
+\end{DoxyCode}
+ 
+\item Verifique se o diretório foi criado corretamente e então o acesse 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SHOW DATABASES;}
+\DoxyCodeLine{USE db\_UCC;}
+\end{DoxyCode}
+ 
+\item Uma vez dentro do diretório crie uma tabela chamada tb\+\_\+cadastrados 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{CREATE} \textcolor{keyword}{TABLE} tb\_cadastrados(}
+\DoxyCodeLine{ id \textcolor{keywordtype}{INT} \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL} AUTO\_INCREMENT,}
+\DoxyCodeLine{ label \textcolor{keywordtype}{VARCHAR}(\textcolor{stringliteral}{11}) \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL},}
+\DoxyCodeLine{ macaddr \textcolor{keywordtype}{VARCHAR}(\textcolor{stringliteral}{18}) \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL},}
+\DoxyCodeLine{ type \textcolor{keywordtype}{INT}(\textcolor{stringliteral}{6}) \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL},}
+\DoxyCodeLine{ sensor \textcolor{keywordtype}{INT}(\textcolor{stringliteral}{4}) \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL},}
+\DoxyCodeLine{ actuator \textcolor{keywordtype}{INT}(\textcolor{stringliteral}{4}) \textcolor{keyword}{NOT} \textcolor{stringliteral}{NULL},}
+\DoxyCodeLine{ \textcolor{keyword}{PRIMARY} KEY (id)}
+\DoxyCodeLine{ );}
+\end{DoxyCode}
+ 
+\item Com tabela devidamente configurada, deve-\/se criar um usuário chamado guest com senha de mesmo nome e dar a ele permissões para modificar a tabela tb\+\_\+cadastrados  
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{CREATE} \textcolor{keyword}{USER} \textcolor{stringliteral}{'guest'}@\textcolor{stringliteral}{'localhost'} IDENTIFIED \textcolor{keyword}{BY} \textcolor{stringliteral}{'guest'};}
+\DoxyCodeLine{\textcolor{keyword}{GRANT} \textcolor{keyword}{ALL} PRIVILEGES \textcolor{keyword}{ON} db\_UCC.* \textcolor{keyword}{TO} \textcolor{stringliteral}{'guest'}@\textcolor{stringliteral}{'localhost'};}
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+
+{\bfseries{Observações\+:}} As configurações de login para acessar tanto o broker M\+Q\+TT quanto o banco de dados podem ser alteradas, desde que se atente em modifica-\/las nas opções de configurações da Central. Assim como pode ser observado no código da aplicação de exemplo da seção \mbox{\hyperlink{index_utilizacao}{Utilizando a Central}}. 

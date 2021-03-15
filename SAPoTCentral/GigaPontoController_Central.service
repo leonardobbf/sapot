@@ -1,0 +1,9 @@
+[Unit]
+Description=Unidade de Controle Centralizada da rede IoT de acionamento das máquinas do GigaPonto.
+
+[Service]
+Type=simple
+ExecStart=/root/GigaPontoController_Central/GigaPontoController_upCentral.sh
+
+[Install]
+WantedBy=multi-user.target
