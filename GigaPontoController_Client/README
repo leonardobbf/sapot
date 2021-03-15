@@ -1,0 +1,27 @@
+[GigaPontoController_Client] 
+	Cliente para operar os controladores eletrônicos dos servidores do GigaPonto: 
+		1. Solicita a tabela de endereços MAC dos controladores cadastrados na Central SAPoT.
+		2. Solicita a etiquetagem dos controladores cadastrados na Central SAPoT.
+		3. Solicita o acionamento dos botões de ON/OFF e RESET dos servidores do GigaPonto.
+
+[Instalação]
+	
+	1. Pacotes de desenvolvimento do OpenSSL e Doxygen que dão suporte a comunicação segura e documentação da Paho MQTT 
+	$ sudo apt-get install libssl-dev 
+	$ sudo apt-get install doxygen
+
+	2. Biblioteca Paho MQTT
+	$ cd paho.mqtt.c
+	$ make
+	$ make html
+	$ sudo make install
+	
+	3. Executavel gpc
+	$ cd ..
+	$ make
+
+[Utilização]
+	$ ./gpc access
+	$ ./gpc modification  "macaddr"  "label" 
+	$ ./gpc solicitation  "label"  "operation"
+			(operation: ON, OFF, RST) 
